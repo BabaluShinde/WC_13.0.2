@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!DOCTYPE listofactions SYSTEM 'actions.dtd'>
+<listofactions>
+   <objecttype name="attachments" class="wt.content.ContentHolder" resourceBundle="com.ptc.windchill.enterprise.attachments.attachmentsResource">
+      <action name="attachments_table"/>
+      <action name="attachments_step" uicomponent="ATTACHMENTS" ajax="row" postloadJS="preAttachmentsStep" preloadWizardPage="false">
+         <command class="com.ptc.windchill.enterprise.attachments.forms.SecondaryAttachmentsSubFormProcessor" windowType="wizard_step"/>
+         <includeFilter name="hideFromDTI" />
+         <includeFilter name="EDACompareFilter" />
+         <includeFilter name="hideFromOffice365" />
+      </action>
+      <action name="workItem_attachments" description="Attachments component for WorkItem tasks in a workflow.">
+         <component name="workflowTask.pbo" urlParams="pboCompId=attachmentsTable&amp;useTypeBased=true&amp;attachmentsTableRoles=SECONDARY"/>
+         <includeFilter name="configurableTypeBaseFilter"/>
+      </action>
+	  
+ 
+      <action name="attachmentsMiniNavigatorTable">
+         <component name="attachmentsForContentHolderMiniNavigator" windowType="page"/>
+      </action>             
+      <action name="addFileAttachment" ajax="row">
+         <command class="com.ptc.windchill.enterprise.attachments.commands.AttachmentCommands" method="addFileAttachment" onClick="browseForFiles(event,&apos;newFiles&apos;)"/>
+      </action>
+	  
+      <action name="addUrlAttachment" ajax="row">
+
+         <command class="com.ptc.windchill.enterprise.attachments.commands.AttachmentCommands" method="addUrlAttachment"/>
+				
+      </action>
+      <action name="addEsaAttachment" ajax="row">	
+	  
+         <command class="com.ptc.windchill.enterprise.attachments.commands.AttachmentCommands" method="addEsaAttachment"/>
+				
+      </action>
+	  
+	  <action name="addNoAttachment" ajax="row">
+         <command class="com.ptc.windchill.enterprise.attachments.commands.AttachmentCommands" method="addNoAttachment"/>
+      </action>      
+
+      <action name="download_primary_attachment" enabledwhensuspended="true">
+          <command url="servlet/AttachmentsDownloadDirectionServlet/primary" windowType="popup"/>
+      </action>
+      <action name="redirect_primary_attachment" enabledwhensuspended="true">
+          <command url="servlet/AttachmentsURLRedirectServlet" windowType="popup"/>
+      </action>
+      <action name="download_selected_attachments" enabledwhensuspended="true">
+          <command url="servlet/AttachmentsDownloadDirectionServlet/selected" windowType="popup"/>
+      </action>
+
+      <action name="edit_attachments" dtiUpload="true">
+     <command url="servlet/AttachmentsEditServlet" windowType="popup"/>
+     <includeFilter name="HideForDelivery" />
+      </action>
+      
+      
+    
+   </objecttype>
+
+   <objecttype name="object" class="wt.content.ContentHolder" resourceBundle="com.ptc.core.ui.navigationRB">
+	<action name="custom_attachments" description="Attachments component for WorkItem tasks in a workflow.">
+         <component name="workflowTask.pbo" urlParams="pboCompId=customAttachmentsTable&amp;useTypeBased=true&amp;attachmentsTableRoles=SECONDARY"/>
+         <includeFilter name="configurableTypeBaseFilter"/>
+      </action>
+	  
+	<action name="amph_attachments" description="Attachments component for WorkItem tasks in a workflow.">
+	<label>AMPH Attachments</label>
+         <component name="workflowTask.pbo" urlParams="pboCompId=customAttachmentsTable&amp;useTypeBased=true&amp;attachmentsTableRoles=SECONDARY"/>
+         <includeFilter name="configurableTypeBaseFilter"/>
+      </action>
+	  
+	  <action name="amph_participants" description="Participants component for WorkItem tasks in a workflow.">
+	<label>AMPH Participants </label>
+         <component name="amphSetupParticipants" urlParams="pboCompId=amphSetupParticipants"/>
+  
+      </action>
+	  
+	  
+   </objecttype>
+
+  <objecttype name="attachments" class="wt.content.ApplicationData" resourceBundle="com.ptc.windchill.enterprise.attachments.attachmentsResource">
+      <action name="download_item_attachment" enabledwhensuspended="true">
+          <command url="servlet/AttachmentsDownloadDirectionServlet/single" windowType="popup"/>
+      </action>
+  </objecttype>
+
+  <objecttype name="attachments" class="wt.content.URLData" resourceBundle="com.ptc.windchill.enterprise.attachments.attachmentsResource">
+      <action name="redirect_url_attachment" enabledwhensuspended="true">
+          <command url="servlet/AttachmentsURLRedirectServlet" windowType="popup"/>
+      </action>
+  </objecttype>
+  
+  <objecttype name="attachments" resourceBundle="com.ptc.windchill.enterprise.attachments.attachmentsResource">  
+    <action name="acknowledgeConfirmWizard" preloadWizardPage="false" enabledwhensuspended="true">
+        <command url="netmarkets/jsp/attachments/download/acknowledgeConfirmWizard.jsp" windowType="popup"/>
+    </action>                   
+    
+    <action name="acknowledgeConfirm_step" preloadWizardPage="false" enabledwhensuspended="true">
+		<command url="netmarkets/jsp/attachments/download/Acknowledge.jsp" windowType="wizard_step" />
+    </action>
+    
+    <action name="acceptButton" id="acceptButton">
+         <command class="" method="" windowType="page" url="javascript:okClicked()"/>
+    </action>
+    
+    <action name="declineButton" id="declineButton">
+         <command class="" method="" windowType="page" url="javascript:wfWindowClose()"/>
+    </action>
+  </objecttype>
+
+</listofactions>

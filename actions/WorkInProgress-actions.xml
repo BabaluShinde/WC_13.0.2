@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!DOCTYPE listofactions SYSTEM 'actions.dtd'>
+<listofactions>
+
+   <objecttype name="object" class="wt.fc.Persistable" resourceBundle="com.ptc.windchill.enterprise.wip.WIPResource">
+      <action name="checkout" ajax="component">
+          <includeFilter name="disableForNewObjectInWorkspace" />
+          <includeFilter name="sandboxSharingValidationSimple" />
+           <includeFilter name="hideSBHiddenFilter"/>
+           <includeFilter name="hideForAdminLocked"/>
+           <includeFilter name="disableForPartToCadBuildAdminLocked"/>
+           <includeFilter name="scheduledDeliverablesActionSimpleFilter"/> 
+          <command class="com.ptc.windchill.enterprise.wip.CheckoutObjectFormProcessor" method="execute" onClick="onClickValidation(event,'checkout')" />
+			  
+	 </action>
+     <action name="checkin" checkaccess="true">
+         <command class="com.ptc.netmarkets.model.NmObjectCommands" method="checkIn" windowType="popup"/>
+         <access name="update"/>
+         <includeFilter name="disableSBHiddenFilter" />
+         <includeFilter name="scheduledDeliverablesActionSimpleFilter"/>
+      </action>
+      <action name="object_checkin_step">
+          <command class="" method="" windowType="wizard_step" />
+      </action>
+      <action name="undocheckout" ajax="row">
+          <includeFilter name="hideForNewObjectInWorkspace" />
+          <includeFilter name="hideForCheckedoutObjectInWorkspace" />
+          <includeFilter name="sandboxSharingValidationSimple" />
+          <includeFilter name="hideSBHiddenFilter"/>
+          <includeFilter name="orgAdminSiteFilter"/>
+          <includeFilter name="scheduledDeliverablesActionSimpleFilter"/>
+          <command class="com.ptc.windchill.enterprise.wip.UndoCheckoutObjectFormProcessor" method="execute" />
+      </action>
+      <action name="list_undocheckout" ajax="row" multiselect="true" selectRequired="true">
+          <command class="com.ptc.windchill.enterprise.wip.UndoCheckoutListFormProcessor" method="execute"/>
+      </action>
+
+   </objecttype>
+
+  <objecttype name="wip" class="wt.vc.wip.Workable" resourceBundle="com.ptc.windchill.enterprise.wip.WIPResource">
+     <action name="checkin_step" ajax="row">
+           <includeFilter name="sandboxSharingValidationSimple" />
+           <command windowType="wizards_step"/>
+     </action>
+     <action name="checkout" ajax="row">
+           <includeFilter name="disableForNewObjectInWorkspace" />
+           <includeFilter name="sandboxSharingValidationSimple" />
+           <includeFilter name="hideFromNonAgreementMgrs"/> 
+           <includeFilter name="hideSBHiddenFilter"/>
+           <includeFilter name="hideForAdminLocked"/>
+           <includeFilter name="disableForPartToCadBuildAdminLocked"/>
+           <includeFilter name="scheduledDeliverablesActionSimpleFilter"/>
+           <command class="com.ptc.windchill.enterprise.wip.CheckoutObjectFormProcessor" method="execute" onClick="onClickValidation(event,'checkout')" />
+     </action>
+     <action name="checkin" ajax="row" dtiUpload="true">
+           <includeFilter name="hideForNewObjectInWorkspace" />
+           <includeFilter name="hideForCheckedoutObjectInWorkspace" />
+           <includeFilter name="sandboxSharingValidationSimple" />
+           <includeFilter name="hideFromNonAgreementMgrs"/> 
+           <includeFilter name="hideSBHiddenFilter"/>
+           <includeFilter name="hideForClashJobDefinition" />   
+           <includeFilter name="scheduledDeliverablesActionSimpleFilter"/>		   
+           <command class="com.ptc.windchill.enterprise.wip.CheckinObjectFormProcessor" method="execute" windowType="popup" />
+     </action>
+     <action name="undocheckout" ajax="row">
+           <includeFilter name="hideForNewObjectInWorkspace" />
+           <includeFilter name="hideForCheckedoutObjectInWorkspace" />
+           <includeFilter name="sandboxSharingValidationSimple" />
+           <includeFilter name="disableSBHiddenFilter" />
+           <includeFilter name="hideFromNonAgreementMgrs"/>
+           <includeFilter name="scheduledDeliverablesActionSimpleFilter"/>           		   
+           <command class="com.ptc.windchill.enterprise.wip.UndoCheckoutObjectFormProcessor" method="execute" />
+     </action>
+     <action name="multiObjectCheckIn" multiselect="true" selectRequired="true" ajax="row">
+           <description>Multiple Object Check In</description>
+           <command class="com.ptc.windchill.enterprise.wip.CheckinMultipleObjectsFormProcessor" windowType="popup"/>
+           <includeFilter name="scheduledDeliverablesActionSimpleFilter"/>
+     </action>
+
+     <action name="multiObjectCheckInStep">
+           <description>multiple Object Check In Step</description>
+           <component name="wip.multiObjectCheckinStep" windowType="wizard_step"/>
+     </action>
+
+     <action name="multiObjectCheckOut" multiselect="true" selectRequired="true" ajax="row">
+           <description>Multiple Object Check Out</description>
+           <command class="com.ptc.windchill.enterprise.wip.CheckOutMultipleObjectsFormProcessor" method="execute" onClick="PTC.wip.validateMultiCheckout(event)" />
+           <includeFilter name="scheduledDeliverablesActionSimpleFilter"/>
+     </action>
+     
+     <action name="multiObjectUndoCheckout" multiselect="true" selectRequired="true" ajax="row">
+           <description>Multiple Object Undo Check Out</description>
+           <command class="com.ptc.windchill.enterprise.wip.UndoCheckoutMultipleObjectsFormProcessor" method="execute" onClick="PTC.wip.validateMultiUndoCheckout(event)"/>
+          <includeFilter name="scheduledDeliverablesActionSimpleFilter"/>
+     </action>
+     
+     <action name="replace_content" ajax="row">
+           <includeFilter name="sandboxSharingValidationSimple" />
+           <includeFilter name="hideSBHiddenFilter"/>
+           <includeFilter name="hideForClashJobDefinition"/>
+           <command class="com.ptc.windchill.enterprise.wip.CheckinObjectFormProcessor" method="execute" windowType="popup" url="?replaceContent=true" onClick="onClickValidation(event,'checkout')"/>
+     </action>
+     <action name="replace_content" ajax="row" dtiUpload="true">
+           <includeFilter name="sandboxSharingValidationSimple" />
+           <includeFilter name="hideSBHiddenFilter"/>
+           <includeFilter name="hideForAdminLocked"/>
+           <includeFilter name="disableForPartToCadBuildAdminLocked"/>
+           <includeFilter name="hideForClashJobDefinition"/>
+           <command class="com.ptc.windchill.enterprise.wip.CheckinObjectFormProcessor" method="execute" windowType="popup" url="netmarkets/jsp/wip/replace_content.jsp?replaceContent=true" onClick="onClickValidation(event,'checkout')"/>
+     </action>
+
+     <action name="checkout_and_download" ajax="page">
+           <includeFilter name="sandboxSharingValidationSimple" />
+           <includeFilter name="hideSBHiddenFilter"/>
+           <includeFilter name="hideForAdminLocked"/>
+           <includeFilter name="disableForPartToCadBuildAdminLocked"/>
+           <includeFilter name="scheduledDeliverablesActionSimpleFilter"/>
+           <command windowType="popup" url="netmarkets/jsp/wip/checkout_and_download.jsp" onClick="onClickValidation(event,'checkout')"/>
+     </action>
+   </objecttype>
+  
+   <objecttype name="workinprogress" class="wt.vc.wip.Workable" resourceBundle="com.ptc.windchill.enterprise.wip.WIPResource">
+     <action name="checkin" dtiUpload="true" ajax="row">
+           <includeFilter name="sandboxSharingValidationSimple" />
+           <includeFilter name="disableSBHiddenFilter" />
+           <command class="com.ptc.core.components.forms.EditWorkableFormProcessor" method="execute" url="netmarkets/jsp/document/edit.jsp" windowType="popup" onClick="onClickValidation(event,'checkout')"/>
+           <includeFilter name="scheduledDeliverablesActionSimpleFilter"/>
+     </action>
+     <action name="CheckinNextButton" id="edit_wizard_checkin">
+           <command onClick="onEditSubmit(&apos;checkinButton&apos;)"/>
+     </action>
+   </objecttype>
+</listofactions>

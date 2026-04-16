@@ -1,0 +1,341 @@
+<?xml version="1.0"?>
+<!-- define the navigation of the site - action models for tabs, subtabs and other areas of the page header -->
+<actionmodels>
+    <model name="navigator">
+        <submodel name="search navigation"/>
+        <submodel name="main navigation"/>
+        <!--action name="myStuffTab" type="navigation"/-->
+    </model>
+
+    <model name="myStuff customization" id="myStuff">
+        <description>
+            Used for the customization options on myStuff
+        </description>
+        <action name="carambolaWidget" type="navigation"/>
+        <action name="recentDocuments" type="navigation"/>
+        <action name="gatheringSpaces" type="navigation"/>
+     </model>
+
+    <model name="main navigation" id="browseActions" resourceBundle="com.ptc.core.ui.navigationRB">
+        <description>
+            Main navigation (tabs)
+        </description>
+        <action name="recentContexts" type="navigation"/>
+        <action name="product" type="navigation"/>
+        <action name="library" type="navigation"/>
+        <action name="project" type="navigation"/>
+        <action name="program" type="navigation"/>
+        <action name="change" type="navigation"/>
+        <action name="supplier" type="navigation"/>
+        <action name="qms" type="navigation"/>
+        <action name="org" type="navigation"/>
+        <action name="site" type="navigation"/>
+        <action name="clfAdmin" type="navigation"/>
+        <action name="search" type="navigation"/>
+        <!-- entry for customization tab -->
+        <action name="customization" type="navigation"/>
+    </model>
+    <model name="search navigation" id="searchActions" resourceBundle="com.ptc.core.ui.navigationRB">
+        <description>
+            Sub tabs under the search main tab
+        </description>
+        <action name="globalSearch" type="netmarkets"/>
+        <action name="classificationSearch" type="netmarkets"/>
+    </model>
+
+    <model name="home customization">
+        <description>
+            Used for the customization options on the homepage
+        </description>
+        <action name="listAssignments" type="work"/>
+        <action name="listUpdates" type="report"/>
+        <action name="listCheckedOutWork" type="user"/>
+        <action name="homeList" type="wp"/>
+        <action name="MyWorkspace" type="workspaces"/>
+        <action name="list_mine" type="meeting"/>
+        <action name="userNotebook" type="user"/>
+        <action name="listSubscriptions" type="subscription"/>
+        <action name="reports" type="user"/>
+        <action name="savedReports" type="user"/>
+        <action name="dataMonitors" type="user"/>
+        <action name="assignedClashesNav" type="clashReport"/>
+        <action name="participationView" type="forumTopic"/>
+        <action name="actionGroup" type="user"/>
+        <action name="listAccMaps_homePage" type="accmap"/>
+    </model>
+
+    <model name="product navigation" defaultActionName="list" defaultActionType="product">
+        <description>
+            Sub tabs under the product main tab
+        </description>
+        <action name="info" type="product"/>
+        <action name="aspsStructure" type="asps" />
+        <action name="s1000DISStructure" type="rules" />
+        <action name="listPubStructures" type="arbortext"/>
+        <action name="listS1000DPubStructures" type="rules" />
+        <action name="listATAPubStructures" type="ataPubStruct"/>
+        <action name="listFiles" type="product"/>
+        <action name="structureSubTab" type="product"/>
+		<action name="productFamilyProductSubTab" type="productfamily"/>
+        <action name="MyWorkspace" type="workspaces"/>
+        <action name="listNetwork" type="network"/>
+        <action name="view_plan" type="product"/>
+        <action name="view_plans" type="project"/>
+        <action name="list" type="wp"/>
+        <action name="listTeam" type="product"/>
+        <action name="listProductResource" type="product"/>
+        <action name="listProductAssignments" type="work"/>
+                <action name="listAssignmentsWithDeliverables" type="product"/>
+        <action name="changeMonitor" type="change"/>
+        <action name="view_forum" type="project"/>
+        <action name="listTemplates" type="product"/>
+        <action name="reports" type="product"/>
+        <action name="listAgreements" type="agreements"/>
+        <action name="listUtilities" type="product"/>
+    </model>
+
+    <model name="library navigation" defaultActionName="list" defaultActionType="library">
+        <description>
+            Sub tabs under the library main tab
+        </description>
+        <action name="info" type="library"/>
+        <action name="aspsStructure" type="asps" />
+        <action name="s1000DISStructure" type="rules" />       
+        <action name="listPubStructures" type="arbortext"/>
+        <action name="listS1000DPubStructures" type="rules" />
+        <action name="listATAPubStructures" type="ataPubStruct"/>
+        <action name="listFiles" type="library"/>
+		<action name="productFamilyLibrarySubTab" type="productfamily"/>
+        <action name="MyWorkspace" type="workspaces"/>
+        <action name="listNetwork" type="network"/>
+        <action name="list" type="wp"/>
+        <action name="listTeam" type="library"/>
+        <action name="listLibraryAssignments" type="work"/>
+        <action name="changeMonitor" type="change"/>
+        <action name="view_forum" type="project"/>
+        <action name="listTemplates" type="library"/>
+        <action name="reports" type="library"/>
+        <action name="listAgreements" type="agreements"/>
+        <action name="pendingApprovals" type="udi"/>
+        <action name="submissionsToRefresh" type="udi"/>
+        <action name="submissionsToValidate" type="udi"/>
+        <action name="listUtilities" type="library"/>
+    </model>
+
+    <model name="program navigation" defaultActionName="list" defaultActionType="program">
+        <description>
+            Sub tabs under the program main tab
+        </description>
+        <action name="details" type="project"/>
+        <action name="listFiles" type="project"/>
+        <action name="listNetwork" type="network"/>
+        <action name="view_plan" type="project"/>
+        <action name="view_plans" type="project"/>
+        <action name="list" type="wp"/>
+        <action name="listTeam" type="project"/>
+        <action name="listProjectResource" type="project"/>
+        <action name="list" type="meeting"/>
+        <action name="listProjectAssignments" type="work"/>
+        <action name="view_forum" type="project"/>
+        <action name="listTemplates" type="program"/>
+        <action name="reports" type="project"/>
+        <action name="listAgreements" type="agreements"/>
+        <action name="listUtilities" type="project"/>
+    </model>
+
+    <model name="project navigation" defaultActionName="list" defaultActionType="project">
+        <description>
+            Sub tabs under the project main tab
+        </description>
+        <action name="details" type="project"/>
+        <action name="listFiles" type="project"/>
+        <action name="MyWorkspace" type="workspaces"/>
+        <action name="listNetwork" type="network"/>
+        <action name="view_plan" type="project"/>
+        <action name="view_plans" type="project"/>
+        <action name="list" type="wp"/>
+        <action name="listTeam" type="project"/>
+        <action name="listProjectResource" type="project"/>
+        <action name="list" type="meeting"/>
+        <action name="listProjectAssignments" type="work"/>
+        <action name="view_forum" type="project"/>
+        <action name="listChangeObjects" type="project"/>
+        <action name="listTemplates" type="project"/>
+        <action name="projectMonitor" type="project"/>
+        <action name="reports" type="project"/>
+        <action name="listAgreements" type="agreements"/>
+        <action name="listUtilities" type="project"/>
+    </model>
+
+    <model name="org navigation" defaultActionName="listOrgs" defaultActionType="org">
+        <description>
+            Sub tabs under the org main tab
+        </description>
+        <action name="details" type="org"/>
+        <action name="listFiles" type="org"/>
+        <action name="listCreators" type="org"/>
+        <action name="listOrgAdmin" type="org"/>
+        <action name="listOrgGroups" type="org"/>
+        <action name="listOrgTeams" type="org"/>
+        <action name="listOrgRoles" type="org"/>
+        <action name="listProfiles" type="org"/>
+        <action name="listOrgProjects" type="org"/>
+        <action name="listTemplates" type="org"/>
+        <action name="projectMonitor" type="project"/>
+        <action name="reports" type="org"/>
+        <action name="listAgreements" type="agreements"/>
+        <action name="listUtilities" type="org"/>
+    </model>
+
+    <model name="site navigation">
+        <description>
+            Sub tabs under the site main tab
+        </description>
+        <action name="listFiles" type="site"/>
+        <action name="listAdmin" type="site"/>
+        <action name="listProfiles" type="site"/>
+        <action name="listTemplates" type="site"/>
+        <action name="reports" type="site"/>
+        <action name="listAgreements" type="agreements"/>
+        <action name="listUtilities" type="site"/>
+        <action name="wexman" type="com.wincomplm.wex.manager" wexid="com.wincomplm.wex.manager" /> 
+	<action name="wexcenter" type="com.wincomplm.wex.center" wexid="com.wincomplm.wex.center" />
+    </model>
+
+    <model name="change navigation" defaultActionName="list" defaultActionType="change">
+        <description>
+            Sub tabs under the change main tab
+        </description>
+        <action name="list" type="change"/>
+        <action name="listVariances" type="change"/>
+        <action name="listChangeRequests" type="change"/>
+        <action name="listChangeNotices" type="change"/>
+        <action name="changeMonitor" type="change"/>
+        <action name="reports" type="change"/>
+    </model>
+
+    <model name="clfAdmin navigation">
+        <description>
+            Sub tabs under the Classification Administration main tab
+        </description>
+        <action name="clfAdminGroup" type="csm"/>
+        <action name="manageClassification" type="csm"/>
+    </model>
+
+    <model name="header actions">
+        <description>
+            actions that appear in the top right of the header
+        </description>
+        <submodel name="help"/>
+        <action name="openLearningConnector" type="help"/>
+        <action name="clipboard" type="netmarkets"/>
+                <action name="separator" type="separator"/>
+                <action name="importJobMonitorMain" type="ixb"/>
+                <action name="queueMonitorMain" type="wvs"/>
+                 <action name="checkConsole" type="object"/>
+         <action name="separator" type="separator"/>
+        <submodel name="mysettings"/>
+        <action name="batchPrintGlobal" type="wvs"/>
+        <action name="hotList" type="user"/>
+        <action name="myARExperiences" type="arpublish"/>
+                 <action name="separator" type="separator"/>
+        <action name="softwareDownloads" type="netmarkets"/>
+                 <action name="separator" type="separator"/>
+        <action name="emailPage" type="team"/>
+        <action name="copyPage" type="object"/>
+        <action name="copyLink" type="object"/>
+        <submodel name="open"/>
+        <action name="separator" type="separator"/>
+        <action name="signOut" type="fba"/>
+		
+		<action name="createLiterature" type="Novel"/>			
+
+        <action name="wexman" type="com.wincomplm.wex.manager" wexid="com.wincomplm.wex.manager" />
+    </model>
+
+    <model name="help" resourceBundle="com.ptc.core.ui.navigationRB">
+        <description>
+            Appears as the help action model in quick links
+        </description>
+        <action name="helpCenter" type="help"/>
+        <action name="about" type="help"/>
+        <action name="support" type="help"/>
+        <action name="communities" type="help"/>
+        <action name="contactPubs" type="help"/>
+        <action name="welcome" type="help"/>
+        <action name="quickstart" type="help"/>
+        <action name="whatsnew" type="help"/>
+    </model>
+
+
+    <model name="mysettings" resourceBundle="com.ptc.core.ui.navigationRB">
+        <description>
+            User specific Windchill settings
+        </description>
+        <action name="preferences" type="user"/>
+        <action name="profile" type="user"/>
+        <action name="calendarmanagement" type="user"/>
+        <action name="languagesetting" type="user"/>
+    </model>
+
+
+
+    <model name="context product container bar">
+        <description>
+            Action Models that appear for the Container BreadCrumbs
+        </description>
+        <action name="launchEmptyPSE" type="explorer"/>
+        <action name="editProductWizard" type="product"/>
+        <action name="communitySite" type="wsl"/>
+    </model>
+
+    <model name="context library container bar">
+        <action name="launchEmptyPSE" type="explorer"/>
+        <action name="editLibraryWizard" type="library"/>
+        <action name="communitySite" type="wsl"/>
+    </model>
+
+    <model name="context project container bar">
+        <action name="communitySite" type="wsl"/>
+    </model>
+
+    <model name="context program container bar">
+        <action name="communitySite" type="wsl"/>
+    </model>
+
+    <model name="context org container bar">
+        <action name="updateOrg" type="org"/>
+    </model>
+
+    <model name="open" resourceBundle="com.ptc.core.ui.navigationRB">
+        <description>
+            Open Links
+        </description>
+        <action name="foran" type="dpimpl"/>
+        <action name="ideas_tdm" type="dpimpl"/>
+        <action name="cocreate_mm" type="dpimpl"/>
+    </model>
+
+    <model name="wvsCustomPaneWidgets">
+        <action name="miniNavThumbPane"    type="navigation"/>
+        <action name="miniNavWidgets"      type="navigation"/>
+    </model>
+
+    <model name="wvsRelatedInfo">
+       <action name="documentsForPartMiniNavigatorTable" type="part"/>
+       <action name="documentsForDocMiniNavigatorTable" type="document"/>
+       <action name="partsForDocMiniNavigatorTable" type="document"/>
+       <action name="partsForEPMDocMiniNavigatorTable" type="object"/>
+       <action name="processPlansMiniNavigatorTable" type="object"/>
+       <action name="epmDocsForEPMDocMiniNavigatorTable" type="object"/>
+       <action name="epmDocsForPartMiniNavigatorTable" type="part"/>
+       <action name="changesMiniNavigatorTable" type="change"/>
+       <action name="attachmentsMiniNavigatorTable" type="attachments"/>
+    </model>
+
+    <!-- this model is added with "toolbar" in the name so that icon will appear for the action -->
+    <model name="toolbarModelForLearningConnector">
+        <action name="openLearningConnector" type="help"/>
+    </model>
+    
+</actionmodels>

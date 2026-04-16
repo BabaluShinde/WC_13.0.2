@@ -1,0 +1,1344 @@
+<?xml version="1.0"?>
+<!DOCTYPE actionmodels SYSTEM '../../actionmodels.dtd'>
+<!-- define the actions on the UI components -->
+<actionmodels resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+
+   <model name="DefaultWizardButtonsWithSubmitPrompt">
+      <description>Change wizard buttons, submit brings up submit now/later prompt</description>
+      <action name="prevButton" type="object"/>
+      <action name="nextButton" type="object"/>
+      <action name="okButton" type="change"/>
+      <action name="cancelButton" type="object"/>
+   </model>
+
+   <model name="more problem report row actions" menufor="wt.change2.WTChangeIssue">
+      <description>Problem report row actions</description>
+      <action name="view" type="object"/>
+      <action name="separator" type="separator"/>
+      <submodel name="thingworxActionsMenu"/>
+      <action name="separator" type="separator"/>
+      <action name="undoReservation" type="reservation"/>
+      <action name="edit" type="problemReport"/>
+      <action name="editModifyContentOnly" type="problemReport"/>
+      <action name="reviseChangeItems" type="change"/>
+      <action name="separator" type="separator"/>
+      <submodel name="Problem report new row actions"/>
+      <action name="separator" type="separator"/>
+      <action name="relatedWorkitems" type="change"/>
+      <action name="separator" type="separator"/>
+      <action name="copy" type="object"/>
+      <action name="CONTAINERMOVE" type="pdmObject"/>
+      <action name="renameObjectWizard" type="object"/>
+      <action name="setState" type="lifecycle"/>
+      <action name="deleteChangeItem" type="change"/>
+      <action name="reassignLC" type="lifecycle"/> <!-- Reassign Life Cycle -->
+      <action name="resetTeam" type="team"/>
+      <action name="separator" type="separator"/>
+      <submodel name="change objects add row actions"/>
+      <action name="separator" type="separator"/>
+      <action name="removeShare" type="object"/>
+      <action name="separator" type="separator"/>
+      <action name="summaryReport" type="change"/>
+      <action name="separator" type="separator"/>
+      <action name="ManageSecurity" type="accessPermission"/>
+      <action name="securityLabelsSingleObjJCA" type="securityLabels"/>
+      <action name="EDITSECURITYLABELSNONCOLLECTED" type="object"/>
+      <action name="createSubscription" type="subscription"/>
+      <action name="separator" type="separator"/>
+      <action name="track_new_work" type="resourceAssignment" /><!-- Track new Work against subject of deliverable-->
+      <action name="new_plan_activity" type="planActivity" /><!-- New Plan Activity against subject -->      
+   </model>
+
+   <model name="Problem report new row actions">
+       <action name="create" type="changeNotice"/>
+       <action name="create" type="changeRequest"/>
+       <action name="create" type="problemReport"/>       
+       <action name="create" type="softwareIssue"/>
+       <action name="create" type="variance"/>
+       <action name="separator" type="separator"/>
+       <action name="create" type="changeReview"/>
+   </model>
+
+   <model name="more change request row actions" menufor="wt.change2.WTChangeRequest2">
+      <description>Change request row actions</description>
+      <action name="view" type="object"/>
+      <action name="separator" type="separator"/>
+      <submodel name="thingworxActionsMenu"/>
+      <action name="separator" type="separator"/>
+      <action name="undoReservation" type="reservation"/>
+      <action name="edit" type="changeRequest"/>
+      <action name="editModifyContentOnly" type="changeRequest"/>
+      <action name="reviseChangeItems" type="change"/>
+      <action name="separator" type="separator"/>
+      <submodel name="Change request new row actions"/>
+      <action name="separator" type="separator"/>
+      <action name="relatedWorkitems" type="change"/>
+      <action name="separator" type="separator"/>
+      <action name="copy" type="object"/>
+      <action name="CONTAINERMOVE" type="pdmObject"/>
+      <action name="renameObjectWizard" type="object"/>
+      <action name="setState" type="lifecycle"/>
+      <action name="deleteChangeItem" type="change"/>
+      <action name="reassignLC" type="lifecycle"/> <!-- Reassign Life Cycle -->
+      <action name="resetTeam" type="team"/>
+      <action name="separator" type="separator"/>
+      <submodel name="change objects add row actions"/>
+      <action name="separator" type="separator"/>
+      <action name="removeShare" type="object"/>
+      <action name="separator" type="separator"/>
+      <action name="summaryReport" type="change"/>
+      <action name="separator" type="separator"/>
+      <action name="ManageSecurity" type="accessPermission"/>
+      <action name="securityLabelsSingleObjJCA" type="securityLabels"/>
+      <action name="EDITSECURITYLABELSNONCOLLECTED" type="object"/>
+      <action name="createSubscription" type="subscription"/>
+      <action name="separator" type="separator"/>
+      <action name="track_new_work" type="resourceAssignment" /><!-- Track new Work against subject of deliverable-->
+      <action name="new_plan_activity" type="planActivity" /><!-- New Plan Activity against subject -->      
+   </model>
+   
+   <model name="Change request new row actions">
+       <action name="create" type="changeNotice"/>
+       <action name="create" type="changeRequest"/>
+       <action name="create" type="problemReport"/>       
+       <action name="create" type="softwareIssue"/>
+       <action name="create" type="variance"/>
+       <action name="separator" type="separator"/>
+       <action name="create" type="changeReview"/>
+   </model>
+
+   <model name="more change review row actions" menufor="wt.change2.WTChangeReview">
+      <description>Change review row actions</description>
+      <action name="view" type="object"/>
+      <action name="separator" type="separator"/>
+      <submodel name="thingworxActionsMenu"/>
+      <action name="separator" type="separator"/>
+      <action name="undoReservation" type="reservation"/>
+      <action name="edit" type="changeReview"/>
+      <action name="editModifyContentOnly" type="changeReview"/>
+      <action name="reviseChangeItems" type="change"/>
+      <action name="separator" type="separator"/>
+      <submodel name="Change review new row actions"/>
+      <action name="separator" type="separator"/>
+      <action name="relatedWorkitems" type="change"/>
+      <action name="separator" type="separator"/>
+      <action name="copy" type="object"/>
+      <action name="CONTAINERMOVE" type="pdmObject"/>
+      <action name="renameObjectWizard" type="object"/>
+      <action name="setState" type="lifecycle"/>
+      <action name="deleteChangeItem" type="change"/>
+      <action name="reassignLC" type="lifecycle"/> <!-- Reassign Life Cycle -->
+      <action name="resetTeam" type="team"/>
+      <action name="separator" type="separator"/>
+      <submodel name="change objects add row actions"/>
+      <action name="separator" type="separator"/>
+      <action name="removeShare" type="object"/>
+      <action name="separator" type="separator"/>
+      <action name="summaryReport" type="change"/>
+      <action name="separator" type="separator"/>
+      <action name="ManageSecurity" type="accessPermission"/>
+      <action name="securityLabelsSingleObjJCA" type="securityLabels"/>
+      <action name="EDITSECURITYLABELSNONCOLLECTED" type="object"/>
+      <action name="createSubscription" type="subscription"/>
+      <action name="separator" type="separator"/>
+      <action name="track_new_work" type="resourceAssignment" /><!-- Track new Work against subject of deliverable-->
+      <action name="new_plan_activity" type="planActivity" /><!-- New Plan Activity against subject -->
+   </model>
+
+   <model name="Change review new row actions">
+      <action name="create" type="changeNotice"/>
+      <action name="create" type="changeRequest"/>
+      <action name="create" type="problemReport"/>
+      <action name="create" type="softwareIssue"/>
+      <action name="create" type="variance"/>
+      <action name="separator" type="separator"/>
+      <action name="create" type="changeReview"/>
+   </model>
+
+   <model name="variance row actions" menufor="wt.change2.WTVariance">
+      <description>Variance row actions</description>
+      <action name="view" type="object"/>
+      <action name="separator" type="separator"/>
+      <submodel name="thingworxActionsMenu"/>
+      <action name="separator"                      type="separator"/>
+      <action name="undoReservation" type="reservation"/>
+      <action name="edit" type="variance"/>
+      <action name="editModifyContentOnly" type="variance"/>
+      <action name="reviseChangeItems" type="change"/>
+      <action name="separator" type="separator"/>
+      <submodel name="variance new row actions"/>
+      <action name="separator" type="separator"/>
+      <action name="relatedWorkitems" type="change"/>
+      <action name="separator" type="separator"/>
+      <action name="copy" type="object"/>
+      <action name="CONTAINERMOVE" type="pdmObject"/>
+      <action name="renameObjectWizard" type="object"/>
+      <action name="setState" type="lifecycle"/>
+      <action name="deleteChangeItem" type="change"/>
+      <action name="reassignLC" type="lifecycle"/> <!-- Reassign Life Cycle -->
+      <action name="resetTeam" type="team"/>
+      <action name="separator" type="separator"/>
+      <submodel name="change objects add row actions"/>
+      <action name="separator" type="separator"/>
+      <action name="removeShare" type="object"/>
+      <action name="separator" type="separator"/>
+      <action name="summaryReport" type="change"/>
+      <action name="separator" type="separator"/>
+      <action name="ManageSecurity" type="accessPermission"/>
+      <action name="securityLabelsSingleObjJCA" type="securityLabels"/>
+      <action name="EDITSECURITYLABELSNONCOLLECTED" type="object"/>
+      <action name="createSubscription" type="subscription"/>
+      <action name="separator" type="separator"/>
+      <action name="track_new_work" type="resourceAssignment" /><!-- Track new Work against subject of deliverable-->
+      <action name="new_plan_activity" type="planActivity" /><!-- New Plan Activity against subject -->      
+   </model>
+   
+   <model name="variance new row actions">
+       <action name="create" type="changeNotice"/>
+       <action name="create" type="changeRequest"/>
+       <action name="create" type="problemReport"/>       
+       <action name="create" type="softwareIssue"/>
+       <action name="create" type="variance"/>
+       <action name="separator" type="separator"/>
+       <action name="create" type="changeReview"/>
+   </model>
+
+   <model name="change objects add row actions">
+      <action name="SBAddToPrj" type="sandbox"/>
+      <action name="addToBaselineSingle" type="baseline"/>  <!-- Add to Baseline -->
+      <action name="addToPackageSingle" type="wpcollection"/>
+      <action name="addToManagedCollectionSingle" type="managedcollection"/>
+      <action name="bookmarkIt" type="bookmark"/>
+   </model>
+
+   <model name="more change notice row actions" menufor="wt.change2.WTChangeOrder2">
+      <description>Change notice row actions</description>
+      <action name="view" type="object"/>
+      <action name="separator" type="separator"/>
+      <submodel name="thingworxActionsMenu"/>
+      <action name="separator" type="separator"/>
+      <action name="undoReservation" type="reservation"/>
+      <action name="edit" type="changeNotice"/>
+      <action name="editModifyContentOnly" type="changeNotice"/>      
+      <action name="editTemplate" type="changeNotice"/>
+      <action name="reissueChange" type="change"/>
+      <action name="separator" type="separator"/>
+      <submodel name="Change notice new row actions"/>
+      <action name="separator" type="separator"/>
+      <action name="relatedWorkitems" type="change"/>
+      <action name="separator" type="separator"/>
+      <action name="copy" type="object"/>
+      <action name="CONTAINERMOVE" type="pdmObject"/>
+      <action name="renameObjectWizard" type="object"/>
+      <action name="startExecution" type="change" />
+      <action name="setState" type="lifecycle"/>
+      <action name="deleteChangeItem" type="change"/>
+      <action name="reassignLC" type="lifecycle"/> <!-- Reassign Life Cycle -->
+      <action name="resetTeam" type="team"/>
+      <action name="separator" type="separator"/>
+      <submodel name="redline"/>
+      <action name="separator" type="separator"/>
+      <action name="separator" type="separator"/>
+      <submodel name="change objects add row actions"/>
+      <action name="separator" type="separator"/>
+      <action name="removeShare" type="object"/>
+      <action name="separator" type="separator"/>
+      <action name="summaryReport" type="change"/>
+      <action name="export" type="object" />
+      <action name="separator" type="separator"/>
+      <action name="ManageSecurity" type="accessPermission"/>
+      <action name="securityLabelsSingleObjJCA" type="securityLabels"/>
+      <action name="EDITSECURITYLABELSNONCOLLECTED" type="object"/>
+      <action name="createSubscription" type="subscription"/>
+      <action name="separator" type="separator"/>
+      <action name="track_new_work" type="resourceAssignment" /><!-- Track new Work against subject of deliverable-->
+      <action name="new_plan_activity" type="planActivity" /><!-- New Plan Activity against subject -->      
+   </model>
+   
+   <model name="more remote change issue row actions" menufor="wt.change2.ChangeIssueResource">
+      <action name="view" type="object"/>
+      <action name="copy" type="object"/>
+   </model>
+   
+   <model name="more remote change request row actions" menufor="wt.change2.ChangeRequest2Resource">
+      <action name="view" type="object"/>
+      <action name="copy" type="object"/>
+   </model>
+   
+   <model name="more remote change notice row actions" menufor="wt.change2.ChangeOrder2Resource">
+      <action name="view" type="object"/>
+      <action name="copy" type="object"/>
+   </model>
+   
+   <model name="more remote change review row actions" menufor="wt.change2.ChangeReviewResource">
+      <action name="view" type="object"/>
+      <action name="copy" type="object"/>
+   </model>
+
+   <model name="Change notice new row actions">
+       <action name="create" type="changeNotice"/>
+       <action name="create" type="changeRequest"/>
+       <action name="create" type="problemReport"/>       
+       <action name="create" type="softwareIssue"/>
+       <action name="create" type="variance"/>
+       <action name="separator" type="separator"/>
+       <action name="create" type="changeReview"/>
+   </model>   
+   
+   <model name="change tasks add row actions">
+      <action name="SBAddToPrj" type="sandbox"/>
+      <action name="bookmarkIt" type="bookmark"/>
+   </model>
+
+   <model name="changeTask row actions" menufor="wt.change2.WTChangeActivity2">
+      <description>Change task row actions</description>
+      <action name="view"                           type="object"/>
+      <action name="separator"                      type="separator"/>
+      <submodel name="thingworxActionsMenu"/>
+      <action name="separator"                      type="separator"/>
+      <action name="undoReservation"                type="reservation"/>
+      <action name="edit"                           type="changeTask"/>
+      <action name="editTemplate"                   type="changeTask"/>
+      <action name="separator"                      type="separator"/>
+      <action name="relatedWorkitems"               type="change"/>
+      <action name="separator"                      type="separator"/>
+      <action name="renameObjectWizard"             type="object"/>
+      <action name="CONTAINERMOVE"                  type="pdmObject"/>
+      <action name="setState"                       type="lifecycle"/>
+      <action name="reassignLC"                     type="lifecycle"/> <!-- Reassign Life Cycle -->
+      <action name="resetTeam"                      type="team"/>
+      <action name="separator"                      type="separator"/>
+      <submodel name="change tasks add row actions"/>
+      <action name="separator"                      type="separator"/>
+      <action name="removeShare"                    type="object"/>
+      <action name="separator"                      type="separator"/>
+      <action name="ManageSecurity"                 type="accessPermission"/>
+      <action name="securityLabelsSingleObjJCA"     type="securityLabels"/>
+      <action name="EDITSECURITYLABELSNONCOLLECTED" type="object"/>
+      <action name="createSubscription"             type="subscription"/>
+    </model>
+
+   <model name="change_analysis_row_actions" menufor="wt.change2.ChangeAnalysis">
+      <description>Change proposal and change investigation row actions</description>
+      <action name="view" type="object"/>
+      <action name="separator" type="separator"/>
+  <!--<action name="SBAddToPrj" type="sandbox"/>
+      <action name="removeShare" type="object"/>
+      <action name="separator" type="separator"/> -->
+      <action name="renameObjectWizard" type="object"/>
+      <action name="separator" type="separator"/>
+      <!--<action name="copy" type="object"/>-->
+      <action name="CONTAINERMOVE" type="pdmObject"/>
+      <action name="ManageSecurity" type="accessPermission"/>
+      <action name="securityLabelsSingleObjJCA" type="securityLabels"/>
+      <action name="EDITSECURITYLABELSNONCOLLECTED" type="object"/>
+      <action name="createSubscription" type="subscription"/>
+   </model>
+
+   <model name="analysis_activity_row_actions" menufor="wt.change2.WTAnalysisActivity">
+      <description>Analysis activity row actions</description>
+      <action name="view" type="object"/>
+      <action name="separator" type="separator"/>
+ <!-- <action name="SBAddToPrj" type="sandbox"/>
+      <action name="removeShare" type="object"/>
+      <action name="separator" type="separator"/> -->
+      <action name="renameObjectWizard" type="object"/>
+      <action name="separator" type="separator"/>
+      <!--<action name="copy" type="object"/>-->
+      <action name="CONTAINERMOVE" type="pdmObject"/>
+      <action name="ManageSecurity" type="accessPermission"/>
+      <action name="securityLabelsSingleObjJCA" type="securityLabels"/>
+      <action name="EDITSECURITYLABELSNONCOLLECTED" type="object"/>
+      <action name="createSubscription" type="subscription"/>
+   </model>
+
+   <model name="change request row actions">
+         <description>Change request row actions in project link</description>
+         <action name="view" type="object"/>
+         <action name="removeShare" type="object"/>
+         <action name="CONTAINERMOVE" type="pdmObject"/>
+   </model>
+
+   <model name="change notice row actions">
+      <description>Change notice row actions in project link</description>
+      <action name="view" type="object"/>
+      <action name="removeShare" type="object"/>
+      <action name="CONTAINERMOVE" type="pdmObject"/>
+   </model>
+
+   <model name="problem report row actions">
+      <description>Problem report row actions in project link</description>
+      <action name="view" type="object"/>
+      <action name="removeShare" type="object"/>
+      <action name="CONTAINERMOVE" type="pdmObject"/>
+   </model>
+
+
+   <model name="third_level_nav_changeItems" defaultActionName="affectedDataTable" defaultActionType="change">
+      <description>Third level nav with default action affected data table</description>
+      <submodel name="general"/>
+      <submodel name="relatedItems"/>
+      <submodel name="changes"/>
+      <submodel name="history"/>
+      <submodel name="collaboration"/>
+      <submodel name="configLinks" />               
+      <submodel name="thingworxCustomizeMenu"/>
+   </model>
+
+   <model name="third_level_nav_changeItems_attributesAndContent_default" defaultActionName="attributesAndContent" defaultActionType="object">
+      <description>Third level nav with default action attributes and content</description>
+      <submodel name="general"/>
+      <submodel name="relatedItems"/>
+      <submodel name="history"/>
+      <submodel name="collaboration"/>
+      <submodel name="configLinks" />               
+   </model>
+
+   <model name="third_level_nav_changeNotice" defaultActionName="implementationPlanTable" defaultActionType="changeNotice">
+      <description>Third level nav for change notices with default action implementation plan table</description>
+      <submodel name="general"/>
+      <submodel name="relatedItems"/>
+      <submodel name="changes"/>
+      <submodel name="history"/>
+      <submodel name="collaboration"/>
+      <submodel name="implementationPlan"/>
+      <submodel name="configLinks" />               
+      <submodel name="thingworxCustomizeMenu"/>
+   </model>
+   <model name="third_level_nav_changeTask" defaultActionName="affectedAndResultingItems" defaultActionType="changeTask">
+      <description>Third level nav for change task  with default action affected and resulting tables</description>
+      <submodel name="general"/>
+      <submodel name="relatedItems"/>
+      <submodel name="changes"/>
+      <submodel name="history"/>
+      <submodel name="collaboration"/>
+      <submodel name="thingworxCustomizeMenu"/>
+   </model>
+
+    <!-- related change dir -->
+    <model name="relatedDirItems" resourceBundle="com.ptc.windchill.enterprise.changeDirective.changeDirectiveClientResource">
+       <description>Related objects third level nav menu for change directive</description>
+       <action name="impactedItemAndActions" type="changeDirective"/>
+       <action name="changeActionsTable" type="changeDirective"/>
+    </model>
+
+   <model name="changeNotice implementationPlan table">
+      <description>Toolbar actions for the implementation plan table on the change notice info page</description>
+      <action name="create" type="changeTask" shortcut="true"/>
+      <action name="setEffectivityOnViewPage_PendingEff" type="effectivity" shortcut="true"/>
+      <action name="viewEffectivityOnViewPage" type="effectivity" shortcut="true"/>
+   </model>
+   
+   <model name="changeNotice implementationPlan table template">
+      <description>Toolbar actions for the implementation plan table on the change notice info page</description>
+      <action name="createTemplate" type="changeTask" shortcut="true"/>
+   </model>
+   
+   <model name="changeNotice.implementationPlan.table.create_edit">
+      <description>Toolbar actions for the implementation plan table on the change notice create and edit wizard</description>
+      <action name="wizardCreate" type="changeTask" shortcut="true"/>
+      <action name="setEffectivityOnWizard_PendingEff" type="effectivity" shortcut="true"/>
+      <action name="viewEffectivityOnWizard" type="effectivity" shortcut="true"/>
+   </model>
+
+   <model name="changeNotice.implementationPlan.table.create_edit_template">
+      <description>Toolbar actions for the implementation plan table on the change notice create and edit wizard</description>
+      <action name="wizardCreateTemplate" type="changeTask" shortcut="true"/>
+   </model>
+   
+   <model name="variance.affectedData.table.view">
+      <description>Toolbar actions for the affected objects table for the variance info pages</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="separator" type="separator"/>
+      <action name="setEffectivityOnViewPage_VarianceEff" type="effectivity" shortcut="true"/>
+      <action name="viewEffectivityOnViewPage" type="effectivity" shortcut="true"/>
+      <action name="edit" type="variance" shortcut="true"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+
+   <model name="variance.affectedData.row.actions.view">
+      <description>Row actions for the affected objects table for the variance info pages</description>
+      <action name="view" type="object"/>
+      <action name="separator" type="separator"/>
+      <action name="OPENINPROE" type="pdmObject"/>
+      <action name="OPENINCADTOOL" type="pdmObject"/>
+      <action name="OPENINARBORTEXT" type="epmdocument"/>
+      <action name="openProductView" type="wvs"/>
+      <action name="separator" type="separator"/>
+      <action name="viewAnnotationsForChgLnk" type="annotation"/>
+      <action name="copy" type="object"/>
+   </model>
+
+   <model name="variance.affectedData.table.create_edit">
+      <description>Toolbar actions for the affected objects table for the variance create and edit wizards</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="changePaste" type="change" shortcut="true"/>
+      <action name="changePasteSelect" type="change" shortcut="true"/>
+      <action name="removeAffectedData" type="changeable" shortcut="true"/>
+      <action name="addAffectedData" type="changeable" shortcut="true"/>
+      <action name="collectItems_AffectedItems" type="change" shortcut="true"/>
+      <action name="PSEAnnotationsForChange" type="annotation"/>
+      <action name="separator" type="separator"/>
+      <action name="setEffectivityOnWizard_VarianceEff" type="effectivity"/>
+      <action name="viewEffectivityOnWizard" type="effectivity"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+
+   <model name="variance.affectedData.row.actions">
+      <description>Row actions for the affected objects table for the variance create and edit wizards</description>
+      <action name="editAnnotationsForChgLnk" type="annotation" shortcut="true"/>
+      <action name="copy" type="object" shortcut="true"/>
+   </model>
+
+   <model name="changeRequest.affectedData.table.view">
+      <description>Toolbar actions for the affected objects table for the change request info pages</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="separator" type="separator"/>
+      <action name="edit" type="changeRequest" shortcut="true"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+
+   <model name="changeRequest.affectedData.row.actions.view">
+      <description>Row actions for the affected objects table for the change request info pages</description>
+      <action name="view" type="object"/>
+      <action name="separator" type="separator"/>
+      <action name="openInMatrixEditorRMB" type="productfamily"/>
+      <action name="separator" type="separator"/>
+      <action name="OPENINPROE" type="pdmObject"/>
+      <action name="OPENINCADTOOL" type="pdmObject"/>
+      <action name="OPENINARBORTEXT" type="epmdocument"/>
+      <action name="openProductView" type="wvs"/>
+      <action name="separator" type="separator"/>
+      <action name="viewAnnotationsForChgLnk" type="annotation"/>
+      <action name="copy" type="object"/>
+      <action name="separator" type="separator"/>
+      <action name="openRoutingPlanInPPB" type="baseclient"/>
+   </model>
+
+   <model name="changeRequest.affectedData.table.create_edit">
+      <description>Toolbar actions for the affected objects table for the change request create and edit wizards</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="changePaste" type="change" shortcut="true"/>
+      <action name="changePasteSelect" type="change" shortcut="true"/>
+      <action name="removeAffectedData" type="changeable" shortcut="true"/>
+      <action name="addAffectedData" type="changeable" shortcut="true"/>
+      <action name="collectItems_AffectedItems" type="change" shortcut="true"/>
+      <action name="PSEAnnotationsForChange" type="annotation"/>
+      <action name="separator" type="separator"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+
+   <model name="changeRequest.affectedData.row.actions">
+      <description>Row actions for the affected objects table for the change request create and edit wizards</description>
+      <action name="editAnnotationsForChgLnk" type="annotation" shortcut="true"/>
+      <action name="copy" type="object" shortcut="true"/>
+   </model>
+
+   <model name="issues.affectedData.table.view">
+      <description>Toolbar actions for the affected objects table for the issues info pages</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="separator" type="separator"/>
+      <action name="edit" type="problemReport" shortcut="true"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+
+   <model name="issues.affectedData.row.actions.view">
+      <description>Row actions for the affected objects table for the issues info pages</description>
+      <action name="view" type="object"/>
+      <action name="separator" type="separator"/>
+      <action name="OPENINPROE" type="pdmObject"/>
+      <action name="OPENINCADTOOL" type="pdmObject"/>
+      <action name="OPENINARBORTEXT" type="epmdocument"/>
+      <action name="openProductView" type="wvs"/>
+      <action name="separator" type="separator"/>
+      <action name="viewAnnotationsForChgLnk" type="annotation"/>
+      <action name="copy" type="object"/>
+   </model>
+
+   <model name="issues.affectedData.table.create_edit">
+      <description>Toolbar actions for the affected objects table for the issues create and edit wizards</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="changePaste" type="change" shortcut="true"/>
+      <action name="changePasteSelect" type="change" shortcut="true"/>
+      <action name="removeAffectedData" type="changeable" shortcut="true"/>
+      <action name="addAffectedData" type="changeable" shortcut="true"/>
+      <action name="collectItems_AffectedItems" type="change" shortcut="true"/>
+      <action name="PSEAnnotationsForChange" type="annotation"/>
+      <action name="separator" type="separator"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+
+   <model name="issues.affectedData.row.actions">
+      <description>Row actions for the affected objects table for the issues create and edit wizards</description>
+      <action name="editAnnotationsForChgLnk" type="annotation" shortcut="true"/>
+      <action name="copy" type="object" shortcut="true"/>
+   </model>
+
+   <model name="changeNotice.changeSummaryTableActions">
+      <description>Toolbar actions for the change notice change summary table</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="SETSTATE_FROMCHANGE" type="pdmObject"/>
+      <action name="multiObjectCheckIn" type="wip"/>
+      <action name="multiObjectCheckOut" type="wip"/>
+      <action name="multiObjectUndoCheckout" type="wip"/>
+      <action name="launchStructureCompareForChange" type="change"/>
+      <action name="WFADDTOWORKSPACE" type="folder"/>
+      <action name="publishToCAD" type="part"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+   
+   <model name="auditTask.changeNotice.changeSummaryTableActions">
+      <description>Toolbar actions for the Audit Summary Table</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="launchStructureCompareForChange" type="change" shortcut="true"/>
+      <action name="WFADDTOWORKSPACE" type="folder" shortcut="true"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+
+   <model name="change.baselineReport.tableActions">
+      <description>Toolbar actions for the change baseline report table</description>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+
+   <model name="changeTask.affectedItems.table.edit">
+      <description>Toolbar actions for the affected objects table for the change task edit wizard</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="changePaste" type="change" shortcut="true"/>
+      <action name="changePasteSelect" type="change" shortcut="true"/>
+      <action name="removeAffectedData" type="changeable" shortcut="true"/>
+      <action name="addAffectedData" type="changeable" shortcut="true"/>
+      <action name="collectItems_AffectedItems" type="changeTask" shortcut="true"/>
+      <action name="PSEAnnotationsForChange" type="annotation"/>
+      <action name="separator" type="separator"/>
+      <action name="REVISEITEMSFROMCHANGE" type="pdmObject" shortcut="true"/>
+      <action name="addHangingChange" type="hangingChanges"/>
+      <action name="newOneOffVersionInChange" type="changeTask"/>
+      <action name="createSupersedeWithNewFromChange" type="supersede"/>
+      <action name="createSupersedeWithExistingWizardFromChange" type="supersede"/>
+      <action name="changeSaveAs" type="changeTask"/>
+      <action name="separator" type="separator"/>
+      <action name="setChangeIntent" type="change"/>
+      <action name="setDispositionPicker" type="change"/>
+      <action name="launchStructureCompareForChange" type="change"/>
+      <action name="separator" type="separator"/>
+      <submodel name="redline"/>
+      <action name="separator" type="separator"/>
+      <action name="assignMultiPlant" type="enterprisedata"/>
+      <action name="accessPlantData" type="baseclient"/>
+	  <submodel name="changeTask_Open_submenu"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+   
+   <model name="changeTask.affectedItems.table.create">
+      <description>Toolbar actions for the affected objects table for the change task create wizard</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="changePaste" type="change" shortcut="true"/>
+      <action name="changePasteSelect" type="change" shortcut="true"/>
+      <action name="removeAffectedData" type="changeable" shortcut="true"/>
+      <action name="addAffectedData" type="changeable" shortcut="true"/>
+      <action name="collectItems_AffectedItems" type="changeTask" shortcut="true"/>
+      <action name="PSEAnnotationsForChange" type="annotation"/>
+      <action name="separator" type="separator"/>
+      <action name="REVISEITEMSFROMCHANGE" type="pdmObject" shortcut="true"/>
+      <action name="addHangingChange" type="hangingChanges"/>
+      <action name="newOneOffVersionInChange" type="changeTask"/>
+      <action name="createSupersedeWithNewFromChange" type="supersede"/>
+      <action name="createSupersedeWithExistingWizardFromChange" type="supersede"/>
+      <action name="changeSaveAs" type="changeTask"/>
+      <action name="separator" type="separator"/>
+      <action name="setChangeIntent" type="change"/>
+      <action name="setDispositionPicker" type="change"/>
+      <action name="launchStructureCompareForChange" type="change"/>
+      <action name="separator" type="separator"/>
+      <action name="assignMultiPlant" type="enterprisedata"/>
+      <action name="accessPlantData" type="baseclient"/>
+      <submodel name="changeTask_Open_submenu"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+
+   <model name="changeTask.affectedItems.table.view">
+      <description>Toolbar actions for the affected objects table for the change task info page</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="SETSTATE_FROMCHANGE" type="pdmObject"/>
+      <action name="separator" type="separator"/>
+      <action name="edit" type="changeTask" shortcut="true"/>
+      <action name="launchStructureCompareForChange" type="change"/>
+      <action name="separator" type="separator"/>
+      <submodel name="redline"/>
+      <action name="separator" type="separator"/>
+      <action name="accessPlantData" type="baseclient"/>
+      <submodel name="changeTask_Open_submenu" />
+      <action name="WFADDTOWORKSPACE" type="folder"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+   
+   <model name="redline" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <description>'Redline' submenu for table toolbar action menu and RMB actions. </description>
+      <action name="createBOMRedline" type="change" />
+      <action name="openBOMRedline" type="change"/>
+      <action name="viewBOMRedline" type="change"/>
+      <action name="launchMassChangeBOMRedline" type="massChangeBOMRedline"/>
+      <action name="deleteBOMRedline" type="change"/>
+   </model>
+
+   <model name="OpenInMenuActions" >
+      <submodel name="changeTask_Open_submenu"/>
+   </model>
+
+   <model name="changeTask_Open_submenu" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="launchInMAPSBWithDualContext" type="mapsb"/>     <!-- Launch Manufacturing Associative Part Structure Browser -->
+   </model>
+
+   <model name="changeTask.affectedItems.row.actions">
+      <description>Row actions for the affected objects table for the change task create and edit wizards</description>
+      <action name="editAnnotationsForChgLnk" type="annotation"/>
+      <action name="copy" type="object"/>
+      <action name="launchStructureCompareForChangeRowAction" type="change"/>
+      <action name="separator" type="separator"/>
+      <submodel name="redline"/>
+      <action name="separator" type="separator"/>
+      <action name="assignMultiPlant" type="enterprisedata"/>
+      <action name="accessPlantData" type="baseclient"/>
+   </model>
+
+   <model name="changeTask.affectedItems.row.actions.view">
+      <description>Row actions for the affected objects table for the change task info page</description>
+      <action name="view" type="object"/>
+      <action name="separator" type="separator"/>
+      <action name="openInMatrixEditorRMB" type="productfamily"/>
+      <action name="separator" type="separator"/>
+      <action name="OPENINPROE" type="pdmObject"/>
+      <action name="OPENINCADTOOL" type="pdmObject"/>
+      <action name="OPENINARBORTEXT" type="epmdocument"/>
+      <action name="openProductView" type="wvs"/>
+      <action name="separator" type="separator"/>
+      <action name="viewDispositions" type="change"/>
+      <action name="viewAnnotationsForChgLnk" type="annotation"/>
+      <action name="launchStructureCompareForChangeRowAction" type="change"/>
+      <action name="separator" type="separator"/>
+      <submodel name="redline"/>
+      <action name="separator" type="separator"/>
+      <action name="copy" type="object"/>
+      <action name="WFDOWNLOAD" type="epmdocument"/>
+      <action name="separator" type="separator"/>
+      <action name="openRoutingPlanInPPB" type="baseclient"/>
+   </model>
+
+   <model name="changeTask.resultingItems.table.edit">
+      <description>Toolbar actions for the resulting objects table for the change taskedit wizard</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="changePaste" type="change" shortcut="true"/>
+      <action name="changePasteSelect" type="change" shortcut="true"/>
+      <action name="removeResultingItems" type="changeTask" shortcut="true"/>
+      <action name="addResultingItems" type="changeTask" shortcut="true"/>
+      <action name="collectItems_ResultingItems" type="changeTask" shortcut="true"/>
+      <action name="separator" type="separator"/>
+      <action name="setReleaseTarget" type="changeTask" shortcut="true"/> 
+      <action name="setImpactIntent" type="impacted" shortcut="true"/>
+      <action name="launchMassChange" type="massChange" shortcut="true"/>
+      <action name="setEffectivityOnWizard_PendingEff" type="effectivity"/>
+      <action name="viewEffectivityOnWizard" type="effectivity"/>      
+      <submodel name="exportlisttofile_submenu" type="object"/>
+      <action name="launchStructureCompareForChange" type="change"/>
+      <action name="assignMultiPlant" type="enterprisedata"/>
+      <action name="accessPlantData" type="baseclient"/>
+	  <submodel name="changeTask_Open_submenu"/>
+   </model>
+   
+   <model name="changeTask.resultingItems.table.create">
+      <description>Toolbar actions for the resulting objects table for the change task create wizard</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="changePaste" type="change" shortcut="true"/>
+      <action name="changePasteSelect" type="change" shortcut="true"/>
+      <action name="removeResultingItems" type="changeTask" shortcut="true"/>
+      <action name="addResultingItems" type="changeTask" shortcut="true"/>
+      <action name="collectItems_ResultingItems" type="changeTask" shortcut="true"/>
+      <action name="separator" type="separator"/>
+      <action name="setReleaseTarget" type="changeTask" shortcut="true"/> 
+      <action name="setImpactIntent" type="impacted" shortcut="true"/>
+      <action name="launchMassChange" type="massChange" shortcut="true"/>
+      <action name="setEffectivityOnWizard_PendingEff" type="effectivity"/>
+      <action name="viewEffectivityOnWizard" type="effectivity"/>      
+      <submodel name="exportlisttofile_submenu" type="object"/>
+      <action name="launchStructureCompareForChange" type="change"/>
+      <action name="assignMultiPlant" type="enterprisedata"/>
+      <action name="accessPlantData" type="baseclient"/>
+      <submodel name="changeTask_Open_submenu"/>
+   </model>
+
+   <model name="changeTask.resultingItems.table.view">
+      <description>Toolbar actions for the resulting objects table for the change task info page</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="SETSTATE_FROMCHANGE" type="pdmObject"/>
+      <action name="launchMassChange" type="massChange" shortcut="true"/>
+      <action name="setEffectivityOnViewPage_PendingEff" type="effectivity" shortcut="true"/>
+      <action name="viewEffectivityOnViewPage" type="effectivity" shortcut="true"/>
+      <action name="separator" type="separator"/>
+      <action name="edit" type="changeTask" shortcut="true"/>
+      <action name="multiObjectCheckIn" type="wip"/>
+      <action name="multiObjectCheckOut" type="wip"/>
+      <action name="multiObjectUndoCheckout" type="wip"/>
+      <action name="publishToCAD" type="part"/>
+      <action name="launchStructureCompareForChange" type="change"/>
+      <action name="accessPlantData" type="baseclient"/>
+      <submodel name="changeTask_Open_submenu" />
+      <action name="WFADDTOWORKSPACE" type="folder"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+   
+   <model name="reviewTask.resultingItems.table.view">
+      <description>Toolbar actions for the resulting objects table for the change task info page</description>
+      <action name="list_copy" type="object" shortcut="true"/>            
+      <action name="launchStructureCompareForChange" type="change" shortcut="true" />      
+      <action name="WFADDTOWORKSPACE" type="folder" shortcut="true" />
+      <action name="viewEffectivityOnViewPage" type="effectivity" shortcut="true"/>
+      <action name="separator" type="separator"/>
+      <submodel name="exportlisttofile_submenu" type="object" />
+   </model>
+   
+   <model name="completeTask.resultingItems.table.view">
+      <description>Toolbar actions for the resulting objects table for the workitem info page for change task</description>
+      <action name="list_copy" type="object" shortcut="true"/>                  
+      <action name="multiObjectCheckIn" type="wip" shortcut="true"/>
+      <action name="multiObjectCheckOut" type="wip" shortcut="true"/>
+      <action name="multiObjectUndoCheckout" type="wip" shortcut="true"/>
+      <action name="launchMassChange" type="massChange" shortcut="true"/>
+      <action name="separator" type="separator"/>   
+      <action name="WFADDTOWORKSPACE" type="folder" shortcut="true"/>
+      <action name="setEffectivityOnViewPage_PendingEff" type="effectivity" shortcut="true"/>
+      <action name="viewEffectivityOnViewPage" type="effectivity"/>
+      <action name="edit" type="changeTask" shortcut="true"/>               
+      <submodel name="exportlisttofile_submenu" type="object"/>
+	  <submodel name="changeTask_Open_submenu"/>
+   </model>
+
+   <model name="changeTask.resultingItems.row.actions">
+   <description>Row actions for the resulting objects table for the change task create and edit wizards</description>
+   <action name="copy" type="object"/>
+   <action name="launchStructureCompareForChangeRowAction" type="change"/>
+   <action name="assignMultiPlant" type="enterprisedata"/>
+   <action name="accessPlantData" type="baseclient"/>
+   </model>
+
+   <model name="changeTask.resultingItems.row.actions.view">
+      <description>Row actions for the resulting objects table for the change task info page</description>
+      <action name="view" type="object"/>
+      <action name="separator" type="separator"/>
+      <action name="openInMatrixEditorRMB" type="productfamily"/>
+      <action name="separator" type="separator"/>
+      <action name="OPENINPROE" type="pdmObject"/>
+      <action name="OPENINCADTOOL" type="pdmObject"/>
+      <action name="OPENINARBORTEXT" type="epmdocument"/>
+      <action name="openProductView" type="wvs"/>
+      <action name="separator" type="separator"/>
+      <action name="publishToCAD" type="part"/>
+      <action name="launchStructureCompareForChangeRowAction" type="change"/>
+      <action name="copy" type="object"/>
+      <action name="WFDOWNLOAD" type="epmdocument"/>
+      <action name="separator" type="separator"/>
+      <action name="openRoutingPlanInPPB" type="baseclient"/>
+   </model>
+   
+   <model name="reviewTask.resultingItems.row.actions.view">
+      <description>Row actions for the resulting objects table for the change task info page</description>
+      <action name="view" type="object"/>
+      <action name="separator" type="separator"/>
+      <action name="openInMatrixEditorRMB" type="productfamily"/>
+      <action name="separator" type="separator"/>
+      <action name="OPENINPROE" type="pdmObject"/>
+      <action name="OPENINCADTOOL" type="pdmObject"/>
+      <action name="OPENINARBORTEXT" type="epmdocument"/>
+      <action name="openProductView" type="wvs"/>      
+      <action name="separator" type="separator"/>      
+      <action name="WFDOWNLOAD" type="epmdocument"/>      
+      <action name="wtObjCompare" type="ocmp"/>         <!-- Information Compare -->
+      <action name="copy" type="object"/>
+      
+   </model>
+
+   <model name="change.affectedEndItems.table.view">
+      <description>Toolbar actions for the affected end items table for the change request, problem report, and variance info pages</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="separator" type="separator"/>
+      <action name="edit" type="problemReport" shortcut="true"/>
+      <action name="edit" type="variance" shortcut="true"/>
+      <action name="edit" type="changeRequest" shortcut="true"/>
+   </model>
+
+   <model name="change.affectedEndItems.table.create_edit">
+      <description>Toolbar actions for the affected end items table for the change request, problem report, and variance wizards</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="changeEndItemPaste" type="change" shortcut="true"/>
+      <action name="changeEndItemsPasteSelect" type="change" shortcut="true"/>
+      <action name="removeAffectedEndItems" type="changeable" shortcut="true"/>
+      <action name="addAffectedEndItems" type="changeable" shortcut="true" />
+   </model>
+
+   <model name="change.affectedEndItems.row.actions">
+      <description>Row actions for the affected end items table for the change request, problem report, and variance info pages</description>
+      <action name="copy" type="object" shortcut="true"/>
+   </model>
+
+   <model name="change.affectedEndItems.row.actions.view">
+      <description>Row actions for the affected end items table for the change request, problem report, and variance wizards</description>
+      <action name="view" type="object" shortcut="true"/>
+      <action name="copy" type="object" shortcut="true"/>
+   </model>
+   
+   <model name="FlexibleChangeItem.associatedChanges.table">
+      <description>Default toolbar actions for flexible change items on the Associated Process table</description>
+      <action name="changeCopyChangeItems" type="change" shortcut="true"/>
+      <action name="changePasteChangeItems" type="change" shortcut="true"/>
+      <action name="changePasteSelectChangeItems" type="change" shortcut="true"/>
+      <action name="remove" type="object" shortcut="true"/>
+      <action name="addAssociatedChangeItems" type="change" shortcut="true"/>
+      <action name="addExternalProcessChangeItems" type="change" shortcut="true"/>
+   </model>
+   
+   <model name="FlexibleChangeItem.references.table">
+      <description>Default toolbar actions for flexible change items on the Associated Reference table</description>
+      <action name="changeCopyChangeItems" type="change" shortcut="true"/>
+      <action name="changePasteChangeItems" type="change" shortcut="true"/>
+      <action name="changePasteSelectChangeItems" type="change" shortcut="true"/>
+      <action name="remove" type="object" shortcut="true"/>
+      <action name="addReferencedChangeItems" type="change" shortcut="true"/>
+      <action name="addExternalReferencedChangeItems" type="change" shortcut="true"/>
+   </model>
+
+   <model name="WTChangeRequest2.associatedChanges.table">
+      <description>Toolbar actions for the associated problem reports and variances tables on the change request wizard</description>
+      <action name="changeCopyChangeItems" type="change" shortcut="true"/>
+      <action name="changePasteChangeItems" type="change" shortcut="true"/>
+      <action name="changePasteSelectChangeItems" type="change" shortcut="true"/>
+      <action name="remove" type="object" shortcut="true"/>
+      <action name="addAssociatedChangeIssues" type="change" shortcut="true"/>
+      <action name="addAssociatedChangeItems" type="change" shortcut="true"/>
+      <action name="addExternalProcessChangeItems" type="change" shortcut="true"/>
+   </model>
+
+   <model name="WTChangeOrder2.associatedChanges.table">
+      <description>Toolbar actions for the associated change request table on the change notice wizard</description>
+      <action name="changeCopyChangeItems" type="change" shortcut="true"/>
+      <action name="changePasteChangeItems" type="change" shortcut="true"/>
+      <action name="changePasteSelectChangeItems" type="change" shortcut="true"/>
+      <action name="remove" type="object" shortcut="true"/>
+      <action name="addAssociatedChangeRequests" type="changeNotice" shortcut="true"/>
+      <action name="addAssociatedChangeItems" type="change" shortcut="true"/>
+      <action name="addExternalProcessChangeItems" type="change" shortcut="true"/>
+   </model>
+   
+   <model name="changeTask.associatedChanges.table">
+    <description>Toolbar actions for the associated change issues tables on the change task wizard</description>
+    <action name="list_copy" type="object" shortcut="true"/>
+    <action name="changePasteChangeItems" type="change" shortcut="true"/>
+    <action name="changePasteSelectChangeItems" type="change" shortcut="true"/>
+    <action name="remove" type="object" shortcut="true"/>
+    <action name="addAssociatedChangeIssues" type="change" shortcut="true"/>
+   </model>
+
+   <model name="changeTask.associatedChanges.table.view">
+    <description>Toolbar actions for the associated change issues tables on the change task info page</description>
+    <action name="list_copy" type="object" shortcut="true"/>
+     <action name="separator" type="separator"/>
+     <action name="edit" type="changeTask" shortcut="true"/>
+   </model>
+
+   <model name="change.associatedChanges.row.actions">
+      <description>Row actions for the associated change request table on the change notice wizard and the associated problem reports and variances tables on the change request wizard</description>
+      <action name="copy" type="object" shortcut="true"/>
+   </model>
+
+   <model name="change.associatedChanges.row.actions.view">
+      <description>Row actions for the associated change request table on the change notice info page and the associated problem reports and variances tables on the change request info page</description>
+      <action name="view" type="object" shortcut="true"/>
+      <action name="copy" type="object" shortcut="true"/>
+   </model>
+
+   <model name="change.listChangeItems">
+       <description>Toolbar actions for the problem reports, variances, change requests, and change notices tables under the change menu</description>
+       <action name="list_copy" type="object" shortcut="true"/>
+       <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+
+   <model name="change.listChangeRequests">
+       <description>Toolbar actions for the Change Requests table under the change menu</description>
+       <action name="list_copy" type="object" shortcut="true"/>
+       <action name="changeRequestLog" type="changeReports" shortcut="true"/>
+       <action name="create" type="changeRequest" shortcut="true"/>
+       <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+
+   <model name="change.listChangeNotices">
+       <description>Toolbar actions for the Change Notice table under the change menu</description>
+       <action name="list_copy" type="object" shortcut="true"/>
+       <action name="changeNoticeLog" type="changeReports" shortcut="true"/>
+       <action name="create" type="changeNotice" shortcut="true"/>
+       <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+
+   <model name="change.listProblemReports">
+      <description>Toolbar actions for the Problem Report table under the change menu</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="problemReportLog" type="changeReports" shortcut="true"/>
+      <action name="create" type="problemReport" shortcut="true"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+  </model>
+
+   <model name="change.listVariances">
+      <description>Toolbar actions for the Variance table under the change menu</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="varianceLog" type="changeReports" shortcut="true"/>
+      <action name="create" type="variance" shortcut="true"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+
+   <model name="revise implementation table row actions">
+      <description>Row action for implementation plan table on new revision wizard that is opened when revising a change notice</description>
+      <action name="view" type="object"/>
+   </model>
+
+   <model name="edit implementation table row actions">
+      <description>Row actions for implementation table in change notice wizard</description>
+      <action name="editOnCreateChangeTask" type="changeTask" shortcut="true"/>
+      <action name="wizardEdit" type="changeTask" shortcut="true"/>
+      <action name="removeChangeTask" type="changeTask" shortcut="true"/>
+   </model>
+   
+   <model name="create implementation table row actions">
+      <description>Row actions for implementation table in change notice wizard</description>
+      <action name="editOnCreateChangeTask" type="changeTask" shortcut="true"/>
+      <action name="wizardEdit" type="changeTask" shortcut="true"/>
+      <action name="removeNewChangeTask" type="changeTask" shortcut="true"/>
+   </model>   
+
+  <model name="edit implementation table template row actions">
+      <description>Row actions for implementation table in change notice template wizard</description>
+      <action name="editOnCreateChangeTaskTemplate" type="changeTask" shortcut="true"/>
+      <action name="wizardEditTemplate" type="changeTask" shortcut="true"/>
+      <action name="removeChangeTask" type="changeTask" shortcut="true"/>
+   </model>
+   
+   <model name="change.relatedChanges.table.toolbar">
+      <description>Toolbar actions for tables under related changes</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="separator" type="separator"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+
+   <!-- Tree examples related entries -->
+   <model name="predeccessorActions_toolbar">
+      <description>Toolbar actions for modification actions table for change action</description>
+      <action name="explode" type="folder" shortcut="true"/>
+      <action name="implode" type="folder" shortcut="true"/>
+   </model>
+
+   <model name="ChangeReportButtons">
+     <description>Change wizard buttons, submit brings up submit now/later prompt</description>
+     <action name="okButtonInReport" type="changeReports"/>
+     <action name="cancelButton" type="object"/>
+   </model>
+
+   <!--  Tabs for Problem Report Info Page -->
+   <model name="problemReportInfoPageTabSet" >
+      <submodel name="changeIssuesDetailsTab"/>
+      <submodel name="changeIssuesProcessTab"/>
+      <submodel name="changeObjectsHistoryTab"/>
+   </model>
+
+   <model name="changeIssuesDetailsTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+         <action name="primaryAttributes"         type="object"/>
+         <action name="attributes"                type="object"/>
+         <action name="attachments"               type="object"/>
+         <action name="annotationSets"            type="annotation"/>
+         <action name="affectedDataTable"         type="change"/>
+         <action name="affectedEndItemsTable"     type="change"/>
+         <action name="associatedChangeItemTable" type="change"/>  
+         <action name="associatedReferenceItemTable"  type="change"/>   
+         <action name="relatedChangeNotices"      type="change"/>
+   </model>
+
+   <model name="changeIssuesProcessTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="listTeamCC"           type="team"/>
+      <action name="changeWorkItemsTable" type="changeNotice"/>
+      <action name="processHistory"       type="workflow"/>
+      <action name="discuss"              type="forum"/>
+   </model>
+
+   <!--  Tabs for Variance Info Page -->
+   <model name="varianceInfoPageTabSet" >
+      <submodel name="changeIssuesDetailsTab"/>
+      <submodel name="changeIssuesProcessTab"/>
+      <submodel name="changeObjectsHistoryTab"/>
+   </model>
+
+   <!-- Tabs for Change Request Info Page -->
+   <model name="changeRequestInfoPageTabSet" >
+      <submodel name="changeRequestDetailsTab"/>
+      <submodel name="changeRequestProcessTab"/>
+      <submodel name="changeObjectsHistoryTab"/>
+   </model>
+
+   <model name="changeRequestDetailsTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="primaryAttributes"         type="object"/>
+      <action name="attributes"                type="object"/>
+      <action name="workflowRecordDetails"     type="workflowRecord"/>
+      <action name="attachments"               type="object"/>
+      <action name="annotationSets"            type="annotation"/>
+      <action name="affectedDataTable"         type="change"/>
+      <action name="affectedEndItemsTable"     type="change"/>
+      <action name="associatedChangeItemTable" type="change"/>  
+      <action name="associatedReferenceItemTable"  type="change"/>   
+   </model>
+
+   <model name="changeRequestProcessTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="listTeamCC"           type="team"/>
+      <action name="changeWorkItemsTable" type="changeNotice"/>
+      <action name="processHistory"       type="workflow"/>
+      <action name="discuss"              type="forum"/>
+   </model>
+
+   <!--  Tabs for Change review Info Page -->
+   <model name="changeReviewInfoPageTabSet" >
+      <submodel name="changeReviewDetailsTab"/>
+      <submodel name="changeReviewProcessTab"/>
+      <submodel name="changeObjectsHistoryTab"/>
+      <!--TODO: Will be completed in other stories-->
+   </model>
+
+   <model name="changeReviewDetailsTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <!--TODO: Will be completed in other stories-->
+      <action name="primaryAttributes"         type="object"/>
+      <action name="attributes"                type="object"/>
+      <action name="attachments"               type="object"/>
+      <action name="annotationSets"            type="annotation"/>
+      <action name="reviewDataTable"           type="change"/>
+      <action name="associatedChangeItemTable" type="change"/>
+      <action name="associatedReferenceItemTable"  type="change"/>
+      <action name="relatedChangeNotices"      type="change"/>
+      <action name="relatedActionItems"     type="actionitem"/>
+   </model>
+
+   <model name="changeReviewProcessTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="listTeamCC"           type="team"/>
+      <action name="changeWorkItemsTable" type="changeNotice"/>
+      <action name="processHistory"       type="workflow"/>
+      <action name="discuss"              type="forum"/>
+      <!--TODO: Will be completed in other stories-->
+   </model>
+
+   <!-- Tabs for Change Notice Info Page -->
+   <model name="changeNoticeInfoPageTabSet" >
+      <submodel name="changeNoticeDetailsTab"/>
+      <submodel name="implementationPlanTab"/>
+      <submodel name="simplifiedImplementationPlanTab"/>
+      <submodel name="changeNoticeProcessTab"/>
+      <submodel name="changeObjectsHistoryTab"/>
+   </model>
+   
+   <model name="implementationPlan" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+        <!--<action name="implementationPlanTable" type="changeNotice"/>-->
+        <action name="simplifiedChangeTaskPrimaryAttributes" type="changeNotice"/>
+        <action name="simplifiedChangeTaskAttributes"        type="changeNotice"/>
+        <action name="simplifiedChangeTaskAffectedData"      type="changeNotice"/>
+        <action name="simplifiedChangeTaskResultingData"     type="changeNotice"/>
+   </model>
+
+   <model name="changeNoticeDetailsTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="primaryAttributes"         type="object"/>
+      <action name="attributes"                type="object"/>
+      <action name="attachments"               type="object"/>	  
+      <action name="annotationSets"            type="annotation"/>
+      <action name="changeSummary"             type="changeNotice"/>
+      <action name="sumaChangeTree"            type="suma"/>
+      <action name="associatedChangeItemTable" type="change"/>
+      <action name="associatedReferenceItemTable"  type="change"/>   
+   </model>
+
+   <model name="implementationPlanTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="implementationPlanTable" type="changeNotice"/>
+   </model>
+
+   <model name="simplifiedImplementationPlanTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="simplifiedChangeTaskPrimaryAttributes" type="changeNotice"/>
+      <action name="simplifiedChangeTaskAttributes"        type="changeNotice"/>
+      <action name="simplifiedChangeTaskAffectedData"      type="changeNotice"/>
+      <action name="simplifiedChangeTaskResultingData"     type="changeNotice"/>
+   </model>
+
+   <model name="changeNoticeProcessTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="listTeamCC"           type="team"/>
+      <action name="changeWorkItemsTable" type="changeNotice"/>
+      <action name="processHistory"       type="workflow"/>
+      <action name="discuss"              type="forum"/>
+   </model>
+
+   <!-- Tabs for Change Task Info Page -->
+   <model name="changeTaskInfoPageTabSet" >
+      <submodel name="changeTaskDetailsTab"/>
+      <submodel name="changeTaskProcessTab"/>
+   </model>
+
+   <model name="changeTaskDetailsTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="primaryAttributes"                 type="object"/>
+      <action name="attributes"                        type="object"/>
+      <action name="attachments"                       type="object"/>
+      <action name="affectedAndResultingItems"         type="changeTask"/>
+      <action name="sumaChangeTree"                    type="suma"/>
+      <action name="associatedChangeIssues"            type="changeTask"/>
+   </model>
+
+   <model name="changeTaskProcessTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="listTeamCC"           type="team"/>
+      <action name="changeWorkItemsTable" type="changeNotice"/>
+      <action name="processHistory"       type="workflow"/>
+   </model>
+
+   <!-- History tab for change objects -->
+   <model name="changeObjectsHistoryTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="timelineHistory" type="history"/>
+      <action name="maturityHistory" type="history"/>
+      <action name="revisionHistory" type="history"/>
+   </model>
+
+   <!-- Changes Tab: Exposed to changeables -->
+   <model name="changesTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="consolidatedAssociatedChanges" type="change"/>             <!-- Consolidated Associated Changes -->
+      <action name="showAssociatedDefects" type ="SoftwareBuild"/>
+      <action name="relatedChangeDirectiveTable" type="drawingSet"/>
+      <action name="impactingDirectiveAndActions" type="changeDirective"/>     <!-- Related Change Directives on CI info page -->
+   </model>
+
+   <!-- Tabs for Change Proposal Info Page -->
+   <model name="changeProposalInfoPageTabSet" >
+      <submodel name="changeProposalDetailsTab"/>
+      <submodel name="changeProposalProcessTab"/>
+   </model>
+
+   <model name="changeProposalDetailsTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="primaryAttributes"     type="object"/>
+      <action name="analysisActivitiesTable"           type="analysisActivity"/>
+    </model>
+
+   <model name="changeProposalProcessTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="listTeamCC"           type="team"/>
+      <action name="processHistory"       type="workflow"/>
+   </model>
+
+   <!-- Tabs for Change Investigation Info Page -->
+   <model name="changeInvestigationInfoPageTabSet" >
+      <submodel name="changeInvestigationDetailsTab"/>
+      <submodel name="changeInvestigationProcessTab"/>
+   </model>
+
+   <model name="changeInvestigationDetailsTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="primaryAttributes"     type="object"/>
+      <action name="analysisActivitiesTable"   type="analysisActivity"/>
+    </model>
+
+   <model name="changeInvestigationProcessTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="listTeamCC"           type="team"/>
+      <action name="processHistory"       type="workflow"/>
+   </model>
+
+        <!-- Tabs for Analysis Activity Info Page -->
+   <model name="analysisActivityInfoPageTabSet" >
+      <submodel name="analysisActivityDetailsTab"/>
+      <submodel name="analysisActivityProcessTab"/>
+   </model>
+
+   <model name="analysisActivityDetailsTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="primaryAttributes"     type="object"/>
+      <action name="affectedDataTable"     type="change"/>
+    </model>
+
+   <model name="analysisActivityProcessTab" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="listTeamCC"           type="team"/>
+      <action name="processHistory"       type="workflow"/>
+   </model>
+
+   <model name="change templates toolbar actions">
+      <action name="list_hide_template" type="object" shortcut="true"/>
+      <action name="list_show_template" type="object" shortcut="true"/>
+      <action name="separator" type="separator"/>
+      <action name="createTemplate" type="changeNotice" shortcut="true"/>
+   </model>
+   
+   <model name="change template row actions">
+      <action name="view" type="object"/>
+      <action name="export" type="object" />
+      <action name="separator" type="separator"/>
+      <action name="enableChangeTemplate" type="change"/>
+      <action name="disableChangeTemplate" type="change"/>
+      <action name="show_template" type="object"/>
+      <action name="hide_template" type="object"/>
+      <action name="separator" type="separator"/>
+      <action name="editTemplate" type="changeNotice"/>
+      <action name="renameObjectWizard" type="object"/>
+      <action name="setState" type="lifecycle"/>
+      <action name="deleteChangeItem" type="change"/>
+   </model>   
+
+   <model name="changeReview.affectedData.table.create_edit">
+      <description>Toolbar actions for the affected objects table for the change review create and edit wizards</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="changePaste" type="change" shortcut="true"/>
+      <action name="changePasteSelect" type="change" shortcut="true"/>
+      <action name="removeAffectedData" type="changeable" shortcut="true"/>
+      <action name="addReviewData" type="changeable" shortcut="true"/>
+      <action name="collectItems_ReviewItems" type="change" shortcut="true"/>
+      <action name="PSEAnnotationsForChange" type="annotation"/>
+      <action name="separator" type="separator"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+   </model>
+
+   <model name="changeReview.affectedData.table.view">
+      <description>Toolbar actions for the affected objects table for the change review info pages</description>
+      <action name="list_copy" type="object" shortcut="true"/>
+      <action name="separator" type="separator"/>
+      <action name="edit" type="changeReview" shortcut="true"/>
+      <submodel name="exportlisttofile_submenu" type="object"/>
+      <action name="separator" type="separator"/>
+      <action name="create" type="changeNotice"/>
+      <action name="create" type="changeRequest"/>
+      <action name="create" type="problemReport"/>       
+   </model>
+
+   <model name="changeReview.affectedData.row.actions">
+      <description>Row actions for the affected objects table for the change review create and edit wizards</description>
+      <action name="editAnnotationsForChgLnk" type="annotation" shortcut="true"/>
+      <action name="copy" type="object" shortcut="true"/>
+   </model>
+
+   <model name="changeReview.affectedData.row.actions.view">
+      <description>Row actions for the affected objects table for the change review info pages</description>
+      <action name="view" type="object"/>
+      <action name="separator" type="separator"/>
+      <action name="OPENINPROE" type="pdmObject"/>
+      <action name="OPENINCADTOOL" type="pdmObject"/>
+      <action name="OPENINARBORTEXT" type="epmdocument"/>
+      <action name="openProductView" type="wvs"/>
+      <action name="separator" type="separator"/>
+      <action name="viewAnnotationsForChgLnk" type="annotation"/>
+      <action name="copy" type="object"/>
+   </model>
+
+
+    <!-- Worlfow Records Table - Toolbar Actions -->
+    <model name="workflowrecord actions">
+        <submodel name="workflowrecord_actions_submenu" /> <!-- Export -->
+    </model>
+    
+    <model name="workflowrecord_actions_submenu">
+        <description>'Export List to File' submenu for workflow record toolbar actions menu.</description>
+        <action   name="exportTableCSV"                             type="object"/>    <!-- Export List to CSV -->
+        <action   name="exportTableHTML"                            type="object"/>    <!-- Export List to HTML -->
+        <action   name="exportTablePDF"                             type="object"/>    <!-- Export List to PDF -->
+        <action   name="exportTableToPDFWithCoverPage"              type="object"/>    <!-- Export List to PDF with Cover Page Only available when QMS is installed-->
+        <action   name="exportTableTEXT"                            type="object"/>    <!-- Export List to Text -->
+        <action   name="exportTableXLS"                             type="object"/>    <!-- Export List to XLS -->
+        <action   name="exportTableXLSX"                            type="object"/>    <!-- Export List to XLSX -->
+        <action   name="exportTableXLSReport"                       type="object"/>    <!-- Export List to XLS Report -->
+        <action   name="exportTableXML"                             type="object"/>    <!-- Export List to XML -->
+    </model>
+    
+</actionmodels>

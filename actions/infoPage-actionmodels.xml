@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+<!DOCTYPE actionmodels SYSTEM 'actionmodels.dtd'>
+<actionmodels>
+
+    <!-- ************************************************************ -->
+    <!-- ***             3rd Level Navigation Menus               *** -->
+    <!-- ************************************************************ -->
+
+    <!-- Information page 3rd level navigation General menu options  -->
+
+    <model name="general" resourceBundle="com.ptc.core.ui.navigationRB">
+        <description>
+            "General" 3rd level nav menu
+        </description>
+        <action name="visualizationAndAttributes" type="object"/>                 <!-- Visualization and Attributes -->
+        <action name="primaryAttributes" type="object"/>                          <!-- Attributes -->
+        <action name="attributes" type="object"/>                                 <!-- More Attributes -->
+        <action name="separator" type="separator"/>                               <!-- ============================ -->
+        <action name="primaryContent" type="object"/>                             <!-- Primary Content -->
+        <action name="attachments" type="object"/>                                <!-- Attachments -->
+		
+
+        <action name="separator" type="separator"/>                               <!-- ============================ -->
+        <action name="listAssignedOptionSet" type="filterTemplate"/>              <!-- Assigned Option Sets -->
+        <action name="listAssignedItemOptionality" type="optionality"/>           <!-- Assigned Optionality -->
+        <action name="logicReferences" type="generic"/>                           <!-- Logical References -->
+        <action name="separator" type="separator"/>                               <!-- ============================ -->
+        <action name="list" type="axlentry"/>                                     <!-- AML/AVL -->
+        <action name="allcontext" type="axlentry"/>                               <!-- AML/AVL (All Contexts) -->
+        <action name="separator" type="separator"/>                               <!-- ============================ -->
+        <action name="whereUsed" type="object"/>                                  <!-- Where Used -->
+        <action name="mpmlWhereUsedMakes" type="mpml"/>                                  <!-- Where Used -->
+        <action name="separator" type="separator"/>                               <!-- ============================ -->
+        <action name="allocations" type="instance"/>                              <!-- Allocations -->
+        <action name="partConfigurations" type="configuration"/>                  <!-- Part Configurations -->
+        <action name="partInstances" type="instance"/>                            <!-- Part Instances -->
+        <action name="partInstancesFromConfigDetail" type="instance"/>            <!-- Part Instances -->
+        <action name="separator" type="separator"/>                               <!-- ============================ -->
+        <action name="showZip" type="SoftwareBuild"/>                             <!-- Preview Packaged Content -->
+        <action name="separator" type="separator"/>                               <!-- ============================ -->
+        <action name="markups" type="wvs"/>                                       <!-- Annotations -->
+        <action name="effTableForPartsAndMPMLinkInfoPage" type="effectivity"/>    <!-- Effectivity -->
+        <action name="relatedComplianceSpecs" type="environment"/>                <!-- Environmental Compliance -->
+        <action name="reference" type="notebook"/>                                <!-- Notebook -->
+        <action name="repsAndMarkups" type="wvs"/>                                <!-- Representations -->
+        <action name="workflowRecordDetails" type="workflowRecord"/>    
+    </model>
+
+    <!-- Information page 3rd level navigation Related Objects menu options  -->
+
+    <model name="relatedItems" resourceBundle="com.ptc.core.ui.navigationRB">
+        <description>
+            "Related Objects" 3rd level nav menu
+        </description>
+        <action name="relatedCADDocsCADDocuments" type="part"/>                <!-- CAD Documents -->
+        <action name="relatedPartsCADDocuments" type="part"/>                  <!-- CAD/Dynamic Documents -->
+        <action name="relatedPartsDocuments" type="part"/>                     <!-- Described By Documents -->
+        <action name="relatedPartsReferences" type="part"/>                    <!-- References Documents -->
+        <action name="relatedDocumentsDocuments" type="document"/>             <!-- Reference Documents -->
+        <action name="relatedDocumentsReferencedBy" type="document"/>          <!-- Referenced By Documents -->
+        <action name="relatedTranslations" type="translation"/>                <!-- Related Translations -->       
+        <action name="baseLanguage" type="translation"/>                       <!-- Base Languages -->
+        <action name="documents" type="supplier"/>                             <!-- Documents -->
+        <action name="relatedWorkSetDocuments" type="workSet"/>                <!-- Documents -->
+        <action name="relatedPartInstanceDocuments" type="instance"/>          <!-- Documents -->
+        <action name="separator" type="separator"/>                            <!-- ====================================== -->
+        <action name="relatedDocumentsParts" type="document"/>                 <!-- Parts -->   
+        <action name="relatedCADDocsParts" type="part"/>                       <!-- Parts -->
+        <action name="relatedDocumentPartInstances" type="document"/>          <!-- Part Instances -->
+        <action name="parts" type="supplier"/>                                 <!-- Supplied Parts -->
+        <action name="separator" type="separator"/>                            <!-- ====================================== -->
+        <action name="alternates" type="part"/>                                <!-- Alternates -->
+        <action name="alternateFor" type="part"/>                              <!-- Alternate For -->
+        <action name="substitutes" type="part"/>                               <!-- Substitutes -->
+        <action name="substitutesFor" type="part"/>                            <!-- Substitutes For -->
+        <action name="separator" type="separator"/>                            <!-- ====================================== -->
+        <action name="variants" type="generic"/>                               <!-- Variants -->
+        <action name="variantspecs_all" type="generic"/>                       <!-- Variant Specifications -->
+        <action name="variantspecsofvariant" type="variant"/>                  <!-- Variant Specifications -->
+        <action name="massVariantGenerationRequestTickets" type="generic"/>    <!-- Mass Variant Generation Request Tickets -->
+        <action name="separator" type="separator"/>                            <!-- ====================================== -->
+        <action name="singleLevelTraceability" type="object"/>                 <!-- Requirements Single-level Traceability -->
+        <action name="TraceabilityLinksTable" type="requirement"/>             <!-- Requirements Multi-level Traceability -->
+        <action name="listTraces" type="traceable"/>         <!-- Traceability -->
+        <action name="SpecificationsTable" type="requirement"/>                <!-- Specifications -->
+        <action name="separator" type="separator"/>                            <!-- ====================================== -->
+        <action name="relatedClashes" type="clashReport"/>                     <!-- Related Interferences -->
+        <action name="relatedClashReports" type="clashReport"/>                <!-- Related Interference Detection Reports -->
+        <action name="separator" type="separator"/>                            <!-- ====================================== -->
+        <action name="traceabilityRoleBLinkTable" type="object"/>              <!-- As-Defined -->
+        <action name="traceabilityRoleALinkTable" type="object"/>              <!-- As-Designed -->
+        <action name="handedPartsRoleALinkTable" type="object"/>               <!-- Right Handed Parts -->
+        <action name="handedPartsRoleBLinkTable" type="object"/>               <!-- Left Handed Parts -->
+        <action name="separator" type="separator"/>                            <!-- ====================================== -->
+        <action name="AccomRequirements" type ="SoftwareBuild"/>               <!-- Accomplished Requirements -->
+        <action name="relatedActionItems" type="actionitem"/>                  <!-- Action Items -->
+        <action name="activites" type="reqlObject"/>                           <!-- Activities -->
+        <action name="affectedEndItemsTable" type="change"/>                   <!-- Affected End Items -->
+        <action name="affectedDataTable" type="change"/>                       <!-- Affected Objects -->
+        <action name="reviewDataTable" type="change"/>                         <!-- Review Objects -->
+        <action name="affectedAndResultingItems" type="changeTask"/>           <!-- Affected/Resulting Objects -->
+        <action name="changeSummary" type="changeNotice"/>                     <!-- Affected and Resulting Data for all Change Tasks on a Change Notice -->
+        <action name="sumaChangeTree"         type="suma"/>                    <!-- Supplier Parts and related documents for Resulting data for change notice-->
+        <action name="analysisActivitiesTable" type="analysisActivity"/>       <!-- Analysis Activities -->
+        <action name="annotationSets" type="annotation"/>                      <!-- Annotations -->
+        <action name="plan_deliverable_activities" type="planActivity"/>       <!-- Associated Activities -->
+        <action name="associatedBuildsTable" type="softwareDefect"/>           <!-- Associated Builds -->
+        <action name="showAssociatedDefects" type ="SoftwareBuild"/>           <!-- Associated Defects -->
+        <action name="plan_activity_deliverables" type="planActivity"/>        <!-- Associated Deliverables -->
+        <action name="relatedBaselines" type="object"/>                        <!-- Baselines -->
+        <action name="relatedLotBaselines" type="lotbaseline"/>                <!-- Variant Baselines -->        
+        <action name="baselineObjects" type="baseline"/>                       <!-- Baseline Objects -->
+        <action name="context_adapters" type="scmi"/>                          <!-- Clearcase Adapters -->
+        <action name="relatedWorkSetComponents" type="workSet"/>               <!-- Components -->
+        <action name="generics" type="variant"/>                               <!-- Configurable Parts -->
+        <action name="designSolutionEff" type="object"/>                       <!-- Configuration Items -->
+        <action name="relatedContexts" type="object"/>                         <!-- Contexts -->
+        <action name="madeFrom" type="mpml"/>                                  <!-- Made From -->
+        <action name="relatedCC" type="mpml"/>                     <!-- Control Characteristics -->
+        <action name="actionWhereUsedOperationAssignable" type="mpml"/>	       <!-- Operation Assignable Where Used -->
+        <action name="relatedDeliverables" type="planDeliverable"/>                <!-- Deliverables -->
+        <action name="scheduledDeliverables" type="planActivity"/>             <!-- PlanActivities which act as Scheduled Deliverables. -->
+        <action name="view_plans" type="project"/>
+        <action name="relatedDesignSolution" type="part"/>                     <!-- Design Solutions -->
+        <action name="lowLevelPartEff" type="part"/>                           <!-- Design Solutions -->
+        <action name="distributionList" type="tgt"/>                           <!-- Distribute Targets -->
+        <action name="implementationPlanTable" type="changeNotice"/>           <!-- Implementation Plan -->
+        <action name="relatedManagedCollection" type="managedcollection"/>     <!-- Managed Collection -->
+        <action name="missingObjectsTable" type="persistedCollectable" />      <!-- Missing Object Table -->
+        <action name="relatedNotes" type="note"/>                              <!-- Notes -->
+        <action name="relatedPackages" type="wp"/>                             <!-- Packages -->
+        <action name="predecessors" type="plan"/>                              <!-- Predecessors -->
+        <action name="promotionItemsTable" type="promotionRequest"/>           <!-- Promotion Objects -->
+        <action name="relatedMPMProcessPlans" type="part"/>                    <!-- Process Plan -->
+        <action name="partRelatedRoutingTable" type="baseclient"/>             <!-- Routing Plan -->
+        <action name="relatedPartsEnterpriseData" type="enterprisedata"/>      <!-- Extended Data -->
+        <action name="relatedDocumentsEnterpriseData" type="enterprisedata"/>      <!-- Documents/Extended Data -->
+        <action name="relatedPartsFunctionalData" type="enterprisedata"/>      <!-- Department Data -->
+        <action name="relatedPartsLists" type="part"/>                         <!-- Parts Lists -->
+        <action name="associatedChangeAnalysisTable" type="changeRequest"/>    <!-- Proposals and Investigations -->
+        <action name="publishedContent" type="object"/>                        <!-- Published Content -->
+        <action name="resources" type="plan"/>                                 <!-- Resources -->
+        <action name="actionItemSubjects" type="actionitem"/>                  <!-- Subjects -->
+        <action name="successorList" type="wp"/>                               <!-- Successors -->
+        <action name="supersedes" type="part"/>                                <!-- Supersedes Table -->
+        <action name="contacts" type="supplier"/>                              <!-- Supplier Contacts -->
+        <action name="changeWorkItemsTable" type="changeNotice"/>              <!-- Work Items -->       
+        <action name="impactedObjectsTable" type="impacted"/>                  <!-- Impacted Objects Table -->
+        <action name="impactorObjectsTable" type="impactor"/>                  <!-- Impacted By Objects Table -->
+        <action name="relatedWorkSets" type="workSet"/>                        <!-- Work Sets -->
+        <action name="separator" type="separator"/>                            <!-- ====================================== -->
+        <action name="relatedMeetings" type="meeting"/>                        <!-- Meetings -->
+        <action name="plan_activity_subjects" type="planActivity" />           <!-- Subjects for Scheduled Deliverables -->
+        <action name="separator" type="separator"/>                            <!-- ====================================== -->
+        <action name="traceLink" type="object" />                              <!-- Traces -->
+        <action name="separator" type="separator"/>                            <!-- ====================================== -->
+        <action name="documentrelatedStandardCC" type="document" />                <!-- Control Characteristics -->
+        <action name="documentrelatedOperationHolder" type="document" />           <!-- Operation Holder objects -->
+        <action name="documentrelatedResource" type="document" />                  <!-- Resource objects -->
+    </model>
+
+    <!-- Information page 3rd level navigation Change menu options  -->
+
+    <model name="changes" resourceBundle="com.ptc.core.ui.navigationRB">
+        <description>
+            "Changes" 3rd level nav menu
+        </description>
+        <action name="consolidatedAssociatedChanges" type="change"/>           <!-- Consolidated Associated Changes -->
+        <action name="associatedChangeItemTable" type="change"/>               <!-- Associated Process Changes -->
+        <action name="associatedReferenceItemTable" type="change"/>            <!-- Associated References -->
+        <action name="associatedChangeIssues" type="changeTask"/>              <!-- Issues and Variances -->
+        <action name="relatedChangeNotices" type="change"/>                    <!-- Change Notices --> 
+        <action name="relatedChangeDirectiveTable" type="drawingSet"/>         <!-- CINs -->
+        <action name="impactingDirectiveAndActions" type="changeDirective"/>   <!-- Change Directives -->
+        <action name="generatedChangeActions" type="changeAction"/>            <!-- Display Configurations -->
+        <action name="relatedChangeActions" type="changeAction"/>              <!-- Modification Stack -->
+        <action name="modificationStack" type="changeAction"/>                 <!-- Modification Stack -->
+    </model>
+
+    <!-- Information page 3rd level navigation History menu options  -->
+
+    <model name="history" resourceBundle="com.ptc.core.ui.navigationRB">
+        <description>
+            "History" 3rd level nav menu
+        </description>
+        <action name="timelineHistory" type="history"/>     <!-- Timeline -->
+        <action name="separator" type="separator"/>         <!-- ======================= -->
+        <action name="maturityHistory" type="history"/>     <!-- Maturity History -->
+        <action name="iterationHistory" type="history"/>    <!-- Iteration History -->
+        <action name="revisionHistory" type="history"/>     <!-- Revision History -->
+        <action name="versionHistory" type="history"/>      <!-- Version History -->
+        <action name="separator" type="separator"/>         <!-- ======================= -->
+        <action name="processHistory" type="workflow"/>     <!-- Routing/Process History -->
+        <action name="legacyLCHistory" type="history"/>     <!-- Lifecycle History -->
+        <action name="separator" type="separator"/>         <!-- ======================= -->
+        <action name="moveHistory" type="object"/>          <!-- Move History -->
+        <action name="renameHistory" type="object"/>        <!-- Rename History -->
+        <action name="saveAsHistory" type="history"/>       <!-- Save-As History -->
+        <action name="separator" type="separator"/>         <!-- ======================= -->
+        <action name="alternateHistory" type="history"/>    <!-- Alternate History -->
+        <action name="axlhistory" type="axlentry"/>         <!-- AML/AVL Changes -->
+        <action name="effectivityHistory" type="history"/>  <!-- Effectivitiy History -->
+        <action name="madeFromHistory" type="mpml"/>        <!-- Made From Validity History -->
+        <action name="separator" type="separator"/>         <!-- ======================= -->
+        <action name="configurableRevisionLinkHistory" type="object"/>          <!-- Revision History Objects -->
+    <action name="listSLChangeHistory" type="securityLabels" />
+    </model>
+
+    <!-- Information page 3rd level navigation Collaboration menu options  -->
+
+    <model name="collaboration" resourceBundle="com.ptc.core.ui.navigationRB">
+        <description>
+            "Collaboration" 3rd level nav menu
+        </description>
+        <action name="discuss" type="forum"/>                             <!-- Discussion -->
+        <action name="objectSubscriptions" type="subscription"/>          <!-- Subscriptions -->
+        <action name="listTeamCC" type="team"/>                           <!-- Members -->
+        <action name="projectRevision" type="sandbox"/>                   <!-- Project Status -->
+        <action name="sandboxCheckoutStatus" type="object"/>              <!-- PDM Checkout Status -->
+        <action name="sandboxResultingPDMVersionStatus" type="object"/>   <!-- Resulting PDM Version Status -->
+    </model>
+
+    <model name="prodAnalytics" resourceBundle="com.ptc.core.ui.navigationRB">
+        <description>
+            "Product Analytics" 3rd level nav menu
+        </description>
+        <action name="relatedComplianceSpecs" type="environment"/>
+    <action name="relatedCostAnalytics" type="costAnalytics"/>
+    <action name="relatedLCAAnalytics" type="lcaAnalytics"/>
+    </model>
+
+    <model name="quality" resourceBundle="com.ptc.core.ui.navigationRB">
+        <description>
+            "Quality Tab" 3rd level nav menu
+        </description>
+        <action name="fmeaDetails" type="fmea"/>     <!-- Failure Modes Effects Analysis -->
+        <action name="separator" type="separator"/>
+        <action name="dhfDetails" type="dhf"/>                               <!-- Design History File -->
+        <action name="dmrDetails" type="dmr"/>                               <!-- Device Master Record -->
+        <action name="separator" type="separator"/>
+        <action name="documentTrainingRecords" type="trainingTracking"/>          <!-- Training Records -->
+        <action name="udiSubmissionsTable"      type="udi"/>
+        <action name="regSubmissionPartSummary" type="regmstr_info"/>              <!-- Regulatory Master -->
+    </model>
+
+    <model name="defaultInfoPageTabSet" resourceBundle="com.ptc.core.ui.navigationRB">
+        <description>
+            This is the default action model for the set of tabs at the top of the info page.
+            These submodels and actions become Ext components in infoPage.jsfrag.
+        </description>
+        <submodel name="infoDetails"/>
+        <action name="optionsManagerTab" type="optionmanager"/>
+    </model>
+
+    <model name="infoDetails" resourceBundle="com.ptc.core.ui.navigationRB">
+        <action name="attributes" type="object"/>
+    </model>
+
+    <model name="defaultTOC">
+        <action name="attributes" type="object"/>
+        <action name="primaryAttributes" type="object"/>
+        <action name="visualizationAndAttributes" type="object"/>
+    </model>
+    
+    <model name="security3rdnav" resourceBundle="com.ptc.core.security.securityResource">
+        <action name="listAuthAgreements" type="securityLabels" />
+    </model>
+    
+    <model name="thingworxCustomizeMenu" resourceBundle="com.ptc.core.ui.navigationRB">
+        <description>
+            A thingworx submodel that is empty out of the box.
+            It is a placeholder where custom thingworx actions may be added for demos or by customizers.
+            This model will be put into the "Customize" action model for several of the out of the box types.
+            This makes it possible to override just this model without overriding the entire customize model.
+        </description>
+    </model>
+    <model name="thingworxActionsMenu" resourceBundle="com.ptc.core.ui.navigationRB">
+        <description>
+            A thingworx submodel that is empty out of the box.
+            It is a placeholder where custom thingworx actions may be added for demos or by customizers.
+            This model will be put into the actions menu action model for several of the out of the box types.
+            This makes it possible to override just this model without overriding the entire actions menu model.
+        </description>
+    </model>
+</actionmodels>

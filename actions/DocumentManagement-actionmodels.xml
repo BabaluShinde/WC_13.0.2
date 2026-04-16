@@ -1,0 +1,515 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE actionmodels SYSTEM 'actionmodels.dtd'>
+
+<!-- define the actions on wt.doc.WTDocument -->
+
+<actionmodels resourceBundle="com.ptc.windchill.enterprise.doc.documentResource">
+
+
+
+   <!-- list used for document actions -->
+
+      <model name="docs row actions toolbar" menufor="wt.doc.WTDocument">
+
+         <action name="view" type="object"/>    <!-- Info page -->
+
+         <action name="separator" type="separator"/>
+         <submodel name="thingworxActionsMenu"/>
+         <action name="separator" type="separator"/>
+
+         <action name="download_primary_attachment" type="attachments"/>
+		 
+		 <action name="editname" type="object"/> 							  <!-- Custom action -->
+
+
+         <action name="redirect_primary_attachment" type="attachments"/>
+
+         <action name="separator" type="separator"/>
+
+         <submodel name="docs row actions open"/>
+
+         <action name="separator" type="separator"/>
+
+         <action name="checkin" type="wip"/>       <!-- Check In -->
+
+         <action name="checkin" type="clashDefinition"/> <!-- Enabled only if Clash Definition (replaces wip version) -->
+
+         <action name="checkout" type="object"/>    <!-- Check Out -->
+
+         <action name="checkout_and_download" type="wip"/>       <!-- Check Out and Download -->
+
+         <action name="checkoutAndEdit" type="document"/>  <!-- Check Out and Edit -->
+
+         <action name="checkoutAndEditClashJobDefinition" type="clashDefinition"/>  <!-- Check Out and Edit a Clash -->
+
+         <action name="undocheckout" type="object"/>    <!-- Undo Checkout -->
+
+         <action name="edit" type="document"/> <!-- Edit -->
+
+         <action name="editClashJobDefinition" type="clashDefinition"/>  <!-- Edit a Clash -->
+
+         <action name="viewClashJobDefinition" type="clashDefinition"/>  <!-- View a Clash -->
+
+         <action name="submitClashJobDefinition" type="clashDefinition"/>
+
+         <action name="replace_content" type="wip"/>       <!-- Replace Content -->
+         <action name="REVISEITEMS" type="pdmObject"/> <!-- Revise -->
+         <action name="separator" type="separator"/>
+         <submodel name="docs row actions new"/>
+         <action name="separator" type="separator"/>
+         <action name="copy" type="object"/>       <!-- Copy -->
+         
+         <action name="WFSAVEAS" type="pdmObject"/> <!-- Save As -->
+         
+         <action name="findSimilar" type="partslink" /><!-- Find Similar objects -->
+         
+         <action name="renameDocumentWizard" type="document"/>  <!-- doc specific Rename -->
+
+         <action name="route" type="workflow"/>  <!-- Route ProjectLink -->
+
+         <action name="CONTAINERMOVE" type="pdmObject"/> <!-- Move -->
+
+         <action name="SETSTATE" type="pdmObject"/> <!-- Set State -->
+		 
+         <action name="emailPage" type="document"/> <!-- email Page -->
+
+         <action name="export" type="object"/>    <!-- Export ProjectLink -->
+
+         <action name="EXPORT" type="pdmObject"/> <!-- Export PDMLink -->
+
+         <action name="spreadsheetExport" type="ixb"/> <!-- Export List to Importable Spreadsheet -->
+
+         <action name="MULTI_OBJ_DELETE" type="pdmObject"/> <!-- Delete -->
+
+         <action name="MULTI_OBJ_DELETE_DETAILS" type="pdmObject"/>  <!-- Delete -->
+
+         <action name="deleteIterations" type="object"/>  <!-- Delete all old iterations -->
+
+         <action name="reassignLC" type="lifecycle"/>    <!-- Reassign Life Cycle -->
+
+         <action name="resetTeam" type="team"/>      <!-- Reset Team -->
+
+         <action name="disable" type="document"/>  <!-- Disable template -->
+
+         <action name="enable" type="document"/>  <!-- Enable template -->
+
+         <action name="userInitiatedReplication" type="replication"/>    <!-- Use Initiated Replication -->
+
+         <action name="separator" type="separator"/>
+
+         <submodel name="docs row actions add"/>
+
+         <action name="separator" type="separator"/>
+
+         <action name="SBSendToPdm" type="sandbox"/>      <!-- Send to PDM -->
+
+         <action name="sandboxUndoCheckoutDetails" type="object"/>  <!-- Undo PDM Checkout Details -->
+
+         <action name="sandboxCheckoutShare" type="object"/>    <!-- PDM Checkout when shared -->
+
+         <action name="convertToShare" type="sandbox"/>   <!-- Convert to Share -->
+
+         <action name="removeShare" type="object"/>    <!-- Remove Share -->
+
+         <action name="separator" type="separator"/>
+
+         <submodel name="docs row actions compare"/>
+         
+         <action name="ConfigLinksCollectorDialog" type="pdmObject"/>      <!-- Config Links Collector Dialog -->
+
+         <action name="separator" type="separator"/>
+
+         <action name="DISPLAYRELATEDMANUFACTURINGITEMS" type="object"/>            <!-- MPMLink Display Related Manufacturing items report -->
+
+         <action name="launchFromInfoPage" type="massUpdate"/>                      <!-- Manufacturing Mass Update Action -->
+
+         <action name="batchPrint" type="wvs"/>
+
+         <action name="separator" type="separator"/>
+
+         <action name="markLinkAsSuspect" type="requirement"/>
+
+         <action name="separator" type="separator"/>
+
+         <action name="RefreshAssociationsDB" type="SoftwareBuild"/>    <!-- Update Defect Associations -->
+
+         <action name="separator" type="separator"/>                 <!-- ===================================== -->
+         <action name="associateDistributionTarget" type="tgt"/>     <!-- ESI Associate Distribution Targets (JCA action) -->
+         <action name="sendToDistributionTarget" type="tgt"/> <!-- ESI Send to Distribution Target -->
+         <action name="separator" type="separator"/>                 <!-- ===================================== -->
+	       <includeFilter name="ActionFilterOnProject2State"/>
+         <action name="ManageSecurity"     type="accessPermission"/> <!-- Edit Access Control -->
+         <action name="EDITSECURITYLABELS" type="object"/>           <!-- Edit Security Labels -->                
+         <action name="createSubscription" type="subscription"/>     <!-- Subscribe -->
+         <action name="separator" type="separator" />                <!-- ===================================== -->
+         <action name="manageApplicabilityGWT" type="corestruct"/>   <!-- Manage Applicability Dialog -->
+         <action name="separator" type="separator"/>
+         <action name="track_new_work" type="resourceAssignment" /><!-- Track new Work against subject of deliverable-->
+         <action name="new_plan_activity" type="planActivity" /><!-- New Plan Activity against subject -->                  
+   </model>
+
+    <model name="docs row actions open">
+        <action name="openProductView" type="wvs"/>        <!-- Enabled per User Preference -->
+    </model>
+
+    <model name="relatedParts DescRef actions">
+        <action name="view" type="object"/>        <!-- Info page -->
+        <submodel name="docs row actions open"/>
+        <action name="copy" type="object"/>          <!-- Copy -->
+        <submodel name="docs row actions compare"/>  <!-- Compare -->
+        <action name="createSubscription" type="subscription"/>     <!-- Subscribe -->
+    </model>
+
+    <model name="reference docs row actions">
+
+      <action name="related_addEditCommentWizard" type="document"/>
+
+   </model>
+
+   <model name="docs row actions new">
+         <action name="create" type="changeNotice"/> <!-- Create Change Notice -->
+
+     <action name="create" type="changeRequest"/>   <!-- Create Change Request -->
+
+     <action name="create" type="problemReport"/>   <!-- Create Problem Report -->
+
+     <action name="create" type="softwareIssue"/>   <!-- Create Software Issue -->
+
+     <action name="create" type="variance"/>        <!-- New Variance -->
+
+     <action name="create" type="promotionRequest"/> <!-- Promote -->
+
+     <action name="separator" type="separator" />
+     <action name="create" type="changeReview"/> <!-- Create Change Review -->
+   </model>
+
+   <model name="docs row actions add">
+
+         <action name="SBAddToPrj" type="sandbox"/>      <!-- Add to Project -->
+
+         <action name="addToBaselineSingle" type="baseline"/>     <!-- Add to Baseline -->
+
+     <action name="addToPackageSingle" type="wpcollection"/>
+
+     <action name="addToManagedCollectionSingle" type="managedcollection"/>
+
+         <action name="bookmarkIt" type="bookmark"/>     <!-- add to notebook -->
+
+   </model>
+
+
+
+   <model name="docMasterInfoPageTabSet" resource="com.ptc.core.ui.navigationRB">
+              <submodel name="docMasterInfoDetailsTab"/>
+
+              <submodel name="docMasterInfoHistoryTab"/>
+         </model>
+
+          <model name="docMasterInfoDetailsTab" resourceBundle="com.ptc.core.ui.navigationRB">
+            <action name="primaryAttributes" type="object"/>
+          </model>
+
+
+          <model name="docMasterInfoHistoryTab" resourceBundle="com.ptc.core.ui.navigationRB">
+            <action name="revisionHistory" type="history"/>
+
+          </model>
+
+  <model name="docInfoPageTabSet" resource="com.ptc.core.ui.navigationRB">
+
+
+
+       <submodel name="docInfoDefaultDetails"/>
+
+            <action name="docStructureGWT" type="docsb"/>
+
+         <submodel name="docContentInfoDetails"/>
+
+                 <submodel name="docRelatedObjectsInfo"/>
+
+                 <submodel name="changesTab"/>
+
+
+         <submodel name="docObjectsHistoryTab"/>
+
+         <submodel name="requirementTraceabilityTab"/>
+
+
+   </model>
+
+
+
+   <model name="docInfoDefaultDetails" resourceBundle="com.ptc.core.ui.navigationRB">
+
+
+
+        <action name="primaryAttributes" type="object"/>
+
+        <action name="visualizationAndAttributes" type="object"/>
+
+          <action name="attributes" type="object"/>
+
+        <!-- place holder until defaults are provided -->
+
+   </model>
+
+
+
+
+
+          <model name="docContentInfoDetails" resourceBundle="com.ptc.windchill.enterprise.doc.documentResource">
+
+        <action name="showZip" type="SoftwareBuild"/>
+
+        <action name="primaryContent" type="object"/>
+
+             <action name="attachments" type="object"/>
+
+     <!-- place holder until defaults are provided -->
+
+     </model>
+
+
+
+
+
+     <model name="docRelatedObjectsInfo" resourceBundle="com.ptc.windchill.enterprise.doc.documentResource">
+
+        <action name="whereUsed" type="object"/>
+
+        <action name="relatedDocumentsDocuments" type="document"/>
+
+        <action name="relatedDocumentsReferencedBy" type="document"/>
+
+        <action name="relatedDocumentsParts" type="document"/>
+
+        <action name="distributionList" type="tgt"/>
+        
+        <action name="missingObjectsTable" type="persistedCollectable" />
+
+     <!-- place holder until defaults are provided -->
+
+     </model>
+
+
+
+     <model name="docObjectsHistoryTab" resourceBundle="com.ptc.windchill.enterprise.doc.documentResource">
+
+           <action name="versionHistory" type="history"/>
+
+           <action name="timelineHistory" type="history"/>
+
+        </model>
+
+   <model name="docs row actions compare">
+
+         <action name="wtObjCompare" type="ocmp"/>         <!-- Information Compare -->
+
+   </model>
+
+
+
+
+
+
+
+   <!-- 3rd level nav menu bar for docs -->
+
+   <model name="third_level_nav_doc" defaultActionName="iterationHistory" defaultActionType="history">
+
+       <submodel name="general"/>
+
+       <submodel name="relatedItems"/>
+
+       <submodel name="changes"/>
+
+       <submodel name="history"/>
+
+       <submodel name="collaboration"/>
+
+       <submodel name="security3rdnav"/>                <!-- Security -->
+       <submodel name="configLinks"/>
+       <submodel name="thingworxCustomizeMenu"/>
+       <submodel name="quality"/>
+   </model>
+
+
+
+   <model name="third_level_nav_docMaster">
+
+          <submodel name="general"/>      <!--General-->
+
+          <submodel name="history"/>      <!--History-->
+
+      </model>
+
+
+
+  <model name="relatedDocumentRefToolBar">
+
+        <action name="related_delete_references_doc" type="document" shortcut="true"/>
+
+        <action name="related_copy_references_doc" type="document" shortcut="true"/>
+
+        <action name="related_paste_references_doc" type="document" shortcut="true"/>
+
+        <action name="related_paste_select_references_doc" type="document" shortcut="true"/>
+
+        <action name="separator" type="separator" shortcut="true"/>
+
+        <action name="related_doc_createDocumentWizard" type="document" shortcut="true"/>
+
+        <action name="related_add_references_doc" type="document" shortcut="true"/>
+
+        <action name="actionWhereUsedOperationAssignable" type="mpml"/>
+
+    </model>
+
+
+
+    <model name="relatedDocPartReferencesToolBar">
+
+        <action name="related_delete_references_part" type="part" shortcut="true"/>
+
+        <action name="related_copy_references_part" type="part" shortcut="true"/>
+
+        <action name="related_paste_references_part" type="part" shortcut="true"/>
+
+        <action name="related_paste_select_references_part" type="part" shortcut="true"/>
+
+        <action name="separator" type="separator"/>
+
+        <action name="related_part_create_wizard_doc_references" type="part" shortcut="true"/>
+
+        <action name="related_add_references_docpart" type="part" shortcut="true"/>
+
+    </model>
+
+
+
+    <model name="relatedDocPartDescribesToolBar">
+
+        <action name="related_delete_described_part" type="part" shortcut="true"/>
+
+        <action name="related_copy_references_part" type="part" shortcut="true"/>
+
+        <action name="related_paste_described_part" type="part" shortcut="true"/>
+
+        <action name="related_paste_select_described_part" type="part" shortcut="true"/>
+
+        <action name="separator" type="separator"/>
+
+        <action name="related_part_create_wizard_doc_described" type="part" shortcut="true"/>
+
+        <action name="related_add_described_docpart" type="part" shortcut="true"/>
+
+    </model>
+
+
+
+    <model name="addEditCommentWizardButtons">
+
+        <action name="okButton" type="object"/>
+
+        <action name="cancelButton" type="object"/>
+
+   </model>
+
+
+
+   <model name="multi doc create table toolbar actions">
+
+        <action name="remove" type="object" shortcut="true"/>
+
+        <action name="separator" type="separator" shortcut="true"/>
+
+        <action name="addFileAttachment" type="attachments" shortcut="true"/>
+
+        <action name="addUrlAttachment" type="attachments" shortcut="true"/>
+
+        <action name="addEsaAttachment" type="attachments" shortcut="true"/>
+
+        <action name="AddSCMAttachments" type="scmi" shortcut="true"/>
+
+        <action name="addNoAttachment" type="attachments" shortcut="true"/>
+
+        <action name="editProperties" type="object" shortcut="true"/>
+
+   </model>
+
+   <model name="DnD multi doc create table toolbar actions">
+
+        <action name="editProperties" type="object" shortcut="true"/>
+
+   </model>
+   
+   <model name="DnD folderbrowser multi doc create table toolbar actions">
+
+        <action name="remove" type="object" shortcut="true"/>
+
+   </model>
+
+
+
+   <!-- DSB table See Actions action model -->
+
+   <model name="dsb document actions">
+
+      <action name="checkout" type="dsb"/>
+
+      <action name="checkin" type="dsb"/>
+
+      <action name="checkout_and_download" type="dsb"/>
+
+      <action name="edit" type="dsb"/>
+
+      <action name="PasteInDSB" type="document"/>
+
+      <action name="DOCSTRCTADDCHILDREN" type="document"/>
+
+      <action name="DOCSTRCTREORDERCHILDREN" type="document"/>
+
+      <action name="DOCSTRCTREMOVECHILDREN" type="document"/>
+
+      <action name="download_primary_attachment" type="attachments"/>
+
+      <action name="redirect_primary_attachment" type="attachments"/>
+
+
+
+  </model>
+
+
+
+  <!-- "Edit Multiple Documents", Documents table actions -->
+
+  <model name="edit multi doc actions">
+
+      <action name="editProperties" type="object"/>
+
+  </model>
+
+
+
+  <model name="CheckInEditWizardButtons">
+
+      <action name="CheckinNextButton" type="workinprogress"/>
+
+      <action name="editCancelButton" type="object"/>
+
+  </model>
+    <model name="CheckInWizardButtonsNoSave">
+        <action name="prevButton" type="object" />
+        <action name="nextButton" type="object" />
+        <action name="checkinButton" type="object" />
+        <action name="editCancelButton" type="object" />
+    </model>
+
+   <model name="CreateMultiDocsWizardButtonsNoApply">
+      <action name="prevButton"    type="object"/>
+      <action name="nextButton"    type="object"/>
+      <action name="okButton"      type="document"/>
+      <action name="cancelButton"  type="object"/>
+   </model>
+</actionmodels>

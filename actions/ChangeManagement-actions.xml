@@ -1,0 +1,986 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE listofactions SYSTEM '../../actions.dtd'>
+
+<listofactions>
+
+
+
+   <objecttype name="problemReport" class="wt.change2.WTChangeIssue" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+
+      <action name="create" uicomponent="CREATE_PROBLEMREPORT" ajax="component">
+
+         <description>Create a problem report</description>
+
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.CreateProblemReportFormProcessor" method="execute" windowType="popup"/>
+         <includeFilter name="OptionSetLocalRuleContextFilter"/>
+         <includeFilter name="restrictGuestMembers"/>
+         <includeFilter name="sandboxSharingValidationSimple"/>
+         <includeFilter name="manAuthorized"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+      </action>
+      <action name="edit" ajax="row">
+         <description>Edit a problem report</description>
+
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.EditProblemReportFormProcessor" method="execute" windowType="popup"/>
+
+         <includeFilter name="sandboxSharingValidationSimple"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+
+      </action>
+
+      <action name="editModifyContentOnly" id="editModifyContentOnly">
+
+         <description>Edit only the content of a problem report</description>
+
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.EditModifyContentOnlyProcessor" method="execute" windowType="popup" url="netmarkets/jsp/change/editContentWizard.jsp"/>
+
+         <includeFilter name="sandboxSharingValidationSimple"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+
+      </action>
+
+   </objecttype>
+
+
+
+   <objecttype name="changeTask" class="wt.change2.WTChangeActivity2" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+
+      <action name="create" ajax="page">
+         <description>Create a change task</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.CreateChangeTaskFormProcessor" method="execute" windowType="popup" url="?mode=CREATE"/>
+         <includeFilter name="OptionSetLocalRuleContextFilter"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+      </action>
+
+      <action name="wizardCreate" ajax="row">
+         <description>Create a change task</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.CreateChangeTaskFormProcessor" method="execute" windowType="lightbox" url="?mode=CREATE&amp;isIframeWizard=true&amp;resizeIframeWizard=false"/>
+      </action>
+
+      <action name="removeChangeTask" renderType="GENERAL">
+           <description>Remove a change task from a change notice</description>
+           <command onClick="removeChangeTask(event)" windowType="no_content"/>
+      </action>
+  
+      <action name="removeNewChangeTask" renderType="GENERAL">
+           <description>Remove a change task from a change notice</description>
+           <command onClick="removeChangeTask(event)" windowType="no_content"/>
+      </action>
+
+      <action name="editOnCreateChangeTask" ajax="row">
+         <description>Edit a change task while creating a change notice</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.CreateChangeTaskFormProcessor" method="execute" windowType="lightbox" url="netmarkets/jsp/changeTask/wizardCreate.jsp?isIframeWizard=true&amp;resizeIframeWizard=false"/>
+      </action>
+
+      <action name="edit" ajax="page">
+         <description>Edit a change task</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.EditChangeTaskFormProcessor" method="execute" windowType="popup"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+         <includeFilter name="hideForChangeTemplates"/> 
+      </action>
+
+      <action name="wizardEdit" ajax="row">
+         <description>Edit a change task</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.EditChangeTaskFormProcessor" method="execute" windowType="lightbox" url="netmarkets/jsp/changeTask/edit.jsp?isIframeWizard=true&amp;resizeIframeWizard=false"/>
+         <includeFilter name="hideForChangeTemplates"/> 
+      </action>
+      
+	  <action name="createTemplate" ajax="page">
+         <description>Create a change task template</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.template.CreateChangeTaskTemplateFormProcessor" method="execute" windowType="popup" url="?operation=CREATE&amp;skipRequiredFieldValidation=true"/>
+         <includeFilter name="showNewActionPreValidation"/>
+      </action>     
+      
+	  <action name="wizardCreateTemplate" ajax="row">
+         <description>Create a change task template</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.template.CreateChangeTaskTemplateFormProcessor" method="execute" windowType="lightbox" url="?mode=CREATE&amp;isIframeWizard=true&amp;resizeIframeWizard=false&amp;skipRequiredFieldValidation=true"/>
+         <includeFilter name="showNewActionPreValidation"/>
+      </action>   
+                 
+      <action name="editOnCreateChangeTaskTemplate" ajax="row">
+         <description>Edit a change task template while creating a change notice template</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.template.CreateChangeTaskTemplateFormProcessor" method="execute" windowType="lightbox" url="netmarkets/jsp/changeTask/wizardCreateTemplate.jsp?isIframeWizard=true&amp;resizeIframeWizard=false"/>
+      </action>   
+     
+      <action name="editTemplate" ajax="page">
+         <description>Edit a change task template </description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.template.EditChangeTaskTemplateFormProcessor" method="execute" windowType="popup"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+         <includeFilter name="hideForChangeObjects"/>
+      </action> 
+	  
+      <action name="wizardEditTemplate" ajax="row">
+         <description>Edit a change task template </description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.template.EditChangeTaskTemplateFormProcessor" method="execute" windowType="lightbox" url="netmarkets/jsp/changeTask/editTemplate.jsp?isIframeWizard=true&amp;resizeIframeWizard=false"/>
+         <includeFilter name="hideForChangeObjects"/>         
+      </action>         	  
+
+      <action name="newOneOffVersionInChange" selectRequired="true" ajax="row" renderType="GENERAL" uicomponent="ONEOFFVESRION_IN_CHANGE">
+        <description>New one-off version for affected objects</description>
+        <command onClick="OneOffVersionHandler.processSelected(event)" windowType="no_content"/>
+        <includeFilter name="newOneOffVersionInChangeFilter"/>
+      </action>
+
+      <action name="collectItems_AffectedItems" renderType="GENERAL" selectRequired="true">
+        <description>Collect items to be added to the affected objects</description>
+        <command onClick="openCollectorPicker(&apos;CollectItemsFromChangeItem_AffectedItems&apos;,event)" windowType="no_content"/>
+      </action>
+      
+      <action name="collectItems_ReviewItems" renderType="GENERAL" selectRequired="true">
+        <description>Collect items to be added to the affected objects</description>
+        <command onClick="openCollectorPicker(&apos;CollectItemsFromChangeItem_AffectedItems&apos;,event)" windowType="no_content"/>
+      </action>
+
+      <action name="collectItems_ResultingItems" renderType="GENERAL" selectRequired="true">
+        <description>Collect items to be added to the resulting objects</description>
+        <command onClick="openCollectorPicker(&apos;CollectItemsFromChange_ResultingItems&apos;,event)" windowType="no_content"/>
+        <includeFilter name="addResultingItemInChangeFilter" />
+      </action>
+
+      <action name="addResultingItems" ajax="row" renderType="GENERAL" uicomponent="ADD_RESULTING_OBJECTS">
+         <description>Add resulting objects</description>
+         <command windowType="new"/>
+         <includeFilter name="addResultingItemInChangeFilter" />
+      </action>
+
+      <action name="removeResultingItems" ajax="row" renderType="GENERAL">
+         <description>Remove resulting data</description>
+         <command onClick="changeRowHandler.removeResultingObjects(event)" windowType="no_content"/>
+      </action>
+
+      <action name="affectedAndResultingItems" id="affectedAndResultingItems">
+         <description>Affected and resulting objects</description>
+         <includeFilter name="hideForChangeTemplates"/> 
+      </action>
+
+      <action name="affectedAndResultingItemsStep" id="affectedAndResultingItems" preloadWizardPage="false" required="false">
+         <description>Affected and resulting objects wizard step</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.delegates.AffectedAndResultingItemsFormDelegate" windowType="wizard_step"/>
+      </action>
+
+      <action name="associatedChangeIssuesStep" id="associatedChangeIssuesStep" preloadWizardPage="false" required="false">
+         <description>Associated change issue wizard step</description>
+         <component name="associatedChangesStep"/>
+         <includeFilter name="legacyChangeFilter"/>
+      </action>
+
+      <action name="associatedChangeIssues">
+         <description>Associated change issue table</description>
+         <component name="changemanagement.relatedchanges.changeIssues"/>
+         <includeFilter name="hideForChangeTemplates"/> 
+      </action>
+
+      <action name="setReleaseTarget" uicomponent="SET_RELEASE_TARGET" selectRequired="true" ajax="component">
+         <description>Allows change administrators to set release target on one or more resulting objects at time.</description>
+         <command onClick="PTC.change.setReleaseTarget(event)" windowType="no_content"/>
+         <includeFilter name="restrictGuestMembers"/>
+      </action>
+      
+      <action name="reviewTask_ResultingDataTable">
+         <description>Resulting data table for a review workflow task</description>
+         <component name="workflowTask.pbo" urlParams="pboCompId=changeTask.resultingItemsTable&amp;useTypeBased=true&amp;changeableTableId=reviewTask.resultingItems&amp;changeableLabel=com.ptc.windchill.enterprise.change2.change2ClientResource.REVIEW_TASK_RESULTING_ITEMS_TABLE&amp;enableAddToWorkspace=true"/>
+         <includeFilter name="configurableTypeBaseFilter"/>
+      </action>
+
+      <action name="completeTask_ResultingDataTable">
+         <description>Resulting data table for a complete workflow task</description>
+         <component name="workflowTask.pbo" urlParams="pboCompId=changeTask.resultingItemsTable&amp;useTypeBased=true&amp;changeableTableId=completeTask.resultingItems&amp;changeableLabel=com.ptc.windchill.enterprise.change2.change2ClientResource.COMPLETE_TASK_RESULTING_ITEMS_TABLE&amp;enableAddToWorkspace=true"/>
+         <includeFilter name="configurableTypeBaseFilter"/>
+      </action>
+      
+      <action name="workItem_AffectedDataTable">
+         <description>Affected data table for a workflow task</description>
+         <component name="workflowTask.pbo" urlParams="pboCompId=changeTask.affectedItemsTable&amp;useTypeBased=true&amp;enableAddToWorkspace=true"/>
+         <includeFilter name="configurableTypeBaseFilter"/>
+      </action>
+      
+      <action name="workItem_ResultingDataTable">
+         <description>Resulting data table for a workflow task</description>
+         <component name="workflowTask.pbo" urlParams="pboCompId=changeTask.resultingItemsTable&amp;useTypeBased=true&amp;enableAddToWorkspace=true"/>
+         <includeFilter name="configurableTypeBaseFilter"/>
+      </action>
+
+      <action name="addToChangeTask" multiselect="true" selectRequired="true">
+          <description>Add to resulting objects of a change task</description>
+          <command class="com.ptc.windchill.enterprise.change2.forms.processors.AddToChangeTaskFormProcessor" windowType="popup" />
+      </action>
+        
+      <action name="findChangeTaskStep" required="true" afterJS="PTC.addToChangeTask.ensureValidChangeTaskSelection" afterVK="addToResultingObjectsStepValidator">
+          <description>Wizard step to find a change task</description>
+          <component name="changeManagement.findChangeTasks" windowType="wizard_step"/>
+      </action>
+      
+      <action name="addToResultingObjectsStep" preloadWizardPage="false" required="false" beforeJS="PTC.addToChangeTask.validateChangeTaskReservation">
+          <description>Wizard step to add objects to change task resulting objects table</description>
+          <component name="changeTask.resultingItemsTable" typeBased="true" windowType="wizard_step" class="com.ptc.windchill.enterprise.change2.forms.delegates.ChangeTaskResultingItemsFormDelegate" urlParams="typeIdForTypeLookup=wt.change2.ChangeActivity2"/>
+      </action>
+      
+      <action name="changeSaveAs" checkaccess="true" enabledwhensuspended="true" renderType="PDM" uicomponent="SAVE_AS_IN_CHANGE">
+         <command windowType="popup" class="java.lang.Object" method="changeSaveAs"/>
+         <includeFilter name="saveAsInChangeFilter" />
+      </action>      
+      
+   </objecttype>
+
+   <objecttype name="changeable" class="wt.change2.Changeable2" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+
+      <action name="addAffectedData" ajax="row" renderType="GENERAL">
+         <description>Add affected data</description>
+         <command windowType="new"/>
+      </action>
+
+      <action name="addAffectedEndItems" ajax="row" renderType="GENERAL">
+         <description>Add affected end items</description>
+         <command windowType="popup"/>
+      </action>
+
+      <action name="removeAffectedData" renderType="GENERAL" ajax="row">
+         <description>Remove affected data</description>
+         <command onClick="changeRowHandler.removeAffectedObjects(event)" windowType="no_content"/>
+      </action>
+
+      <action name="removeAffectedEndItems" renderType="GENERAL" ajax="row">
+         <description>Remove affected end items</description>
+         <command onClick="changeRowHandler.remove(event, 'removeAffectedEndItems')" windowType="no_content"/>
+      </action>	  
+
+      <action name="editModifyContentOnly" id="editModifyContentOnly">
+         <description>Edit content only</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.EditModifyContentOnlyProcessor" method="execute" windowType="popup" url="netmarkets/jsp/change/editContentWizard.jsp"/>
+         <includeFilter name="sandboxSharingValidationSimple"/>
+      </action>
+
+      <action name="addReviewData" ajax="row" renderType="GENERAL">
+         <description>Add affected data</description>
+         <command windowType="new"/>
+      </action>
+   </objecttype>
+
+
+
+   <objecttype name="change" class="wt.fc.Persistable" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <description>Related change objects</description>
+
+      <action name="associatedChangeItemsStep" id="associatedChangeItemsStep" preloadWizardPage="false" required="false">
+         <description>Associated change items step</description>
+         <component name="associatedChangesStep"/>
+      </action>
+
+      <action name="relatedChangeRequests" uicomponent="THIRD_LEVEL_RELATED_CHANGES">
+          <component name="changemanagement.relatedchanges.changeRequests"/>
+          <includeFilter name="hideForChangeTemplates"/> 
+      </action>
+      
+      <action name="workItem_RelatedChangeRequestsTable">
+         <description>Related change requests table for a workflow task</description>
+         <component name="workflowTask.pbo" urlParams="pboCompId=changemanagement.relatedchanges.changeRequests&amp;enableAddToWorkspace=true"/>
+         <includeFilter name="configurableTypeBaseFilter"/>
+      </action>
+
+       <action name="consolidatedAssociatedChanges" uicomponent="THIRD_LEVEL_RELATED_CHANGES">
+          <component name="changemanagement.relatedchanges.consolidatedAssociatedChanges"/>
+      </action>
+      
+      <action name="relatedChangeIssues" uicomponent="THIRD_LEVEL_RELATED_CHANGES">
+          <component name="changemanagement.relatedchanges.changeIssues"/>
+      </action>
+
+      <action name="relatedAffectedByChangeNotices" uicomponent="THIRD_LEVEL_RELATED_CHANGES">
+          <component name="changemanagement.relatedchanges.affectedByChangeNotices"/>
+      </action>
+
+      <action name="relatedResultingFromChangeNotices" uicomponent="THIRD_LEVEL_RELATED_CHANGES">
+          <component name="changemanagement.relatedchanges.changeRequests.resultingFromChangeNotices"/>
+      </action>
+
+      <action name="relatedChangeNotices" uicomponent="THIRD_LEVEL_RELATED_CHANGES">
+          <component name="changemanagement.relatedchanges.changeRequests.changeNotices"/>
+      </action>
+
+      <action name="changesMiniNavigatorTable" uicomponent="THIRD_LEVEL_RELATED_CHANGES">
+          <component name="changeMiniNavigator"/>
+      </action>
+
+      <action name="viewDispositions">
+         <description>View the dispositions for affected objects</description>
+         <command windowType="new"/>
+      </action>
+
+      <action name="setDispositionPicker" selectRequired="true">
+         <description>Set the disposition for affected objects</description>
+         <command onClick="ptcChgLAH.handleSelectAction(event, false)" class="com.ptc.windchill.enterprise.change2.forms.processors.ChangeLinkAttributeProcessor" windowType="new"/>
+      </action>
+
+      <action name="setDispositionPickerStep" selectRequired="true" renderType="GENERAL">
+         <description>Step for setting the disposition for affected objects</description>
+      </action>
+
+      <action name="changeBaselineReportGWT" uicomponent="VIEW_CHANGE_BASELINE_REPORT">
+          <description>Action to show the Change Management Baseline report</description>
+          <command class="com.ptc.cat.ui.client.action.LaunchURLAction"/>
+          <includeFilter name="com.ptc.cat.ui.client.internal.action.OneSelectionFilter"/>
+          <includeFilter name="com.ptc.cat.ui.client.internal.action.IsNotUnspecifiedIterationFilter"/>          
+      </action>  
+
+  	  <action name="launchStructureCompareForChange" multiselect="true" selectRequired="true" checkaccess="true">>
+        <command windowType="popup"/>
+        <includeFilter name="launchStructureCompareForChangeFilter"/>
+        <includeFilter name="hideForObjectInProject" onClick="onClickValidation(event,&apos;launchStructureCompareForChange&apos;)"/>
+      </action>
+      <action name="launchStructureCompareForChangeRowAction" multiselect="true" selectRequired="true" checkaccess="true">>
+        <command windowType="popup" url="netmarkets/jsp/change/launchStructureCompareForChange.jsp"/>
+        <includeFilter name="launchStructureCompareForChangeRowActionFilter"/>
+        <includeFilter name="hideForObjectInProject" onClick="onClickValidation(event,&apos;launchStructureCompareForChangeForRow&apos;)"/>
+      </action>
+      
+      <action name="createBOMRedline" uicomponent="CREATE_BOM_REDLINE" multiselect="false" selectRequired="true" checkaccess="true" windowType="popup">
+        <command class="com.ptc.windchill.enterprise.change2.forms.processors.CreateBOMRedlineFormProcessor" method="execute"/>
+        <includeFilter name="createBOMRedlineValidator"/>
+      </action> 
+      
+      <action name="openBOMRedline" uicomponent="OPEN_BOM_REDLINE" multiselect="false" selectRequired="true" checkaccess="true" windowType="popup">
+        <command class="com.ptc.windchill.enterprise.change2.forms.processors.OpenBOMRedlineFormProcessor" method="execute"/>
+        <includeFilter name="openBOMRedlineValidator"/>
+      </action> 
+      
+      <action name="viewBOMRedline" uicomponent="VIEW_BOM_REDLINE" multiselect="false" selectRequired="true" checkaccess="true" windowType="popup">
+        <command class="com.ptc.windchill.enterprise.change2.forms.processors.ViewBOMRedlineFormProcessor" method="execute"/>
+        <includeFilter name="viewBOMRedlineValidator"/>
+      </action>
+      
+      <action name="deleteBOMRedline" uicomponent="DELETE_BOM_REDLINE" multiselect="true" selectRequired="true" checkaccess="true">
+        <command class="com.ptc.windchill.enterprise.change2.forms.processors.DeleteBOMRedlineFormProcessor" method="execute" onClick="JCAConfirm(event,&apos;com.ptc.core.ui.confirmationMessagesRB.DELETE&apos;)"/>
+        <includeFilter name="deleteBOMRedlineValidator"/>
+      </action>  
+
+      <action name="launchStructureCompareForChange_Step">
+         <command class="null" method="null"/>
+      </action>
+  
+      <action name="associatedChangeItemTable">
+         <description>Associated change process items table</description>
+         <component name="changemanagement.associatedchangesprocesstable" windowType="page"/>
+         <supportedTypes>
+            <type value="wt.change2.VersionableChangeItem"/>
+         </supportedTypes>
+         <includeFilter name="hideForChangeTemplates"/>
+      </action>
+
+      <action name="workItem_associatedChangeItemTable" description="">
+         <description>Associated change items table for Work Item</description>
+         <component name="workflowTask.pbo" urlParams="pboCompId=changemanagement.associatedchangesprocesstable&amp;useTypeBased=false"/>
+         <includeFilter name="configurableTypeBaseFilter"/>
+      </action>	  
+
+      <action name="associatedReferenceItemTable">
+         <description>Associated change reference items table</description>
+         <component name="changemanagement.associatedchangesreferencetable" windowType="page"/>
+         <includeFilter name="flexibleChangeTypeFilter"/>
+         <includeFilter name="hideForChangeTemplates"/>         
+      </action>
+
+      <action name="workItem_associatedReferenceItemTable" description="">
+         <description>Associated change reference items table for Work Item</description>
+         <component name="workflowTask.pbo" urlParams="pboCompId=changemanagement.associatedchangesreferencetable&amp;useTypeBased=false"/>
+         <includeFilter name="configurableTypeBaseFilter"/>
+      </action>	  
+
+      <action name="workItem_changeWorkItemsTable">
+         <description>Tasks for Change Process table for Work item</description>
+         <component name="workflowTask.pbo" urlParams="pboCompId=changeManagement.changeWorkItems&amp;useTypeBased=false"/>
+         <includeFilter name="configurableTypeBaseFilter"/>         
+      </action>
+      
+      <action name="setChangeIntent" selectRequired="true" uicomponent="SET_CHANGE_INTENT">
+         <description>Set the change intent for affected objects</description>
+         <command onClick="ptcChgLAH.handleSelectAction(event, false)" class="com.ptc.windchill.enterprise.change2.forms.processors.ChangeLinkChangeIntentAttributeProcessor" windowType="new"/>
+      </action>
+      
+      <action name="setChangeIntentStep" selectRequired="true" renderType="GENERAL">
+         <description>Step for setting the change intent for affected objects</description>
+      </action>
+      
+   </objecttype>
+
+   <objecttype name="change" class="wt.change2.ChangeItem" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+
+      <action name="affectedDataTable">
+         <description>Affected data table</description>
+         <component name="changemanagement.affecteddatatable" typeBased="true"/>
+      </action>
+      
+      <action name="reviewDataTable">
+         <description>Review data table</description>
+         <component name="changemanagement.affecteddatatable" typeBased="true"/>
+      </action>
+
+      <action name="affectedEndItemsTable">
+         <description>Affected end items table</description>
+      </action>
+
+      <action name="associatedChangesTable">
+         <description>Associated changes table</description>
+         <includeFilter name="hideForChangeTemplates"/>   
+      </action>
+
+      <action name="addAssociatedChangeIssues" ajax="row" renderType="GENERAL">
+       <description>Associate a change issue</description>
+       <command windowType="new"/>
+       <includeFilter name="legacyChangeFilter"/>
+      </action>
+
+      <action name="addAssociatedChangeItems" ajax="row" renderType="GENERAL">
+       <description>Item picker action to add associated change objects</description>
+       <command windowType="new"/>
+       <includeFilter name="flexibleChangeFilter"/>
+      </action>	  
+      
+      <action name="addReferencedChangeItems" ajax="row" renderType="GENERAL">
+       <description>Item picker action to add referenced change objects</description>
+       <command windowType="new" url="netmarkets/jsp/change/addAssociatedChangeItems.jsp"/>
+      </action>	
+      
+      <action name="addExternalReferencedChangeItems" ajax="row" renderType="GENERAL">
+       <description>Item picker action to add Remote change objects</description>
+       <command url="netmarkets/jsp/change/addExternalAssociatedChangeItems.jsp" windowType="new" />
+      </action>
+
+      <action name="addExternalProcessChangeItems" ajax="row" renderType="GENERAL">
+       <description>Item picker action to add Remote associated change objects</description>
+       <command url="netmarkets/jsp/change/addExternalAssociatedChangeItems.jsp" windowType="new" />
+      </action>
+      
+      <action name="changeCopyChangeItems" multiselect="true" selectRequired="true" uicomponent="COPY">
+       <description>Copy Change Objects</description>
+       <command class="com.ptc.netmarkets.model.NmObjectCommands" method="list_copy" onClick="onClickValidation( event, 'changeCopyChangeItems' )" windowType="no_content"/>
+      </action>
+      
+      
+      <action name="affectedDataStep" id="affectedDataStep" preloadWizardPage="false" required="false">
+         <description>Affected data wizard step</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.delegates.AffectedDataFormDelegate" windowType="wizard_step"/>
+      </action>
+
+      <action name="reviewItemStep" id="reviewItemStep" preloadWizardPage="false" required="false">
+         <description>Review Item wizard step</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.delegates.ReviewItemFormDelegate" windowType="wizard_step"/>
+      </action>
+
+      <action name="affectedEndItemsStep" id="affectedEndItemsStep" preloadWizardPage="false" required="false">
+         <description>Affected end items wizard step</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.delegates.AffectedEndItemsFormDelegate" windowType="wizard_step"/>
+      </action>
+
+      <action name="reissueStep" id="reissueStep">
+         <description>Reissue step</description>
+         <component name="changemanagement.reissuestep" windowType="wizard_step"/>
+      </action>
+
+      <action name="reissueChange" ajax="false">
+         <description>Reissue change</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.delegates.ReissueFormDelegate" method="execute" windowType="popup"/>
+         <includeFilter name="hideForChangeTemplates"/>
+         <includeFilter name="hideForAdminLocked"/>
+      </action>
+
+      <action name="collectItems_AffectedItems" renderType="GENERAL" selectRequired="true">
+         <description>Collect affected objects</description>
+         <command onClick="openCollectorPicker(&apos;CollectItemsFromChangeItem_AffectedItems&apos;, event)" windowType="no_content"/>
+        <includeFilter name="hideForObjectInProject"/>
+      </action>
+      
+       <action name="collectItems_ReviewItems" renderType="GENERAL" selectRequired="true">
+         <description>Collect affected objects</description>
+         <command onClick="openCollectorPicker(&apos;CollectItemsFromChangeItem_AffectedItems&apos;, event)" windowType="no_content"/>
+        <includeFilter name="hideForObjectInProject"/>
+      </action>
+
+      <action name="reviseChangeItems" id="reviseChangeItems" ajax="row">
+         <description>Revise change item</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.delegates.ReissueFormDelegate" method="execute"/>
+         <includeFilter name="sandboxSharingValidationSimple"/>
+         <includeFilter name="hideForAdminLocked"/>
+      </action>
+
+      <action name="deleteChangeItem" ajax="row" uicomponent="DELETE">
+         <description>Delete change item</description>
+         <command class="com.ptc.windchill.enterprise.object.commands.DeleteObjectCommands" method="delete" onClick="JCAConfirm(event,&apos;com.ptc.core.ui.confirmationMessagesRB.DELETE&apos;)"/>
+         <includeFilter name="sandboxSharingValidationSimple"/>
+      </action>
+
+      <action name="changePaste" ajax="row">
+         <description>Paste select changeables</description>
+         <command class="com.ptc.windchill.enterprise.change2.commands.PasteChangeableCommands" method="paste"/>
+         <includeFilter name="addResultingItemInChangeFilter" />
+      </action>
+
+       <action name="changeEndItemPaste" ajax="row">
+         <description>Paste select end items</description>
+         <command class="com.ptc.windchill.enterprise.change2.commands.PasteEndItemCommands" method="paste"/>
+      </action>
+
+      <action name="changePasteSelect" uicomponent="PASTE" ajax="row">
+          <description>Selection paste changeables</description>
+          <command class="com.ptc.windchill.enterprise.change2.commands.PasteChangeableCommands" method="pasteSelect" windowType="new"/>
+          <includeFilter name="addResultingItemInChangeFilter" />
+      </action>
+
+      <action name="changeEndItemsPasteSelect" uicomponent="PASTE" ajax="row">
+          <description>Selection paste end items</description>
+          <command class="com.ptc.windchill.enterprise.change2.commands.PasteEndItemCommands" method="pasteSelect" windowType="new" url="netmarkets/jsp/object/pasteSelect.jsp"/>
+      </action>
+
+      <action name="okButton" id="PJL_wizard_ok">
+        <description>Ok button for change wizards</description>
+        <command class="" method="" windowType="page" url="javascript:ChangeManagementSubmitHandler.submitChangeWizard();"/>
+      </action>
+
+      <action name="summaryReport" id="summaryReport">
+          <description>Summary</description>
+          <command url="servlet/TypeBasedIncludeServlet?contextAction=summaryReport" windowType="popup"/>
+         <includeFilter name="hideForChangeTemplates"/>
+      </action>
+
+      <action name="relatedWorkitems">
+          <description>WorkItem plan table</description>
+          <command windowType="page" url="?tlnAction=changeWorkItemsTable&amp;tlnType=changeNotice"/>
+      </action>  
+
+      <action name="setChangeContextWizStep" id="setContextWizStep" preloadWizardPage="true" required="true" afterVK="setChangeContextWizStep">
+          <command windowType="wizard_step"/>
+      </action>        
+
+      <action name="changePasteChangeItems" ajax="row">
+
+         <description>Paste change objects</description>
+
+         <command class="com.ptc.windchill.enterprise.change2.commands.PasteChangeItemCommands" method="paste"/>
+
+      </action>
+
+      <action name="changePasteSelectChangeItems" uicomponent="PASTE" ajax="row">
+
+         <description>Paste select change objects</description>
+
+         <command class="com.ptc.windchill.enterprise.change2.commands.PasteChangeItemCommands" method="pasteSelect" windowType="new" url="netmarkets/jsp/change/changePasteSelect.jsp"/>
+
+      </action>
+
+      <action name="enableChangeTemplate" ajax="row">
+         <description>Action to enable a change template</description>
+         <command class="com.ptc.windchill.enterprise.change2.commands.ChangeTemplateCommands" method="enable"/>
+      </action>
+  
+      <action name="disableChangeTemplate" ajax="row">
+         <description>Action to disable a change template</description>
+         <command class="com.ptc.windchill.enterprise.change2.commands.ChangeTemplateCommands" method="disable"/>
+      </action>
+      
+      <action name="startExecution" uicomponent="START_CHANGE_EXECUTION" ajax="row">
+         <description>Start Execution</description>
+         <command class="com.ptc.windchill.enterprise.change2.StartExecutionPendingStateChange" method="fireEventOnAction" onClick="validateStartExecution(event, 'startExecution')"/>
+      </action>
+
+   </objecttype>
+
+   <objecttype name="changeReview" class="wt.change2.WTChangeReview" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+      <action name="create" uicomponent="CREATE_CHANGEREVIEW" ajax="component">
+         <description>Create a change review</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.CreateChangeReviewFormProcessor" method="execute" windowType="popup"/>
+         <includeFilter name="changeReviewFilter"/>
+         <includeFilter name="OptionSetLocalRuleContextFilter"/>
+         <includeFilter name="sandboxSharingValidationSimple"/>
+         <includeFilter name="restrictGuestMembers"/>
+         <includeFilter name="manAuthorized"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+      </action>
+
+      <action name="edit" uicomponent="EDIT_CHANGEREVIEW" ajax="row">
+         <description>Edit a change review</description>
+
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.EditChangeReviewFormProcessor" method="execute" windowType="popup"/>
+
+         <includeFilter name="sandboxSharingValidationSimple"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+
+      </action>
+
+      <action name="editModifyContentOnly" id="editModifyContentOnly">
+
+         <description>Edit only the content of a change review</description>
+
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.EditModifyContentOnlyProcessor" method="execute" windowType="popup" url="netmarkets/jsp/change/editContentWizard.jsp"/>
+
+         <includeFilter name="sandboxSharingValidationSimple"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+
+      </action>
+      
+      <action name="workItem_AffectedDataTable">
+         <description>Affected data table for a workflow task</description>
+         <component name="workflowTask.pbo" urlParams="pboCompId=changemanagement.affecteddatatable&amp;useTypeBased=true&amp;enableAddToWorkspace=true"/>
+         <includeFilter name="configurableTypeBaseFilter"/>         
+      </action>
+
+      <action name="workItem_ActionItemsTable">
+         <description>Action Items table for a workflow task</description>
+         <component name="workflowTask.pbo" urlParams="pboCompId=netmarkets.actionitem.list"/>
+         <includeFilter name="configurableTypeBaseFilter"/>         
+      </action>
+   </objecttype>
+
+   <objecttype name="changeRequest" class="wt.change2.WTChangeRequest2" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+
+      <action name="associatedChangeAnalysisTable">
+
+         <description>Associated change analysis (change investigation or change proposal) table</description>
+
+        <component name="changeRequest.AssociatedChangeAnalysis" windowType="page"/>
+
+      </action>
+
+      <action name="create" uicomponent="CREATE_CHANGEREQUEST" ajax="component">
+
+         <description>Create a change request</description>
+
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.CreateChangeRequestFormProcessor" method="execute" windowType="popup"/>
+         <includeFilter name="OptionSetLocalRuleContextFilter"/>
+         <includeFilter name="sandboxSharingValidationSimple"/>
+         <includeFilter name="restrictGuestMembers"/>
+         <includeFilter name="manAuthorized"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+      </action>
+      <action name="edit" ajax="row">
+         <description>Edit a change request</description>
+
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.EditChangeRequestFormProcessor" method="execute" windowType="popup"/>
+
+         <includeFilter name="sandboxSharingValidationSimple"/>
+
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+
+      </action>
+
+      <action name="editModifyContentOnly">
+
+         <description>Edit the content only of a change request </description>
+
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.EditModifyContentOnlyProcessor" method="execute" windowType="popup" url="netmarkets/jsp/change/editContentWizard.jsp"/>
+
+         <includeFilter name="sandboxSharingValidationSimple"/>
+
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+
+      </action>
+
+      <action name="associatedChangeIssuesStep" id="associatedChangeIssuesStep" preloadWizardPage="false" required="false">
+         <description>Associated change issue wizard step</description>
+         <component name="associatedChangesStep"/>
+         <includeFilter name="legacyChangeFilter"/>
+      </action>
+      
+      <action name="workItem_AffectedDataTable">
+         <description>Affected data table for a workflow task</description>
+         <component name="workflowTask.pbo" urlParams="pboCompId=changemanagement.affecteddatatable&amp;useTypeBased=true&amp;enableAddToWorkspace=true"/>
+         <includeFilter name="configurableTypeBaseFilter"/>         
+      </action>
+      
+      <action name="workItem_AssociatedChangeIssues">
+         <description>Associated change issue table</description>
+         <component name="workflowTask.pbo" urlParams="pboCompId=changemanagement.associatedchangesprocesstable&amp;changeableLabel=com.ptc.windchill.enterprise.change2.change2ClientResource.CHANGE_ISSUES_TABLE"/>
+         <includeFilter name="configurableTypeBaseFilter"/>
+      </action>
+      
+       <action name="workItem_RelatedChangeNoticesTable">
+         <description>Related change notices table</description>
+         <component name="workflowTask.pbo" urlParams="pboCompId=changemanagement.relatedchanges.changeRequests.changeNotices"/>
+         <includeFilter name="configurableTypeBaseFilter"/>
+      </action>
+
+   </objecttype>
+
+
+
+   <objecttype name="variance" class="wt.change2.WTVariance" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+
+      <action name="create" uicomponent="CREATE_VARIANCE" ajax="component">
+
+         <description>Create variance</description>
+
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.CreateVarianceFormProcessor" method="execute" windowType="popup"/>
+
+         <includeFilter name="OptionSetLocalRuleContextFilter"/>
+         <includeFilter name="restrictGuestMembers"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+
+      </action>
+
+      <action name="edit" ajax="row">
+
+         <description>Edit variance</description>
+
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.EditVarianceFormProcessor" method="execute" windowType="popup"/>
+
+         <includeFilter name="sandboxSharingValidationSimple"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+
+      </action>
+
+      <action name="editModifyContentOnly" id="editModifyContentOnly">
+
+         <description>Edit content only for a variance</description>
+
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.EditModifyContentOnlyProcessor" method="execute" windowType="popup" url="netmarkets/jsp/change/editContentWizard.jsp"/>
+
+         <includeFilter name="sandboxSharingValidationSimple"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+
+      </action>
+
+      <action name="varianceAnalysisStep" id="varianceAnalysisStep" preloadWizardPage="false" required="false">
+
+         <description>Variance analysis wizard step</description>
+
+         <component name="variance.analysisStep"/>
+
+      </action>
+
+   </objecttype>
+
+   <objecttype name="changeNotice" class="wt.change2.ChangeOrderIfc" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+
+     <action name="changeWorkItemsTable">
+         <description>WorkItem plan table</description>
+         <includeFilter name="hideForChangeTemplates"/>         
+     </action>
+
+     <action name="implementationPlanTable">
+         <description>Implementation plan table</description>
+         <component name="changeManagement.implementationPlan"/>
+         <includeFilter name="simplifiedChangeNotice"/>         
+      </action>
+      
+      <action name="workItem_implementationPlanTable">
+         <description>Implementation plan table for the work item pbo</description>         
+         <component name="workflowTask.pbo" urlParams="pboCompId=changeManagement.implementationPlan&amp;changeableLabel=com.ptc.windchill.enterprise.change2.change2ClientResource.IMPLEMENTATION_PLAN_TABLE"/>
+         <includeFilter name="configurableTypeBaseFilter"/>
+      </action>
+
+      <action name="implementationPlanStep" id="implementationPlanStep">
+         <description>Implementation plan wizard step</description>
+      </action>
+
+      <action name="wizardImplementationPlanTable" ajax="row">
+         <description>Implementation plan table for wizard</description>
+      </action>
+
+      <action name="create_wizardImplementationPlanStep" id="create_wizardImplementationPlanStep" preloadWizardPage="false" required="true" beforeVK="preloadImplementationStep" afterJS="PTC.change.validateImplementationTable">
+         <description>Implementation plan for create wizard step</description>
+         <component name="changeManagement.wizardImplementationPlan" class="com.ptc.windchill.enterprise.change2.forms.delegates.ImplementationPlanFormDelegate" windowType="wizard_step"/>
+      </action>
+
+      <action name="edit_wizardImplementationPlanStep" id="edit_wizardImplementationPlanStep" preloadWizardPage="false" required="false" afterJS="PTC.change.validateImplementationTable">
+         <description>Implementation plan for edit wizard step</description>
+         <component name="changeManagement.wizardImplementationPlan" class="com.ptc.windchill.enterprise.change2.forms.delegates.ImplementationPlanFormDelegate" windowType="wizard_step"/>
+      </action>
+      
+      <action name="createTemplate_wizardImplementationPlanStep" id="create_wizardImplementationPlanStep" preloadWizardPage="false" required="false">
+         <description>Implementation plan for create wizard step</description>
+         <component name="changeManagement.wizardImplementationPlan" class="com.ptc.windchill.enterprise.change2.forms.delegates.ImplementationPlanFormDelegate" windowType="wizard_step"/>
+      </action>
+      
+      <action name="editTemplate_wizardImplementationPlanStep" id="edit_wizardImplementationPlanStep" preloadWizardPage="false" required="false">
+         <description>Implementation plan for edit wizard step</description>
+         <component name="changeManagement.wizardImplementationPlan" class="com.ptc.windchill.enterprise.change2.forms.delegates.ImplementationPlanFormDelegate" windowType="wizard_step"/>
+      </action>
+      
+   </objecttype>
+
+
+
+   <objecttype name="changeNotice" class="wt.change2.WTChangeOrder2" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+
+      <action name="create" uicomponent="CREATE_CHANGENOTICE" ajax="component">
+         <description>Create change notice</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.CreateChangeNoticeFormProcessor" method="execute" windowType="popup"/>
+         <includeFilter name="OptionSetLocalRuleContextFilter"/> 
+         <includeFilter name="sandboxSharingValidationSimple"/>
+         <includeFilter name="restrictGuestMembers"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+      </action>
+
+      <action name="edit" ajax="row">
+         <description>Edit change notice</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.EditChangeNoticeFormProcessor" method="execute" windowType="popup"/>
+         <includeFilter name="sandboxSharingValidationSimple"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+         <includeFilter name="hideForChangeTemplates"/>
+      </action>
+
+      <action name="editModifyContentOnly" id="editModifyContentOnly">
+         <description>Edit content only for a change notice</description>
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.EditModifyContentOnlyProcessor" method="execute" windowType="popup" url="netmarkets/jsp/change/editContentWizard.jsp"/>
+         <includeFilter name="sandboxSharingValidationSimple"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+      </action>
+
+      <action name="associatedChangeRequestsStep" id="associatedChangeRequestsStep" preloadWizardPage="false" required="false" afterVK="associatedChangeRequestsValidator">
+          <description>Associated change requests wizard step</description>
+          <component name="associatedChangesStep"/>
+          <includeFilter name="legacyChangeFilter"/>
+     </action>
+
+      <action name="addAssociatedChangeRequests" ajax="row" renderType="GENERAL">
+         <description>Add associated change requests</description>
+         <command windowType="popup"/>
+         <includeFilter name="legacyChangeFilter"/>
+      </action>
+
+      <action name="simplifiedChangeTaskPrimaryAttributes">
+          <component name="changeTask.simplifiedChange" urlParams="changeCompId=primaryAttributes"/>
+          <includeFilter name="simplifiedChangeNotice"/>
+      </action>
+
+      <action name="simplifiedChangeTaskAttributes">
+          <component name="changeTask.simplifiedChange" urlParams="changeCompId=attributesTable"/>
+          <includeFilter name="simplifiedChangeNotice"/>
+      </action>      
+
+      <action name="simplifiedChangeTaskAffectedData" description="AffectedData">
+          <component name="changeTask.simplifiedChange" urlParams="changeCompId=changeTask.affectedItemsTable&amp;enableAddToWorkspace=true"/>
+          <includeFilter name="simplifiedChangeNotice"/>
+      </action>      
+
+      <action name="simplifiedChangeTaskResultingData" description="ResultingData">
+          <component name="changeTask.simplifiedChange" urlParams="changeCompId=changeTask.resultingItemsTable&amp;enableAddToWorkspace=true"/>
+          <includeFilter name="simplifiedChangeNotice"/>
+      </action>
+
+      <action name="changeSummary" description="Affected and Resulting Data for all Change Tasks on a Change Notice">
+          <component name="changeNotice.changeSummary" urlParams="enableAddToWorkspace=true"/>
+          <includeFilter name="hideForChangeTemplates"/>
+      </action>
+      
+      <action name="auditTask_changeSummary" description="Affected and Resulting Data for all Change Tasks on a Change Notice">
+         <description>Change summary table for audit task on change notice workflow</description>
+         <component name="workflowTask.pbo" urlParams="pboCompId=changeNotice.changeSummary&amp;useTypeBased=false&amp;changeableTableId=auditTask.changeNotice.changeSummary&amp;changeableLabel=com.ptc.windchill.enterprise.change2.change2ClientResource.AUDIT_CHANGE_NOTICE_SUMMARY_TABLE&amp;enableAddToWorkspace=true"/>
+         <includeFilter name="configurableTypeBaseFilter"/>
+      </action>
+      
+      <action name="workItem_ChangeSummary" description="">
+         <description>Change summary table from the info page on change notice workflow</description>
+         <component name="workflowTask.pbo" urlParams="pboCompId=changeNotice.changeSummary&amp;useTypeBased=false&amp;&amp;enableAddToWorkspace=true"/>
+         <includeFilter name="configurableTypeBaseFilter"/>
+      </action>
+
+      <action name="createTemplate">
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.template.CreateChangeNoticeTemplateFormProcessor" method="execute" windowType="popup" url="?skipRequiredFieldValidation=true"/>
+      </action>
+      
+      <action name="editTemplate">
+         <command class="com.ptc.windchill.enterprise.change2.forms.processors.template.EditChangeNoticeTemplateFormProcessor" method="execute" windowType="popup" url="?skipRequiredFieldValidation=true"/>
+         <includeFilter name="adminLockModifyChangeObjectsFilter"/>
+         <includeFilter name="hideForChangeObjects"/>
+      </action>
+      
+   </objecttype>
+
+
+
+   <objecttype name="analysisActivity" class="wt.change2.AnalysisActivityIfc" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+
+      <action name="analysisActivitiesTable">
+
+         <description>Analysis activites table</description>
+
+    <component name="changemanagement.analysisactivitiestable"/>
+
+      </action>
+
+   </objecttype>
+
+
+
+   <objecttype name="changeReports" class="wt.fc.Persistable" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB">
+
+      <action name="changeRequestLog" selectRequired="false">
+
+         <description>Change Request Log Report</description>
+
+         <command class="com.ptc.windchill.enterprise.change2.reports.ChangeLogReportsFormProcessor" method="execute" windowType="popup"/>
+
+      </action>
+
+      <action name="changeRequestLog_step">
+
+         <description> wizard step for Change Request Log</description>
+
+         <command windowType="wizard_step"/>
+
+      </action>
+
+      <action name="changeNoticeLog" selectRequired="false">
+
+         <description>Change Notice Log Report</description>
+
+         <command class="com.ptc.windchill.enterprise.change2.reports.ChangeLogReportsFormProcessor" method="execute" windowType="popup"/>
+
+      </action>
+
+      <action name="changeNoticeLog_step">
+
+         <description> wizard step for Change Notice Log</description>
+
+         <command windowType="wizard_step"/>
+
+      </action>
+
+      <action name="problemReportLog" selectRequired="false">
+
+          <description>Issue Log Report</description>
+
+          <command class="com.ptc.windchill.enterprise.change2.reports.ChangeLogReportsFormProcessor" method="execute" windowType="popup"/>
+
+      </action>
+
+      <action name="problemReportLog_step">
+
+         <description> wizard step for Issue Log</description>
+
+         <command windowType="wizard_step"/>
+
+      </action>
+
+      <action name="varianceLog" selectRequired="false">
+
+          <description>Variance Log Report</description>
+
+          <command class="com.ptc.windchill.enterprise.change2.reports.ChangeLogReportsFormProcessor" method="execute" windowType="popup"/>
+
+      </action>
+
+      <action name="varianceLog_step">
+
+          <description> wizard step for Variance Log</description>
+
+          <command windowType="wizard_step"/>
+
+      </action>
+
+      <action name="okButtonInReport" id="PJL_wizard_ok"> 
+
+        <description>Ok button for change wizards</description>
+
+        <command class="" method="" windowType="page" url="javascript:changeReportHandler.submitReport();"/>
+
+      </action>
+      
+   </objecttype>
+   
+    <objecttype name="workflowRecord" class="wt.change2.WorkflowRecord" resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB" >
+        <action name="workflowRecordDetails" enabledwhensuspended="true">
+            <component name="workflowRecord.workflowRecordDetails.view" windowType="page"/>
+        </action>
+    </objecttype>
+</listofactions>

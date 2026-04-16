@@ -1,0 +1,361 @@
+<?xml version="1.0"?>
+<!DOCTYPE listofactions SYSTEM 'actions.dtd'>
+<listofactions>      
+   <objecttype name="object" class="wt.fc.Persistable">  
+      <action name="add_from_picker" ajax="page">
+          <command class="com.ptc.netmarkets.model.NmObjectCommands" method="copy" windowType="popup" url="netmarkets/jsp/object/clipboard_item_picker.jsp"/>
+      </action>
+
+      <action name="content_download">
+         <command url="servlet/DownloadServlet" windowType="submitto"/>
+      </action>
+
+      <!-- attributes component -->
+      <action name="attributes">
+         <component name="attributesTable" typeBased="true" windowType="page"/>
+         <!-- TODO component name="attributes" typeBased="true" windowType="page"/-->
+           <includeFilter name="wpMasterAttributes"/>
+
+      </action>
+      
+      <!-- OBSOLETE content and attributes components-->
+      <!-- This action is obsolete but it is referenced in too many places to easily remove it. Once all references to this action have been removed then this action should be removed. -->
+      <action name="attributesAndContent" resourceBundle="com.ptc.core.ui.navigationRB">
+         <component name="attributesTable" typeBased="true" windowType="page"/>
+      </action>
+      
+     <action name="primaryContent" resourceBundle="com.ptc.core.ui.navigationRB">
+          <component name="attachmentsTable" typeBased="true" urlParams="attachmentsTableRoles=PRIMARY" windowType="page"/>
+      </action>
+      <action name="attachments" resourceBundle="com.ptc.core.ui.navigationRB">
+         <component name="attachmentsTable" typeBased="true" urlParams="attachmentsTableRoles=SECONDARY" windowType="page"/>
+      </action>
+	  
+	  
+	   
+      <action name="visualizationAndAttributes" resourceBundle="com.ptc.core.ui.navigationRB">
+         <component name="visualizationAndAttributes" typeBased="true" windowType="page"/>
+         <includeFilter name="visualizationAndAttributes"/>
+      </action>
+      
+      <action name="primaryAttributes" resourceBundle="com.ptc.core.ui.navigationRB">
+         <component name="primaryAttributes" typeBased="true" windowType="page"/>
+         <includeFilter name="visualizationAndAttributes"/>
+      </action>
+      
+      <action name="partConfigurations"/>
+      <action name="partInstances"/>
+      <action name="relatedParts"/>
+      <action name="relatedDocs"/>
+      <action name="relatedContexts" uicomponent="THIRD_LEVEL_RELATED_CONTEXTS">
+         <includeFilter name="hideForChangeTemplates"/>
+      </action>
+      <action name="renameHistory" uicomponent="THIRD_LEVEL_HISTORY_RENAME">
+         <includeFilter name="hideForChangeTemplates"/>		 
+      </action>
+      <action name="moveHistory" uicomponent="THIRD_LEVEL_HISTORY_MOVE">
+         <command url="netmarkets/jsp/components/templateProcessorContentNoIframe.jsp?action=CDPPLocHistTableSubTemplate_WF" windowType="page"/>
+         <includeFilter name="hideForChangeTemplates"/>
+      </action>
+      <action name="actionsMenu" ajax="popupMenu" styleClass="arrow menu">
+         <command windowType="popup" url="servlet/ActionsMenu"/>
+      </action>
+
+      <action name="remove" renderType="GENERAL" selectRequired="true">
+         <command windowType="no_content" onClick="removeRows(event)"/>
+      </action>
+      <action name="collectItems" renderType="GENERAL" selectRequired="true">
+         <command onClick="openCollectorPicker()" windowType="no_content"/>
+         <includeFilter name="hideForLockedBaseline"/>
+         <includeFilter name="disableModifyBaseline"/>
+         <includeFilter name="disableForAdminLockedBaseline"/>
+      </action>
+      <action name="delete" ajax="row" uicomponent="DELETE" ajaxActionClass="netmarkets/jsp/object/delete.jsp?refresh=true">
+         <command class="com.ptc.netmarkets.model.NmObjectCommands" method="delete" onClick="JCAConfirm(event,'com.ptc.netmarkets.util.utilResource.CONFIRM_DELETE')"/>
+         <includeFilter name="hideFromNonAgreementMgrs"/>
+         <includeFilter name="disableDeleteManagedCollection"/>
+      </action>
+      <action name="delete_object" ajax="row" uicomponent="DELETE">
+           <command class="com.ptc.windchill.enterprise.object.commands.DeleteObjectCommands" method="delete" onClick="JCAConfirm(event,'com.ptc.core.ui.confirmationMessagesRB.DELETE')"/>
+           <includeFilter name="disableDeleteManagedCollection"/>
+      </action>
+      <action name="cut" uicomponent="CUT">
+         <command class="com.ptc.netmarkets.model.NmObjectCommands" method="cut" onClick="doCutAction( event )" windowType="no_content"/>
+         <includeFilter name="hideFromNonAgreementMgrs"/>
+      </action>
+      <action name="copy" uicomponent="COPY">
+         <command class="com.ptc.netmarkets.model.NmObjectCommands" method="copy" onClick="onClickValidation( event, 'copy' )" windowType="no_content"/>
+         <includeFilter name="hideFromNonAgreementMgrs"/>
+         <includeFilter name="hideForNewObjectInWorkspace"/>
+		 <includeFilter name="manAuthorized"/>
+      </action>
+      <action name="copyPage" resourceBundle="com.ptc.netmarkets.util.utilResource">
+         <command onClick="PTC.copyPageAction.onclick('ptc1/object/copy',event)" windowType="page"/>
+      </action>
+      <action name="compare">
+        <command class="null" method="null" windowType="popup"/>
+      </action>
+      <action name="view" resourceBundle="com.ptc.core.ui.actionsRB">
+        <!-- TEMP FIX: hard coded url to keep the ProE Search links in the X-20 nav shell,
+             this also keeps the right click "Open in new window/tab" in the X-20 nav shell -->
+        <command url="/app/#ptc1/tcomp/infoPage" windowType="page"/>
+        <!-- The "filterRemoteObjects" filter is used to validate the action for remote objects. -->
+        <includeFilter name="filterRemoteObjects"/>
+      </action>
+      <action name="miniInfo">
+          <command url="servlet/TypeBasedIncludeServlet?portlet=poppedup&amp;miniInfoPage=true" windowType="page"/>
+      </action>
+      <action name="miniInfoPopUp">
+          <command url="servlet/TypeBasedIncludeServlet?portlet=poppedup&amp;miniInfoPage=true" windowType="popup"/>
+      </action>
+
+      <action name="rollupIterations">
+         <command class="com.ptc.netmarkets.model.NmObjectCommands" method="rollupIterations" onClick="JCAConfirm(event,'com.ptc.netmarkets.util.utilResource.CONFIRM_DELETE_ITERATIONS')"/>
+      </action>
+      <action name="list_delete" multiselect="true" uicomponent="DELETE" ajax="row" ajaxActionClass="netmarkets/jsp/object/delete.jsp" selectRequired="true">
+         <command class="com.ptc.netmarkets.model.NmObjectCommands" method="list_delete" onClick="PTC.validation.deleteObjectsValidation(event)"/>
+         <includeFilter name="projectM4D"/>
+         <includeFilter name="hideFromNonAgreementMgrs"/>
+      </action>
+      <action name="list_cut" multiselect="true" selectRequired="true" uicomponent="CUT">
+         <command class="com.ptc.netmarkets.model.NmObjectCommands" method="list_cut" onClick="doCut(event)" windowType="no_content"/>
+         <includeFilter name="projectM4D"/>
+         <includeFilter name="hideFromNonAgreementMgrs"/>
+      </action>
+      <action name="list_copy" multiselect="true" selectRequired="true" uicomponent="COPY">
+         <command class="com.ptc.netmarkets.model.NmObjectCommands" method="list_copy" onClick="onClickValidation( event, 'list_copy' )" windowType="no_content"/>
+         <includeFilter name="projectM4D"/>
+         <includeFilter name="hideFromNonAgreementMgrs"/>
+      </action>
+      <action name="import">
+         <command class="com.ptc.netmarkets.model.NmObjectCommands" method="importObjects" windowType="popup"/>
+      </action>
+      <action name="export">
+         <command class="com.ptc.netmarkets.model.NmObjectCommands" method="exportObjects" windowType="popup"/>
+      </action>
+      <action name="search" enabledwhensuspended="true">
+         <command class="com.ptc.netmarkets.model.NmObjectCommands" method="search" windowType="normal"/>
+      </action>
+      <action name="more" enabledwhensuspended="true">
+         <command class="null" method="null" windowType="popup"/>
+      </action>
+      <action name="calendar">
+         <command class="null" method="null" windowType="popup"/>
+      </action>
+
+      <action name="refresh" ajax="page">
+         <command class="com.ptc.netmarkets.model.NmObjectCommands" method="refresh"/>
+      </action>
+      <action name="refreshComponent" ajax="component">
+         <command class="com.ptc.netmarkets.model.NmObjectCommands" method="refresh"/>
+      </action>
+      <action name="emailPage" enabledwhensuspended="true">
+         <command class="com.ptc.netmarkets.project.NmProjectCommands" method="emailPage" windowType="popup"/>
+      </action>
+      <action name="commonSearch">
+         <command class="com.ptc.netmarkets.part.NmObjectCommands" method="search" windowType="popup"/>
+      </action>
+      <action name="doc_import" uicomponent="IMPORT_FILE_STRUCTURE">
+         <command class="com.ptc.netmarkets.model.NmObjectCommands" method="expandZipFileIntoFolder" windowType="popup"/>
+         <includeFilter name="projectM4D"/>
+      </action>
+      <action name="AddSCMActionComponent" renderType="GENERAL">
+         <command class="netmarkets" windowType="page" method="javascript:openSCMAttachPicker()"/>
+      </action>
+      <action name="prevButton" id="PJL_wizard_previous" resourceBundle="com.ptc.core.ui.navigationRB">
+         <command class="" method="" windowType="page" url="javascript:goBack()"/>
+      </action>
+      <action name="nextButton" id="PJL_wizard_next" resourceBundle="com.ptc.core.ui.navigationRB">
+         <command class="" method="" windowType="page" url="javascript:goNext()"/>
+      </action>
+      <action name="applyButton" id="PJL_wizard_apply" resourceBundle="com.ptc.core.ui.navigationRB">
+         <command class="" method="" windowType="page" url="javascript:onApply()"/>
+      </action>
+      <action name="okButton" id="PJL_wizard_ok" resourceBundle="com.ptc.core.ui.navigationRB">
+         <command class="" method="" windowType="page" url="javascript:onSubmit()"/>
+      </action>
+      <action name="cancelButton" id="PJL_wizard_cancel" resourceBundle="com.ptc.core.ui.navigationRB">
+         <command class="" method="" windowType="page" url="javascript:PTC.wizard.close()"/>
+      </action>
+      <action name="closeButton" id="PJL_wizard_cancel">
+         <command class="" method=""  onClick="PTC.wizard.close()"/>
+      </action>
+      <action name="sendToParentButton" id="PJL_wizard_ok">
+         <command class="" method="" windowType="page" url="javascript:sendToParent()"/>
+      </action>
+      <action name="checkinButton" id="edit_wizard_checkin" resourceBundle="com.ptc.core.ui.navigationRB">
+        <command onClick="onEditSubmit('checkinButton')"/>
+      </action>
+      <action name="saveButton" id="edit_wizard_save" ajax="row" resourceBundle="com.ptc.core.ui.navigationRB">
+        <command onClick="onEditSubmit('saveButton')"/>
+      </action>
+      <action name="editCheckin" ajax="row">
+        <command class="com.ptc.windchill.enterprise.wip.CheckinObjectFormProcessor" method="execute" url="netmarkets/jsp/wip/checkin.jsp" windowType="popup"/>
+      </action>
+      <action name="editCancelButton" id="edit_wizard_cancel" resourceBundle="com.ptc.core.ui.navigationRB">
+        <command class="com.ptc.windchill.enterprise.wip.UndoCheckoutObjectFormProcessor" method="execute" onClick="editCancelPrepare()" url="?close=true"/>
+      </action>
+      <action name="revertButton" id="PJL_wizard_revert_to_default">
+        <command class="" method="" windowType="page" url="javascript:revertToDefault()"/>
+      </action>
+      <action name="softattribute_step" preloadWizardPage="false">
+         <command class="" method="" windowType="wizard_step"/>
+      </action>
+      <action name="setContextWizStep" id="setContextWizStep" preloadWizardPage="true" required="true" afterVK="setContextWizStep">
+         <command windowType="wizard_step"/>
+      </action>
+      <!-- The next action is deprecated.  Use defineItemWizStep action instead.-->
+      <action name="setOrgWizStep" id="setOrgWizStep" preloadWizardPage="true" required="true">
+         <command windowType="wizard_step"/>
+      </action>
+      <action name="defineItemWizStep" id="defineItemWizStep" preloadWizardPage="false" required="true" afterVK="defineItem" resourceBundle="com.ptc.core.ui.componentRB">
+           <command windowType="wizard_step" url="servlet/TypeBasedIncludeServlet?contextAction=defineItemWizStep"/>
+       </action>
+      <action name="typeRefWizStep" id="typeRefWizStep" preloadWizardPage="false" required="true" resourceBundle="com.ptc.core.ui.componentRB">
+            <command windowType="wizard_step"/>
+      </action>
+      <action name="defineItemAttributesWizStep" afterVK="setAttributesWizStep" id="defineItemAttributesWizStep" preloadWizardPage="false" required="true" resourceBundle="com.ptc.core.ui.componentRB">
+          <component name="defineItemAttributesWizStep" typeBased="true" windowType="wizard_step"/>
+      </action>
+      <action name="setAttributesWizStep" afterVK="setAttributesWizStep" id="setAttributesWizStep" preloadWizardPage="false" required="true" resourceBundle="com.ptc.core.ui.componentRB">
+          <!-- command windowType="wizard_step" url="servlet/TypeBasedIncludeServlet?contextAction=setAttributesWizStep"/-->
+          <component name="setAttributesWizStep" typeBased="true" windowType="wizard_step"/>
+      </action>
+      <action name="editAttributesWizStep" id="editAttributesWizStep" preloadWizardPage="false" required="true" afterVK="editAttributes" resourceBundle="com.ptc.core.ui.componentRB">
+         <!--<command windowType="wizard_step" url="servlet/TypeBasedIncludeServlet?contextAction=editAttributesWizStep"/> -->
+         <component name="editAttributesWizStep" typeBased="true" windowType="wizard_step"/>
+      </action>
+
+      <action name="list_hide_template" ajax="row" selectRequired="true" resourceBundle="com.ptc.windchill.principal.template.TemplateActionsRB">
+               <command class="com.ptc.netmarkets.model.NmObjectCommands" method="list_hideTemplate"/>
+      </action>
+      <action name="list_show_template" ajax="row" selectRequired="true" resourceBundle="com.ptc.windchill.principal.template.TemplateActionsRB">
+               <command class="com.ptc.netmarkets.model.NmObjectCommands" method="list_showTemplate"/>
+      </action>
+      <action name="show_template" ajax="row">
+               <command class="com.ptc.netmarkets.model.NmObjectCommands" method="showTemplate"/>
+      </action>
+      <action name="hide_template" ajax="row">
+           <command class="com.ptc.netmarkets.model.NmObjectCommands" method="hideTemplate"/>
+      </action>
+      <action name="exportTable_step" resourceBundle="com.ptc.core.ui.actionsRB">
+           <command windowType="wizard_step"/>
+      </action>
+      <action name="exportOkButton" id="exportOkButton" resourceBundle="com.ptc.netmarkets.model.modelResource">
+      	  <command class="" method="" windowType="page" onClick="exportListUtilities.jcaExport(target)"/>
+      </action>
+      <action name="exportTableCSV" resourceBundle="com.ptc.netmarkets.model.modelResource">
+          <command class="com.ptc.core.components.export.table.ExportListCommands" onClick="checkExportOnLoading(target,event, table)"
+		  method="export" url="netmarkets/jsp/object/exportTable.jsp?fileType=csv" windowType="popup"/>
+      </action>
+      <action name="exportTableHTML" resourceBundle="com.ptc.netmarkets.model.modelResource">
+          <command class="com.ptc.core.components.export.table.ExportListCommands" onClick="checkExportOnLoading(target,event, table)" method="export" url="netmarkets/jsp/object/exportTable.jsp?fileType=html" windowType="popup"/>
+      </action>
+      <action name="exportTableTEXT" resourceBundle="com.ptc.netmarkets.model.modelResource">
+          <command class="com.ptc.core.components.export.table.ExportListCommands" onClick="checkExportOnLoading(target,event, table)" method="export" url="netmarkets/jsp/object/exportTable.jsp?fileType=text" windowType="popup"/>
+      </action>
+      <action name="exportTableXML" resourceBundle="com.ptc.netmarkets.model.modelResource">
+         <command class="com.ptc.core.components.export.table.ExportListCommands" onClick="checkExportOnLoading(target,event, table)" method="export" url="netmarkets/jsp/object/exportTable.jsp?fileType=xml" windowType="popup"/>
+      </action>
+      <action name="exportTableXLS" resourceBundle="com.ptc.netmarkets.model.modelResource">
+         <command class="com.ptc.core.components.export.table.ExportListCommands" onClick="checkExportOnLoading(target,event, table)" method="export" url="netmarkets/jsp/object/exportTable.jsp?fileType=xls" windowType="popup"/>
+      </action>
+      <action name="exportTableXLSX" resourceBundle="com.ptc.netmarkets.model.modelResource">
+         <command class="com.ptc.core.components.export.table.ExportListCommands" onClick="checkExportOnLoading(target,event, table)" method="export" url="netmarkets/jsp/object/exportTable.jsp?fileType=xlsx" windowType="popup"/>
+      </action>
+      <action name="exportTableXLSReport" resourceBundle="com.ptc.netmarkets.model.modelResource">
+         <command class="com.ptc.core.components.export.table.ExportListCommands" onClick="checkExportOnLoading(target,event, table)" method="export" url="netmarkets/jsp/object/exportTable.jsp?fileType=xls.report" windowType="popup"/>
+      </action>
+      <action name="exportTablePDF" resourceBundle="com.ptc.netmarkets.model.modelResource">
+         <command class="com.ptc.core.components.export.table.ExportListCommands" onClick="checkExportOnLoading(target,event, table)" method="export" url="netmarkets/jsp/object/exportTable.jsp?fileType=pdf" windowType="popup"/>
+      </action>
+      <action name="exportTable" resourceBundle="com.ptc.core.ui.actionsRB">
+         <command windowType="popup"/>
+      </action>     
+      <action name="reloadFBA" resourceBundle="com.ptc.core.ui.actionsRB">
+         <command class="" method="" windowType="wizard_step"/>
+      </action>
+      
+      <action name="copyLink" resourceBundle="com.ptc.netmarkets.util.utilResource">
+         <command onClick="PTC.copyLinkAction.copyLink()" windowType="no_content"/>
+      </action>      
+      
+   </objecttype>
+
+   <objecttype name="netmarkets" class="">
+      <action name="clipboard" enabledwhensuspended="true" renderType="GENERAL" resourceBundle="com.ptc.core.ui.navigationRB">
+         <command class="" method="" windowType="popup" url="netmarkets/jsp/object/clipboard.jsp"/>
+      </action>
+      <action name="view" enabledwhensuspended="true">
+         <command windowType="page" url="/ptc1/homepage"/>
+      </action>
+      <action name="library" enabledwhensuspended="true">
+         <command windowType="page"/>
+      </action>
+      <action name="publications_DELETE_ME" enabledwhensuspended="true">
+         <command class="netmarkets" method="publications" windowType="popup"/>
+      </action>
+      <action name="globalTutorials" enabledwhensuspended="true" renderType="PDM">
+         <command class="netmarkets" windowType="popup"/>
+      </action>
+      <action name="globalHelp" enabledwhensuspended="true" renderType="PDM">
+         <command windowType="popup"/>
+      </action>
+      <action name="windchillPDM" enabledwhensuspended="true" renderType="GENERAL" installType="WINDCHILL PDM">
+         <command class="netmarkets" method="wtcore/jsp/wt/portal/index.jsp" windowType="page"/>
+      </action>
+      <action name="PUBLICATION" enabledwhensuspended="true" renderType="PDM">
+         <command method="PUBLICATION" windowType="popup"/>
+      </action>
+      <action name="softwareDownloads" enabledwhensuspended="true" renderType="popup" resourceBundle="com.ptc.core.ui.actionsRB" uicomponent="HOME_UTILITIES">
+         <command class="netmarkets" windowType="page" url="netmarkets/jsp/software/list.jsp"/>
+      </action>
+   </objecttype>
+
+   <objecttype name="wvs" class="wt.fc.Persistable">
+      <action name="listRepresentations" cad="true">
+          <command windowType="popup" url="wtcore/jsp/wvs/listRepresentations.jsp"/>
+          <includeFilter name="ghostEpmDoc"/>
+      </action>
+   </objecttype>
+
+   <objecttype name="folder" class="wt.folder.SubFolder" resourceBundle="com.ptc.windchill.enterprise.folder.FolderActionResource">
+      <!-- Expand/Collapse actions.  Used in the old-style table/tree in which structures can be "exploded"
+           and "imploded" within the table itself (e.g., the "Network Folders" table/tree).
+      -->
+
+      <action name="explode" enabledwhensuspended="true" ajax="component">
+        <command onClick="PTC.jca.expandAll (target, event, table)"/>
+        <includeFilter name="HideForPCHolderContentTable"/>
+      </action>
+      <action name="implode" enabledwhensuspended="true" ajax="component">
+          <command onClick="PTC.jca.collapseAll (target, event, table)"/>
+          <includeFilter name="HideForPCHolderContentTable"/>
+      </action>
+   </objecttype>
+
+   <objecttype name="tab" class="com.ptc.core.ui.tab.ClientTab">
+
+      <action name="rename">
+      	 <command onClick="PTC.infoPage.myTab.renameActionHandler(target, event, table)"/>
+      </action>		
+
+      <action name="close">
+      	 <command onClick="PTC.infoPage.myTab.closeActionHandler(target, event, table)"/>
+	  </action>
+
+      <action name="setprivate">
+          <command onClick="PTC.infoPage.myTab.setVisibilityActionHandler(table, 'private')"/>
+      </action>
+
+      <action name="setpublic">
+          <command onClick="PTC.infoPage.myTab.setVisibilityActionHandler(table, 'public')"/>
+      </action>
+      <action name="showOnSubtype" resourceBundle="com.ptc.core.ui.actionsRB">
+          <command onClick="PTC.infoPage.myTab.showHideOnSubtypeActionHandler(table, 'showOnSubtype')"/>
+      </action>
+      <action name="hideOnSubtype" resourceBundle="com.ptc.core.ui.actionsRB">
+          <command onClick="PTC.infoPage.myTab.showHideOnSubtypeActionHandler(table, 'hideOnSubtype')"/>
+      </action>
+   </objecttype>   
+</listofactions>

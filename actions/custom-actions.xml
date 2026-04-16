@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE listofactions SYSTEM "customActions.dtd">
+
+<listofactions>
+   
+      <objecttype resourceBundle="com.ptc.windchill.enterprise.change2.changeManagementActionsRB" name="changeTask" class="wt.change2.WTChangeActivity2" >
+      <action name="affectedAndResultingItemsStep" id="affectedAndResultingItems" preloadWizardPage="false" required="false" >
+            <command class="ext.amph.changenotice.forms.AMPHAffectedAndResultingItemsFormDelegate" windowType="wizard_step"/>
+      </action>
+</objecttype>
+
+
+<objecttype name="work" class="wt.workflow.work.WorkItem">
+                    <action name="complete" enabledwhensuspended="true" ajax="page">
+                              <command class="com.ptc.netmarkets.work.NmWorkItemCommands" method="complete" onClick="validateAll()"/>
+                    </action>
+          </objecttype>
+
+
+<objecttype name="Novel" class="wt.fc.Persistable" resourceBundle="com.ptc.core.ui.navigationRB">
+
+    <!-- ===================================================== -->
+    <!-- Launch Wizard Action -->
+    <!-- ===================================================== -->
+    <action name="createLiterature">
+        <label>Create Literature</label>
+		<icon>create_tbar.gif </icon>
+        <command 
+            class="com.ptc.core.components.forms.CreateObjectFormProcessor"
+            method="execute"
+            url="netmarkets/jsp/custom/wizard/createLiterature.jsp"
+            windowType="popup"/>
+
+    </action>
+
+    <!-- ===================================================== -->
+    <!-- Custom Wizard Step -->
+    <!-- ===================================================== -->
+	
+    <action name="createLiteratureStep">
+        <label>Create Literature</label>
+        <command  
+            url="netmarkets/jsp/custom/wizard/createLiteratureStep.jsp"
+            windowType="wizard_step"/>
+    </action>
+
+</objecttype>
+
+<objecttype name="object" class="wt.fc.Persistable"> 
+<action name="editname" ajax="page" resourceBundle="com.ptc.core.ui.navigationRB" >
+ <label>Editname</label>
+<icon>open_learning_connector.png</icon>
+
+<command class="ext.splm.wizard.CustomFormProcessor" method="execute" url="netmarkets/jsp/custom/wizard/editname.jsp" windowType="popup" />
+
+</action>
+</objecttype>
+
+</listofactions>
