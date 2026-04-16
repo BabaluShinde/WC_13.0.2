@@ -1,0 +1,33 @@
+<%@page import="com.ptc.netmarkets.model.NmObjectHelper,com.ptc.netmarkets.model.NmOid,
+                wt.htmlutil.HtmlUtil"
+%><%
+   String trailId = HtmlUtil.createTrailId(HtmlUtil.PROJECTLINK, "DocTypes", HtmlUtil.SELECT, "");
+   String selection = type;
+   
+   NmOid locationOid=new NmOid();
+   java.util.ArrayList oidsList=cb.getActionOidsWithWizard();
+   for(Object obj:oidsList){
+        locationOid=(NmOid) obj;
+        break;
+   }
+   Object location=locationOid.getRef();
+   
+   if(location instanceof wt.projmgmt.admin.Project2)
+   {
+        wt.projmgmt.admin.Project2 projLocation=(wt.projmgmt.admin.Project2)location; 
+        location=projLocation.getDefaultCabinet(); 
+   }
+   else if(location instanceof wt.pdmlink.PDMLinkProduct)
+   {
+        wt.pdmlink.PDMLinkProduct prodLocation=(wt.pdmlink.PDMLinkProduct)location; 
+        location=prodLocation.getDefaultCabinet(); 
+   }
+   else if(location instanceof wt.inf.library.WTLibrary)
+   {
+        wt.inf.library.WTLibrary libLocation=(wt.inf.library.WTLibrary)location; 
+        location=libLocation.getDefaultCabinet(); 
+   }
+   
+   wt.admin.AdminDomainRef adminDomainRef= ((wt.admin.DomainAdministered) location).getDomainRef();
+   
+%><%= NmObjectHelper.service.getTypeSelector("wt.doc.WTDocument", projectOid, "type", trailId, null, selection, adminDomainRef) %>

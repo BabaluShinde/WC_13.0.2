@@ -1,0 +1,106 @@
+var isECNWizard = window.location.href.includes("changeNotice/create") || window.location.href.includes("WTChangeOrder2");
+
+function validateDistributableExcelOnly(checkbox) {
+
+    if (!isECNWizard) {
+        return true;
+    }
+
+    console.log("Checkbox clicked:", checkbox);
+
+    const row = checkbox.closest("tr");
+    const fileNameInput = row?.querySelector("input[name*='___fileName_wt.content.ApplicationData']");
+
+    if (!fileNameInput) {
+        alert("No file found in this row.");
+        checkbox.checked = false;
+        return false;
+    }
+
+    const fileName = fileNameInput.value || '';
+    const isExcel = /\.(xls|xlsx)$/i.test(fileName);
+
+    if (!isExcel) {
+        alert("Only Excel files are allowed to mark Externally Distributable.");
+        checkbox.checked = false;
+        return false;
+    }
+
+    const allCheckboxes = document.querySelectorAll("input[type='checkbox'][name*='distributable']");
+
+    if (checkbox.checked) {
+        //Uncheck and disable all other checkboxes
+        allCheckboxes.forEach(function (cb) {
+            if (cb !== checkbox) {
+                cb.checked = false;
+                cb.disabled = true;
+            }
+        });
+    } else {
+        //Re-enable all checkboxes
+        allCheckboxes.forEach(function (cb) {
+            cb.disabled = false;
+        });
+    }
+    //Count how many are already checked
+    const alreadyChecked = Array.from(allCheckboxes).filter(cb => cb.checked);
+
+    if (checkbox.checked && alreadyChecked.length >= 1) {
+        if (!alreadyChecked.includes(checkbox)) {
+            alert("Only one Excel file can be marked as Externally Distributable.");
+            checkbox.checked = false; // Revert user's action
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+function copyValueToOOBTTextBox(comboBox) {
+ 
+	    var row = comboBox.closest("tr");// Find the tr element for the drop down
+	    var toolNameInput = row?.querySelector("input[name*='___toolName_wt.content.ApplicationData:']"); // Find the OOTB textbox component for the row
+
+ 
+	        //Validate .xlsx file selection
+	        if (comboBox.value == "ECN FORM"){
+	        	validateFileExtension (comboBox,"");
+	    	    validateSingleSelection ("ECN FORM", comboBox);
+
+	        }else if (comboBox.value != "OTHER"){
+	        	validateSingleSelection (comboBox.value, comboBox);
+	        }
+	        toolNameInput.value = comboBox.value; // copy value selected in the drop down to the OOTB text box
+ 
+	}
+	function validateFileExtension (comboBox){
+		var row = comboBox.closest("tr");// Find the tr element for the drop down
+	    var fileNameInput = row?.querySelector("input[name*='___fileName_wt.content.ApplicationData']");
+ 
+	    if (!fileNameInput) {
+	        //alert("No file found in this row.");
+	        comboBox.value = "";
+	        return false;
+	    }
+ 
+	    var fileName = fileNameInput.value || '';
+	    var isExcel = /\.(xls|xlsx)$/i.test(fileName);
+ 
+	    if (!isExcel) {
+	        alert("Please select a .xlsx file as ECN Form.");
+	        comboBox.value = "OTHER";
+	        return false;
+	    }
+ 
+	}
+	function validateSingleSelection (selection, comboBox){
+		var allDropDowns = document.querySelectorAll("select[name*='toolName_']");
+    	allDropDowns.forEach(function (cb) {
+            if ((cb !== comboBox) && (cb.value == selection)) {
+            	alert("Only one file can be associated with this Content Type : "+selection);
+            	comboBox.value = "OTHER";
+    	        return false;
+            }
+        });
+	}	

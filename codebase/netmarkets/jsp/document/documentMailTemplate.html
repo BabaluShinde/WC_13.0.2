@@ -1,0 +1,58 @@
+<html>
+<!-- bcwti
+  --
+  -- Copyright (c) 1997, 1998 Windchill Technology, Inc.  All Rights Reserved.
+  --
+  -- This software is the confidential and proprietary information of
+  -- Windchill Technology.  You shall not disclose such confidential information
+  -- and shall use it only in accordance with the terms of the license
+  -- agreement you entered into with Windchill Technology.
+  --
+  -- ecwti
+  -->
+
+<head>
+</head>
+<body>
+
+<table border="1" cellpadding="3" cellspacing="0" width="50%" align="center">
+<tr>
+	<td style="background: #EDEDED;" align="left" valign="center">
+		<SCRIPT LANGUAGE=Windchill>
+			getLabel resourceKey=PRIMARY_CONTENT  resourceClass=com.ptc.windchill.enterprise.attachments.attachmentsResource
+		</SCRIPT>
+	</td>
+</tr>
+<tr>
+	<td align="left" valign="center">
+		<SCRIPT LANGUAGE=Windchill>
+			getPrimaryAttachment
+		</SCRIPT>
+	</td>	
+</tr>
+<tr>
+	<td style="background: #EDEDED;" align="left" valign="center">
+		<SCRIPT LANGUAGE=Windchill>
+			getLabel resourceKey=ATTACHMENT_LABEL  resourceClass=com.ptc.windchill.enterprise.attachments.attachmentsResource
+		</SCRIPT>
+	</td>
+</tr>
+
+		<SCRIPT LANGUAGE=Windchill>
+			getAttachments element=tr class=x-date-inner
+		</SCRIPT>
+		<!--  For div change the above line to getAttachments element=div class=x-date-inner-->
+
+</table>
+		
+<div>
+	<br> <br>
+</div>
+<div>
+	<SCRIPT LANGUAGE=Windchill>
+		getMessage
+	</SCRIPT>
+</div>
+
+</body>
+</html>

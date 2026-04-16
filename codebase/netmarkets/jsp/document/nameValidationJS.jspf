@@ -1,0 +1,17 @@
+<script type="text/javascript">
+<!--
+function validateName() {
+<% 
+       wt.org.WTUser user = (wt.org.WTUser)wt.session.SessionHelper.getPrincipal();
+       String prefValue = (String)wt.preference.PreferenceHelper.service.getValue("/wt/doc/nameUniqueness", null, user);
+
+       if (prefValue.equals("NON_UNIQUE")) {
+%>
+	return true;
+<% } else { %>
+	return callAJAXValidation('DocAttStepValidator');
+<% } %>
+}
+//-->
+</script>
+

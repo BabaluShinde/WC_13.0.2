@@ -1,0 +1,15 @@
+<script language="JavaScript" type="text/javascript">
+ 
+    if(!((Ext.isIE||PTC_isIE11) && null!=document.getElementById("FolderPageRightPane"))){
+        var isUploaderAttachmentsScriptLoaded = window.isUploaderAttachmentsScriptLoaded;			
+        if(isUploaderAttachmentsScriptLoaded == null) {		
+            window.isUploaderAttachmentsScriptLoaded = true;
+            PTC.navigation.loadScript('netmarkets/javascript/attachments/attachments.js');
+            PTC.navigation.loadScript('netmarkets/javascript/attachments/ptc.jquery.progressbar.js',true);
+            PTC.navigation.loadScript('netmarkets/javascript/attachments/ptc.jquery.fileupload.js',true);
+        }
+        else {
+            console.log("File uploader scripts already loaded.")
+        }
+    }
+</script>

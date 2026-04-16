@@ -1,0 +1,22 @@
+<!-- Story:RT697528(remove Applet:removed whole uploadMechanism ) getValue("/com/ptc/windchill/enterprise/attachments/uploadMechanism". -->
+<!-- Script to load the jquery and blueimp js files to support HTML 5 base drag drop feature-->
+<link rel='stylesheet' type='text/css' href='netmarkets/css/ptc.fileuploader.css'>
+<script language="JavaScript" type="text/javascript">
+
+    try {
+        PTC.navigation.loadScript('core-ui/2.2/lib/jquery.js');
+        PTC.navigation.loadScript('core-ui/2.2/lib/jquery-ui/jquery-ui-custom.js');
+        PTC.navigation.loadScript('core-ui/2.2/lib/blueimp/jquery.iframe-transport.js');
+        PTC.navigation.loadScript('core-ui/2.2/lib/blueimp/jquery.fileupload.js');
+        
+        // $j is now an alias to the jQuery function;
+        // creating the new alias is optional
+        var $j = jQuery.noConflict();
+    } catch(e) { 
+        // catch block needed to let page load ok in IE 9 despite js errors when loading jquery. Integrity SPR 4433589.
+        PTC.log.error("Exception loading jquery files. Drag and drop attachment support will not work properly.", e);
+    }
+
+</script>
+
+  

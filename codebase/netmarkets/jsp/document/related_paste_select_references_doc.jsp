@@ -1,0 +1,1 @@
+<%@ include file="/netmarkets/jsp/document/related_paste_select_wizard.jspf"%>

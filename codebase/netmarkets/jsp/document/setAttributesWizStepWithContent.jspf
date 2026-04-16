@@ -1,0 +1,17 @@
+<%@ include file="/netmarkets/jsp/components/getSetAttributesWizStepModels.jspf"%>
+
+<%-- renders the read only attributes panel which was defined in
+     /netmarkets/jsp/components/setAttributesReadOnlyPropertyPanel.jspf
+ --%>
+<c:if test="${requestScope.attributesStepReadOnlyPanel != null}">
+   <jca:renderPropertyPanel model="${attributesStepReadOnlyPanelModel}"/>
+   <hr>
+</c:if>
+
+<%-- Renders the primary attachment component --%>
+<wctags:primaryAttachmentWithMSOI fixedFilePath="${fixedFilePath}" fixedFileUpload="${fixedFileUpload}" defaultNameJSFunction="docSetName"/>
+
+<%-- Renders the attributes table --%>
+<c:if test="${requestScope.attributesTableDescriptor != null}">
+   <jca:renderTable model="${tableModel}" scroll="true"/>
+</c:if>

@@ -1,0 +1,9 @@
+<%@ taglib prefix="jca" uri="http://www.ptc.com/windchill/taglib/components" 
+%><%@ include file="/netmarkets/jsp/components/beginWizard.jspf"%>
+
+<jca:wizard> 
+    <jca:wizardStep action="paste_select_clipboard_step" type="object" /> 
+ <%-->   <jca:wizardStep action="my_paste_select_step" type="part" /><--%>
+</jca:wizard>
+
+<%@ include file="/netmarkets/jsp/util/end.jspf"%>
