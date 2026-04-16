@@ -1,0 +1,40 @@
+<html>
+<body
+	style="font-family: Segoe UI, Arial; font-size: 13px; color: #333;">
+	<h3 style="
+      background-color:#004080;
+      color:white;
+      padding:4px 8px;
+      font-family:Segoe UI, Arial;
+      font-size:14px;"><span>
+      Process Notification</span></h3>
+
+	<p>
+		You have a pending overdue task <a href="{workItemURL}"
+			target="_blank">{activityName}</a>.
+	</p>
+
+	<hr />
+	<table>
+		<tr>
+			<td><b>Process Initiator:</b></td>
+			<td>{initiatorName}</td>
+		</tr>
+		<tr>
+			<td><b>Due Date:</b></td>
+			<td>{dueDate}</td>
+		</tr>
+		<tr>
+			<td><b>Assignee:</b></td>
+			<td>{assigneeName}</td>
+		</tr>
+		<tr>
+			<td><b>{pboURL}</b></td>
+		</tr>
+	</table>
+
+	<p style="font-size: 11px; color: #555; font-style: italic;">This
+		is an automated message from windchill workflow overdue notification
+		system.</p>
+</body>
+</html>

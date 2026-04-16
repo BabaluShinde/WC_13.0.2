@@ -1,0 +1,135 @@
+import org.gradle.process.ExecOperations
+import javax.inject.Inject
+
+plugins {
+    id 'base'
+}
+
+/* ========================================================
+   Utility: Required parameter validation
+======================================================== */
+def requireParam(String name, String message) {
+    if (!project.hasProperty(name) || project.property(name).trim().isEmpty()) {
+        throw new GradleException("Missing parameter: '${name}'. ${message}")
+    }
+    return project.property(name)
+}
+
+/* ========================================================
+   ZIP Task (Custom Code)
+======================================================== */
+task zipWindchillCode {
+    description = "Zips Windchill customization code."
+    group = "deployment"
+
+    doLast {
+        def srcPath = project.findProperty("srcPath") ?: ""
+        if (!srcPath || !file(srcPath).exists()) {
+            throw new GradleException("Invalid or missing source path. Use -PsrcPath=<folder>")
+        }
+
+        def destDir = project.findProperty("destDir") ?: "$buildDir"
+        def archiveFile = file("${destDir}/windchill_customization.zip")
+
+        println "📦 Zipping from: ${file(srcPath).absolutePath}"
+        println "📍 Destination: ${archiveFile.absolutePath}"
+
+        ant.zip(
+            destfile: archiveFile,
+            basedir: srcPath,
+            includes: "**/*.java,**/*.jsp,**/*.xml,**/*.properties,**/*.js,**/*.gif,**/*.html"
+        )
+
+        println "✅ Zip created successfully at: ${archiveFile.absolutePath}"
+    }
+}
+
+/* ========================================================
+   Modern Windchill Command Executor (Multi-XML + Generic)
+======================================================== */
+abstract class WindchillExecTask extends DefaultTask {
+    @Input String shell
+    @Input String user
+    @Input String pass
+    @Input List<String> xmlFiles
+    @Input String operation
+
+    @Inject
+    abstract ExecOperations getExecOps()
+
+    @TaskAction
+    void run() {
+        xmlFiles.each { xml ->
+            def xmlFile = project.file(xml)
+            if (!xmlFile.exists()) {
+                throw new GradleException("❌ XML file not found: ${xmlFile}")
+            }
+            println "🚀 Running ${operation} for: ${xmlFile}"
+            execOps.exec {
+                commandLine shell,
+                    "wt.load.LoadFromFile",
+                    "-d", xmlFile,
+                    "-u", user,
+                    "-p", pass
+            }
+        }
+        println "✅ ${operation} completed for all XMLs!"
+    }
+}
+
+/* ========================================================
+   Generic Task Creator (Reusable for All)
+======================================================== */
+def windchillExec(taskName, xmlFileParam, successMsg, operationType = "Import/Export") {
+    tasks.register(taskName, WindchillExecTask) {
+        group = "windchill"
+        description = "Runs ${taskName} for one or multiple Windchill XML files."
+
+        shell = requireParam("shell", "Provide -Pshell=<path_to_windchill.exe>")
+        user  = requireParam("user", "Provide -Puser=<username>")
+        pass  = requireParam("pass", "Provide -Ppass=<password>")
+        xmlFiles = requireParam(xmlFileParam, "Provide -P${xmlFileParam}=<xml_file_path(s)>")
+                    .split(",").collect { it.trim() }
+        operation = operationType
+
+        doLast {
+            println "🎯 ${successMsg}"
+        }
+    }
+}
+
+/* ========================================================
+   EXPORT TASKS (Softtypes, Enumerations, Workflow)
+======================================================== */
+
+// WTDocument Export
+windchillExec("exportWTDocument", "xmlWTDocumentExport", "WTDocument types exported successfully!", "Export")
+
+// WTPart Export
+windchillExec("exportWTPart", "xmlWTPartExport", "WTPart types exported successfully!", "Export")
+
+// Change Notice Export
+windchillExec("exportChangeNotice", "xmlChangeNoticeExport", "Change Notice types exported successfully!", "Export")
+
+// Enumeration Export
+windchillExec("exportEnumerations", "xmlEnumerationsExport", "Enumerations exported successfully!", "Export")
+
+// Workflow Import
+windchillExec("importWorkflows", "xmlWorkflowImport", "Workflows imported successfully!", "Import")
+
+
+/* ========================================================
+   IMPORT TASKS (Softtypes, Enumerations)
+======================================================== */
+
+// WTDocument Import
+windchillExec("importWTDocument", "xmlWTDocumentImport", "WTDocument types imported successfully!", "Import")
+
+// WTPart Import
+windchillExec("importWTPart", "xmlWTPartImport", "WTPart types imported successfully!", "Import")
+
+// Change Notice Import
+windchillExec("importChangeNotice", "xmlChangeNoticeImport", "Change Notice types imported successfully!", "Import")
+
+// Enumeration Import
+windchillExec("importEnumerations", "xmlEnumerationsImport", "Enumerations imported successfully!", "Import")
